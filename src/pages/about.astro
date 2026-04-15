@@ -1,0 +1,92 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const team = [
+  {
+    name: 'Ralph Strzalkowski',
+    role: 'President',
+    bio: 'Born in Poland with cerebral palsy, Strzalkowski uses a wheelchair. He became a lawyer in America and founded FDAAF to improve how individuals with disabilities are perceived in the community, aiming to dispel stereotypes and promote empathy through media and technology.',
+  },
+  {
+    name: 'Zachary Taylor',
+    role: 'Lead Developer',
+    bio: 'Taylor lost his hearing and balance to meningitis in third grade. He holds two electronics degrees and a BS in Game Design from Full Sail University. His involvement with FDAAF focuses on accessibility design, particularly captioning and inclusive features for those with hearing impairments.',
+  },
+  {
+    name: 'Michael Bridges',
+    role: 'Audio Engineer',
+    bio: 'Bridges graduated from Carnegie Mellon\'s Audio Recording & Production program and founded SoundTruss Productions. He brings expertise in music, film, and video game audio to FDAAF, believing sound is a powerful storytelling tool for this cause.',
+  },
+  {
+    name: 'Paul Brophy',
+    role: 'Corporate Secretary and Treasurer',
+    bio: 'An Irish emigrant to Florida, Brophy built an accessible business in Gainesville and joined FDAAF in 2013. He works with Florida\'s Agency for People with Disabilities.',
+  },
+];
+---
+
+<Layout title="About Us" description="Learn about the Florida Disability Access and Awareness Foundation — our mission, our team, and our commitment to the disability community.">
+
+  <!-- PAGE HEADER -->
+  <section class="bg-[#1a1a1a] py-20 text-center">
+    <div class="max-w-3xl mx-auto px-6">
+      <h1 class="text-4xl sm:text-5xl font-display font-bold text-white mb-4">About Us</h1>
+      <p class="text-white/60 text-lg">Acceptance. Accessibility.</p>
+    </div>
+  </section>
+
+  <!-- MISSION -->
+  <section class="py-20 bg-white">
+    <div class="max-w-4xl mx-auto px-6">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+        <div class="reveal">
+          <h2 class="text-3xl font-display font-bold text-[#1a1a1a] mb-6">Our Mission</h2>
+          <p class="text-gray-600 leading-relaxed text-lg mb-4">
+            The Florida Disability Access and Awareness Foundation creates media to promote empathy and empowerment for the disability community.
+          </p>
+          <p class="text-gray-600 leading-relaxed mb-4">
+            Our ultimate goal is to help create an inclusive society where those with physical and intellectual challenges are treated with respect and their needs are understood and accommodated.
+          </p>
+          <p class="text-gray-500 text-sm">
+            FDAAF is a 501(c)(3) public charity. All contributions are tax-deductible.
+          </p>
+        </div>
+        <div class="reveal img-placeholder h-72 w-full rounded-lg" style="transition-delay:100ms">Mission Image</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TEAM -->
+  <section class="py-20 bg-gray-50">
+    <div class="max-w-6xl mx-auto px-6">
+      <h2 class="text-3xl sm:text-4xl font-display font-bold text-center text-[#1a1a1a] mb-14 reveal">Our Team</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        {team.map((member, i) => (
+          <div class="reveal bg-white rounded-lg overflow-hidden shadow-sm border border-gray-100 flex flex-col" style={`transition-delay: ${i * 100}ms`}>
+            <div class="img-placeholder h-52 w-full">{member.name} Photo</div>
+            <div class="p-5 flex flex-col flex-1">
+              <h3 class="font-display text-lg font-bold text-[#1a1a1a] mb-1">{member.name}</h3>
+              <p class="text-[#27CCC0] text-xs font-semibold uppercase tracking-wide mb-3">{member.role}</p>
+              <p class="text-gray-600 text-sm leading-relaxed">{member.bio}</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- GET INVOLVED -->
+  <section class="py-20 bg-[#27CCC0]">
+    <div class="max-w-3xl mx-auto px-6 text-center reveal">
+      <h2 class="text-3xl font-display font-bold text-white mb-4">Get Involved</h2>
+      <p class="text-white/90 leading-relaxed mb-8">
+        Whether you want to volunteer, donate, or simply learn more, there's a place for you at FDAAF.
+      </p>
+      <div class="flex flex-wrap gap-4 justify-center">
+        <a href="/volunteer/" class="inline-block bg-white text-[#27CCC0] font-bold font-body text-sm uppercase tracking-wide px-6 py-3 rounded hover:bg-gray-100 transition-colors">Volunteer</a>
+        <a href="/donate/" class="inline-block bg-[#F9A831] text-white font-bold font-body text-sm uppercase tracking-wide px-6 py-3 rounded hover:bg-[#e09420] transition-colors">Donate</a>
+      </div>
+    </div>
+  </section>
+
+</Layout>

@@ -1,0 +1,82 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const characters = [
+  { name: 'Jesse White', role: 'The main character of Changed' },
+  { name: 'Jessica White', role: "Jesse's sister" },
+  { name: 'Curtis Devine', role: "Jesse's friend from the military" },
+];
+---
+
+<Layout title="Changed" description="Changed is the world's first choice-based video game about a character who finds himself in a wheelchair after an accident.">
+
+  <!-- PAGE HEADER -->
+  <section class="bg-[#1a1a1a] py-20 text-center">
+    <div class="max-w-3xl mx-auto px-6">
+      <span class="text-[#27CCC0] text-xs font-semibold uppercase tracking-widest mb-4 block">Video Game</span>
+      <h1 class="text-4xl sm:text-5xl font-display font-bold text-white mb-4">Changed</h1>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="py-20 bg-white">
+    <div class="max-w-5xl mx-auto px-6">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
+        <div class="reveal">
+          <h2 class="text-2xl font-display font-bold text-[#1a1a1a] mb-5">About the Game</h2>
+          <p class="text-gray-600 leading-relaxed text-lg mb-4">
+            Changed is the world's first choice-based video game about a character who finds himself in a wheelchair after an accident.
+          </p>
+          <p class="text-gray-600 leading-relaxed mb-4">
+            On his journey he is faced with numerous difficult situations. How he decides to tackle these situations develops his personality and advances the plot of the game.
+          </p>
+          <p class="text-gray-600 leading-relaxed mb-6">
+            We are currently producing a two-scene demo for the game.
+          </p>
+          <a href="/donate/" class="btn-primary">Support This Project</a>
+        </div>
+        <div class="reveal img-placeholder h-72 w-full rounded-lg" style="transition-delay:100ms">Changed Game Image</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CHARACTERS -->
+  <section class="py-20 bg-gray-50">
+    <div class="max-w-5xl mx-auto px-6">
+      <h2 class="text-3xl font-display font-bold text-[#1a1a1a] mb-10 text-center reveal">Characters</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-8">
+        {characters.map((c, i) => (
+          <div class="reveal text-center" style={`transition-delay: ${i * 100}ms`}>
+            <div class="img-placeholder h-48 w-full rounded-lg mb-4">{c.name} Art</div>
+            <h3 class="font-display text-lg font-bold text-[#1a1a1a]">{c.name}</h3>
+            <p class="text-[#27CCC0] text-sm">{c.role}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ENVIRONMENTS -->
+  <section class="py-20 bg-white">
+    <div class="max-w-5xl mx-auto px-6">
+      <h2 class="text-3xl font-display font-bold text-[#1a1a1a] mb-10 text-center reveal">Environments</h2>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+        {["Jesse's House (Interior)", "Jesse's House (Exterior)", "Hospital Room", "Trailer Park"].map((env, i) => (
+          <div class="reveal" style={`transition-delay: ${i * 80}ms`}>
+            <div class="img-placeholder h-36 w-full rounded">{env}</div>
+            <p class="text-xs text-gray-500 mt-2 text-center">{env}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- BACK -->
+  <section class="py-10 bg-gray-50 border-t border-gray-100">
+    <div class="max-w-5xl mx-auto px-6 flex justify-between items-center">
+      <a href="/projects/" class="text-[#27CCC0] hover:underline text-sm font-semibold">&larr; All Projects</a>
+      <a href="/donate/" class="btn-orange">Support This Project</a>
+    </div>
+  </section>
+
+</Layout>

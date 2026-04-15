@@ -1,0 +1,54 @@
+---
+import Layout from '../../layouts/Layout.astro';
+---
+
+<Layout title="Wheelchaired for a Day" description="Wheelchaired for a Day — an empathy-building event where people experienced being in a wheelchair for a day.">
+
+  <!-- PAGE HEADER -->
+  <section class="bg-[#1a1a1a] py-20 text-center">
+    <div class="max-w-3xl mx-auto px-6">
+      <span class="text-[#27CCC0] text-xs font-semibold uppercase tracking-widest mb-4 block">Empathy Event</span>
+      <h1 class="text-4xl sm:text-5xl font-display font-bold text-white mb-4">Wheelchaired for a Day</h1>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="py-20 bg-white">
+    <div class="max-w-5xl mx-auto px-6">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
+        <div class="reveal">
+          <h2 class="text-2xl font-display font-bold text-[#1a1a1a] mb-5">About the Event</h2>
+          <p class="text-gray-600 leading-relaxed text-lg mb-4">
+            Wheelchaired for a Day is an empathy-building event where people experienced being in a wheelchair for a day.
+          </p>
+          <p class="text-gray-600 leading-relaxed mb-6">
+            By spending a full day navigating the world from a wheelchair, participants gain a firsthand understanding of the accessibility challenges faced daily by people with disabilities. This experience fosters genuine empathy and inspires real change.
+          </p>
+          <a href="/volunteer/" class="btn-primary">Get Involved</a>
+        </div>
+        <div class="reveal img-placeholder h-72 w-full rounded-lg" style="transition-delay:100ms">Event Photo</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY PLACEHOLDER -->
+  <section class="py-20 bg-gray-50">
+    <div class="max-w-5xl mx-auto px-6">
+      <h2 class="text-3xl font-display font-bold text-[#1a1a1a] mb-10 text-center reveal">Event Gallery</h2>
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+        {[1,2,3,4,5,6].map((n, i) => (
+          <div class="reveal img-placeholder h-44 w-full rounded" style={`transition-delay: ${i * 60}ms`}>Photo {n}</div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- BACK -->
+  <section class="py-10 bg-white border-t border-gray-100">
+    <div class="max-w-5xl mx-auto px-6 flex justify-between items-center">
+      <a href="/projects/" class="text-[#27CCC0] hover:underline text-sm font-semibold">&larr; All Projects</a>
+      <a href="/donate/" class="btn-orange">Support This Project</a>
+    </div>
+  </section>
+
+</Layout>

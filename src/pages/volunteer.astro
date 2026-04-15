@@ -1,0 +1,104 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const positions = [
+  {
+    title: 'Volunteer Technical Artist (Unity)',
+    type: 'Remote · Volunteer',
+    desc: 'Help build the visual assets for our Unity-based game projects.',
+  },
+  {
+    title: 'Volunteer Kickstarter Launch Campaign Manager',
+    type: 'Remote · Volunteer · Marketing',
+    desc: 'Lead the Kickstarter launch campaign for our disability-themed mobile game. Help us reach our funding goals and spread the word.',
+  },
+];
+---
+
+<Layout title="Volunteer" description="Volunteer with FDAAF — help empower the disability community by promoting accessibility and empathy through visual media.">
+
+  <!-- PAGE HEADER -->
+  <section class="bg-[#1a1a1a] py-20 text-center">
+    <div class="max-w-3xl mx-auto px-6">
+      <h1 class="text-4xl sm:text-5xl font-display font-bold text-white mb-4">Volunteer</h1>
+    </div>
+  </section>
+
+  <!-- INTRO -->
+  <section class="py-20 bg-white">
+    <div class="max-w-4xl mx-auto px-6">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+        <div class="reveal">
+          <h2 class="text-3xl font-display font-bold text-[#1a1a1a] mb-5">Volunteer with us</h2>
+          <p class="text-gray-600 leading-relaxed mb-4">
+            Our purpose is to raise awareness and create inclusion for the disability community. We rely on our dedicated volunteers to make our projects a reality.
+          </p>
+          <p class="text-gray-600 leading-relaxed mb-4">
+            When you volunteer with us, you help empower the disability community by promoting accessibility and empathy.
+          </p>
+          <p class="text-gray-600 leading-relaxed mb-4">
+            Our entire team works remotely from all across the US, interacting online and working on your own schedules.
+          </p>
+          <p class="text-gray-600 leading-relaxed mb-4">
+            We are looking for independent, driven, and organized people who want to be a part of something different and create positive change through visual media.
+          </p>
+          <p class="text-gray-600 leading-relaxed">
+            There are various positions being offered so, regardless of your talent you can be involved with creating a better future.
+          </p>
+        </div>
+        <div class="reveal img-placeholder h-64 w-full rounded-lg" style="transition-delay:100ms">Volunteer Image</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OPEN POSITIONS -->
+  <section class="py-20 bg-gray-50">
+    <div class="max-w-4xl mx-auto px-6">
+      <h2 class="text-3xl font-display font-bold text-[#1a1a1a] mb-10 text-center reveal">Open Positions</h2>
+      <div class="space-y-6">
+        {positions.map((pos, i) => (
+          <div class="reveal bg-white rounded-lg border border-gray-100 shadow-sm p-6" style={`transition-delay: ${i * 100}ms`}>
+            <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4">
+              <div>
+                <h3 class="font-display text-xl font-bold text-[#1a1a1a] mb-1">{pos.title}</h3>
+                <p class="text-[#27CCC0] text-xs font-semibold uppercase tracking-wide mb-3">{pos.type}</p>
+                <p class="text-gray-600 text-sm leading-relaxed">{pos.desc}</p>
+              </div>
+              <a href="/contact/" class="btn-primary whitespace-nowrap self-start">More Details</a>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- STUDENTS -->
+  <section class="py-16 bg-white border-t border-gray-100">
+    <div class="max-w-3xl mx-auto px-6 text-center reveal">
+      <h2 class="text-2xl font-display font-bold text-[#1a1a1a] mb-4">Students & Interns</h2>
+      <p class="text-gray-600 leading-relaxed mb-6">
+        Student volunteers can use positions as internship experience. We coordinate with partner schools to arrange credit where available.
+      </p>
+      <a href="/contact/" class="btn-outline">Contact Us to Learn More</a>
+    </div>
+  </section>
+
+  <!-- NEWSLETTER -->
+  <section class="py-16 bg-gray-50 border-t border-gray-100">
+    <div class="max-w-xl mx-auto px-6 text-center reveal">
+      <h2 class="text-2xl font-display font-bold text-[#1a1a1a] mb-4">Stay Updated</h2>
+      <p class="text-gray-500 mb-6">Subscribe to our newsletter to hear about new volunteer opportunities.</p>
+      <form class="flex flex-col sm:flex-row gap-3 justify-center" action="#" method="post">
+        <input
+          type="email"
+          name="email"
+          placeholder="Your email address"
+          required
+          class="flex-1 border border-gray-300 rounded px-4 py-3 text-sm focus:outline-none focus:border-[#27CCC0]"
+        />
+        <button type="submit" class="btn-primary whitespace-nowrap">Subscribe</button>
+      </form>
+    </div>
+  </section>
+
+</Layout>

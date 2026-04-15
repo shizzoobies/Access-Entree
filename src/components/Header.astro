@@ -1,0 +1,85 @@
+---
+const navLinks = [
+  { label: 'Projects', href: '/projects/' },
+  { label: 'Volunteer', href: '/volunteer/' },
+  { label: 'Donate', href: '/donate/' },
+  { label: 'Contact', href: '/contact/' },
+  { label: 'About Us', href: '/about/' },
+];
+
+const currentPath = Astro.url.pathname;
+---
+
+<header class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-100 shadow-sm">
+  <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+    <!-- Logo -->
+    <a href="/" class="flex items-center gap-3 group" aria-label="FDAAF Home">
+      <img src="/images/logo.png" alt="FDAAF Logo" class="h-10 w-auto" />
+      <span class="font-display font-bold text-lg text-[#1a1a1a] leading-tight hidden sm:block">
+        FDAAF
+      </span>
+    </a>
+
+    <!-- Desktop Nav -->
+    <nav aria-label="Main navigation" class="hidden md:flex items-center gap-8">
+      {navLinks.map(link => (
+        <a
+          href={link.href}
+          class={`font-body text-sm font-500 tracking-wide transition-colors duration-200 ${
+            currentPath.startsWith(link.href)
+              ? 'text-[#27CCC0]'
+              : 'text-gray-700 hover:text-[#27CCC0]'
+          }`}
+        >
+          {link.label}
+        </a>
+      ))}
+      <a href="/donate/" class="btn-primary text-xs py-2 px-5">Donate</a>
+    </nav>
+
+    <!-- Mobile hamburger -->
+    <button
+      id="menu-toggle"
+      aria-label="Open menu"
+      aria-expanded="false"
+      aria-controls="mobile-menu"
+      class="md:hidden flex flex-col gap-1.5 p-2"
+    >
+      <span class="block w-6 h-0.5 bg-gray-700 transition-all"></span>
+      <span class="block w-6 h-0.5 bg-gray-700 transition-all"></span>
+      <span class="block w-6 h-0.5 bg-gray-700 transition-all"></span>
+    </button>
+  </div>
+
+  <!-- Mobile menu -->
+  <div
+    id="mobile-menu"
+    class="hidden md:hidden bg-white border-t border-gray-100"
+    role="dialog"
+    aria-label="Mobile navigation"
+  >
+    <nav class="max-w-6xl mx-auto px-6 py-6 flex flex-col gap-4">
+      {navLinks.map(link => (
+        <a
+          href={link.href}
+          class="font-body text-base text-gray-700 hover:text-[#27CCC0] transition-colors py-1 border-b border-gray-50"
+        >
+          {link.label}
+        </a>
+      ))}
+      <a href="/donate/" class="btn-primary text-center mt-2">Donate Now</a>
+    </nav>
+  </div>
+</header>
+
+<!-- Spacer so content isn't hidden under fixed header -->
+<div class="h-[73px]"></div>
+
+<script>
+  const toggle = document.getElementById('menu-toggle');
+  const menu = document.getElementById('mobile-menu');
+  toggle?.addEventListener('click', () => {
+    const open = menu?.classList.toggle('hidden') === false;
+    toggle.setAttribute('aria-expanded', String(open));
+  });
+</script>

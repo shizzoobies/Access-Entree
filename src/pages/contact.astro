@@ -1,0 +1,128 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const departments = [
+  'General Inquiries',
+  'Sponsorships',
+  'Volunteering',
+  'Coding',
+  'Donations',
+  'Press',
+  'Students and Interns',
+  'Secretary (Paul Brophy)',
+  'President (Ralph Strzalkowski)',
+  'Webmaster (Jazzy Trafficano)',
+  'Audio (Michael Bridges)',
+  'Game Design (Zachary Taylor)',
+];
+---
+
+<Layout title="Contact Us" description="Contact the Florida Disability Access and Awareness Foundation — learn more about how we promote inclusion through developing video games and using media.">
+
+  <!-- PAGE HEADER -->
+  <section class="bg-[#1a1a1a] py-20 text-center">
+    <div class="max-w-3xl mx-auto px-6">
+      <h1 class="text-4xl sm:text-5xl font-display font-bold text-white mb-4">Contact Us</h1>
+    </div>
+  </section>
+
+  <!-- CONTACT SECTION -->
+  <section class="py-20 bg-white">
+    <div class="max-w-5xl mx-auto px-6">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-14 items-start">
+
+        <!-- Intro -->
+        <div class="reveal">
+          <h2 class="text-2xl font-display font-bold text-[#1a1a1a] mb-5">Get in touch</h2>
+          <p class="text-gray-600 leading-relaxed mb-4">
+            Contact us to learn more on how we promote inclusion through developing video games and using media. Get in touch to receive more information on how you can get involved with promoting disability awareness and accessibility.
+          </p>
+          <div class="space-y-3 mt-8">
+            <p class="text-sm text-gray-500">
+              <span class="font-semibold text-[#1a1a1a]">Email:</span>{' '}
+              <a href="mailto:info@fdaaf.org" class="text-[#27CCC0] hover:underline">info@fdaaf.org</a>
+            </p>
+            <div class="flex gap-4 pt-2">
+              <a href="https://twitter.com/FDAAFoundation" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-[#27CCC0] transition-colors text-sm font-semibold">Twitter</a>
+              <a href="https://www.facebook.com/fdaaf" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-[#27CCC0] transition-colors text-sm font-semibold">Facebook</a>
+              <a href="https://www.youtube.com/@fdaaf" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-[#27CCC0] transition-colors text-sm font-semibold">YouTube</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Form -->
+        <div class="reveal" style="transition-delay:100ms">
+          <h2 class="text-2xl font-display font-bold text-[#1a1a1a] mb-2">Send us a message</h2>
+          <p class="text-gray-400 text-sm mb-6">All fields are required.</p>
+
+          <form name="contact" method="POST" action="/success/" class="space-y-4">
+            <div>
+              <label for="name" class="block text-sm font-semibold text-gray-700 mb-1">Your Name</label>
+              <input
+                id="name"
+                type="text"
+                name="name"
+                required
+                class="w-full border border-gray-300 rounded px-4 py-3 text-sm focus:outline-none focus:border-[#27CCC0]"
+              />
+            </div>
+
+            <div>
+              <label for="email" class="block text-sm font-semibold text-gray-700 mb-1">Your Email</label>
+              <input
+                id="email"
+                type="email"
+                name="email"
+                required
+                class="w-full border border-gray-300 rounded px-4 py-3 text-sm focus:outline-none focus:border-[#27CCC0]"
+              />
+            </div>
+
+            <div>
+              <label for="subject" class="block text-sm font-semibold text-gray-700 mb-1">Subject</label>
+              <input
+                id="subject"
+                type="text"
+                name="subject"
+                required
+                class="w-full border border-gray-300 rounded px-4 py-3 text-sm focus:outline-none focus:border-[#27CCC0]"
+              />
+            </div>
+
+            <div>
+              <label for="department" class="block text-sm font-semibold text-gray-700 mb-1">
+                Department or Person You Would Like to Contact
+              </label>
+              <select
+                id="department"
+                name="department"
+                required
+                class="w-full border border-gray-300 rounded px-4 py-3 text-sm focus:outline-none focus:border-[#27CCC0] bg-white"
+              >
+                <option value="" disabled selected>Select a department or person</option>
+                {departments.map(d => (
+                  <option value={d}>{d}</option>
+                ))}
+              </select>
+            </div>
+
+            <div>
+              <label for="message" class="block text-sm font-semibold text-gray-700 mb-1">Your Message</label>
+              <textarea
+                id="message"
+                name="message"
+                rows={5}
+                required
+                class="w-full border border-gray-300 rounded px-4 py-3 text-sm focus:outline-none focus:border-[#27CCC0] resize-y"
+              ></textarea>
+            </div>
+
+            <button type="submit" class="btn-primary w-full text-center">Send Message</button>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+</Layout>

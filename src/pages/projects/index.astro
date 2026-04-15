@@ -1,0 +1,67 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const projects = [
+  {
+    title: 'Access: Entree',
+    desc: 'A new mobile game that promotes accessibility awareness. Currently in development.',
+    href: '/projects/access-entree/',
+    tag: 'In Development',
+  },
+  {
+    title: 'Changed',
+    desc: 'A choice-based video game about a disabled military veteran.',
+    href: '/projects/changed/',
+    tag: 'Video Game',
+  },
+  {
+    title: 'Wheelchaired for a Day',
+    desc: 'An empathy-building event where people experienced being in a wheelchair for a day.',
+    href: '/projects/wheelchaired-for-a-day/',
+    tag: 'Event',
+  },
+];
+---
+
+<Layout title="Projects" description="Explore FDAAF's projects — video games and interactive media that give people with disabilities a voice.">
+
+  <!-- PAGE HEADER -->
+  <section class="bg-[#1a1a1a] py-20 text-center">
+    <div class="max-w-3xl mx-auto px-6">
+      <h1 class="text-4xl sm:text-5xl font-display font-bold text-white mb-4">Our Projects</h1>
+      <p class="text-white/60 text-lg">Great Ideas Done Right</p>
+    </div>
+  </section>
+
+  <!-- PROJECTS GRID -->
+  <section class="py-20 bg-white">
+    <div class="max-w-6xl mx-auto px-6">
+      <p class="text-center text-gray-600 mb-14 max-w-2xl mx-auto text-lg leading-relaxed reveal">
+        We develop video games and other interactive media to give people with disabilities a voice.
+      </p>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {projects.map((p, i) => (
+          <div class="reveal bg-white rounded-lg overflow-hidden shadow-sm border border-gray-100 flex flex-col" style={`transition-delay: ${i * 100}ms`}>
+            <div class="img-placeholder h-52 w-full">{p.title} Image</div>
+            <div class="p-6 flex flex-col flex-1">
+              <span class="text-xs text-[#27CCC0] font-semibold uppercase tracking-wide mb-2">{p.tag}</span>
+              <h2 class="font-display text-2xl font-bold text-[#1a1a1a] mb-3">{p.title}</h2>
+              <p class="text-gray-600 text-sm leading-relaxed flex-1">{p.desc}</p>
+              <a href={p.href} class="btn-outline mt-5 text-center text-xs">Learn More</a>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- UPDATES -->
+  <section class="py-16 bg-gray-50 border-t border-gray-100">
+    <div class="max-w-4xl mx-auto px-6 text-center reveal">
+      <h2 class="text-2xl font-display font-bold text-[#1a1a1a] mb-4">Latest Updates</h2>
+      <p class="text-gray-500 mb-6">Follow our progress and stay up to date on all our projects.</p>
+      <a href="https://fdaaf.org/latest-updates/" target="_blank" rel="noopener noreferrer" class="btn-primary">View Updates</a>
+    </div>
+  </section>
+
+</Layout>

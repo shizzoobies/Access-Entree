@@ -1,0 +1,183 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Home" description="Florida Disability Access and Awareness Foundation — Using media for change. A nonprofit creating media to promote understanding, empathy, and empowerment for the disability community.">
+
+  <!-- HERO -->
+  <section class="relative min-h-[560px] flex items-center justify-center text-center bg-[#1a1a1a] overflow-hidden">
+    <div class="img-placeholder absolute inset-0 w-full h-full" aria-hidden="true" style="border:none; background: linear-gradient(135deg, #1a3a3a 0%, #1a1a1a 100%);">
+      <span class="opacity-30">Hero Image Placeholder</span>
+    </div>
+    <div class="relative z-10 max-w-3xl mx-auto px-6 py-24">
+      <h1 class="text-5xl sm:text-6xl lg:text-7xl font-display font-bold text-white leading-tight mb-6">
+        Using Media for Change
+      </h1>
+      <p class="text-white/80 text-lg leading-relaxed mb-8 max-w-2xl mx-auto">
+        The Florida Disability Access and Awareness Foundation is a nonprofit creating media to promote understanding, empathy, and empowerment for the disability community. We challenge stereotypes and negativity through optimism and positive storytelling.
+      </p>
+      <div class="flex flex-wrap gap-4 justify-center">
+        <a href="/about/" class="btn-primary">Learn More</a>
+        <a href="/donate/" class="btn-orange">Donate</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CORE VALUES -->
+  <section class="py-20 bg-white">
+    <div class="max-w-6xl mx-auto px-6">
+      <h2 class="text-3xl sm:text-4xl font-display text-center text-[#1a1a1a] mb-14 reveal">Our Values</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        {[
+          {
+            title: 'Connection',
+            text: 'There are a lot of great people out there. Our goal is to bring them together to make the world a better place and touch their hearts and minds.',
+            icon: '🤝',
+          },
+          {
+            title: 'Change',
+            text: 'You can participate in one of our products, help to fundraise them or just use one of our products. It will change your life like nothing before.',
+            icon: '🌱',
+          },
+          {
+            title: 'Technology',
+            text: 'Interactive solutions and virtual reality are marking our lives more and more every day. It doesn\'t have to be pure entertainment. It can change the world.',
+            icon: '💡',
+          },
+          {
+            title: 'Passion',
+            text: 'We believe in what we do and what we create. We are experienced and passionate about the tools that we are using and the results we want to achieve.',
+            icon: '❤️',
+          },
+        ].map((v, i) => (
+          <div class="reveal text-center p-6" style={`transition-delay: ${i * 100}ms`}>
+            <div class="text-4xl mb-4">{v.icon}</div>
+            <h3 class="font-display text-xl font-bold text-[#27CCC0] mb-3">{v.title}</h3>
+            <p class="text-gray-600 text-sm leading-relaxed">{v.text}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section class="py-20 bg-gray-50">
+    <div class="max-w-6xl mx-auto px-6">
+      <h2 class="text-3xl sm:text-4xl font-display text-center text-[#1a1a1a] mb-4 reveal">Great Ideas Done Right</h2>
+      <p class="text-center text-gray-600 mb-14 max-w-2xl mx-auto reveal">
+        We develop video games and other interactive media to give people with disabilities a voice.
+      </p>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {[
+          {
+            title: 'Changed',
+            desc: 'A choice-based video game about a disabled military veteran.',
+            href: '/projects/changed/',
+          },
+          {
+            title: 'Wheelchaired for a Day',
+            desc: 'An empathy-building event where people experienced being in a wheelchair for a day.',
+            href: '/projects/wheelchaired-for-a-day/',
+          },
+          {
+            title: 'Access: Entree',
+            desc: 'A new mobile game that promotes accessibility awareness. Currently in development.',
+            href: '/projects/access-entree/',
+          },
+        ].map((p, i) => (
+          <div class="reveal bg-white rounded-lg overflow-hidden shadow-sm border border-gray-100 flex flex-col" style={`transition-delay: ${i * 100}ms`}>
+            <div class="img-placeholder h-48 w-full">{p.title} Image</div>
+            <div class="p-6 flex flex-col flex-1">
+              <h3 class="font-display text-xl font-bold text-[#1a1a1a] mb-2">{p.title}</h3>
+              <p class="text-gray-600 text-sm leading-relaxed flex-1">{p.desc}</p>
+              <a href={p.href} class="btn-outline mt-4 text-center text-xs">Learn More</a>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- TEAM -->
+  <section class="py-20 bg-white">
+    <div class="max-w-4xl mx-auto px-6 text-center reveal">
+      <h2 class="text-3xl sm:text-4xl font-display text-[#1a1a1a] mb-6">Love Your Work, Find Your Purpose</h2>
+      <p class="text-gray-600 leading-relaxed text-lg">
+        We have a diverse and talented team with members from all over the world, working together through the power of technology. Some of us have a disability, some don't, but we all have a common goal: creating a more inclusive society where physical and intellectual challenges never overshadow the strength of the human spirit.
+      </p>
+    </div>
+  </section>
+
+  <!-- UPDATES -->
+  <section class="py-20 bg-gray-50">
+    <div class="max-w-6xl mx-auto px-6">
+      <h2 class="text-3xl sm:text-4xl font-display text-center text-[#1a1a1a] mb-4 reveal">There's Always Something New</h2>
+      <p class="text-center text-gray-500 mb-12 reveal">Latest news and updates from FDAAF.</p>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {[1, 2, 3].map((n) => (
+          <div class="reveal bg-white rounded-lg overflow-hidden shadow-sm border border-gray-100">
+            <div class="img-placeholder h-40 w-full">Post Image {n}</div>
+            <div class="p-5">
+              <p class="text-xs text-[#27CCC0] font-semibold uppercase tracking-wide mb-2">Update</p>
+              <h3 class="font-display text-lg font-bold text-[#1a1a1a] mb-2">Latest Update {n}</h3>
+              <p class="text-gray-500 text-sm">News and updates from the foundation will appear here.</p>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- DONATE CTA -->
+  <section class="py-20 bg-[#27CCC0]">
+    <div class="max-w-3xl mx-auto px-6 text-center reveal">
+      <h2 class="text-3xl sm:text-4xl font-display font-bold text-white mb-6">Your Donation Makes a Difference</h2>
+      <p class="text-white/90 leading-relaxed text-lg mb-8">
+        We accept every donation with gratitude, also offering sponsorship and investment possibilities. We don't believe in large corporate structures, excessive salaries and overhead. In fact, we rely mostly on volunteers and interns who appreciate the experience of driving social change. Still, we need your help to push our projects further.
+      </p>
+      <a href="/donate/" class="inline-block bg-white text-[#27CCC0] font-bold font-body text-sm uppercase tracking-wide px-8 py-4 rounded hover:bg-gray-100 transition-colors">Donate Today</a>
+    </div>
+  </section>
+
+  <!-- VOLUNTEER CTA -->
+  <section class="py-20 bg-[#F9A831]">
+    <div class="max-w-3xl mx-auto px-6 text-center reveal">
+      <h2 class="text-3xl sm:text-4xl font-display font-bold text-white mb-6">Start Changing the World</h2>
+      <p class="text-white/90 leading-relaxed text-lg mb-8">
+        Changing the way society views disability starts with you! If you share our vision of building a better world for everyone, we invite you to volunteer or intern with us. Students and military veterans welcome!
+      </p>
+      <a href="/volunteer/" class="inline-block bg-white text-[#F9A831] font-bold font-body text-sm uppercase tracking-wide px-8 py-4 rounded hover:bg-gray-100 transition-colors">Volunteer with Us</a>
+    </div>
+  </section>
+
+  <!-- NEWSLETTER -->
+  <section class="py-16 bg-white border-t border-gray-100">
+    <div class="max-w-xl mx-auto px-6 text-center reveal">
+      <h2 class="text-2xl font-display font-bold text-[#1a1a1a] mb-4">Subscribe to our Newsletter</h2>
+      <p class="text-gray-500 mb-6">Stay up to date with the latest from FDAAF.</p>
+      <form class="flex flex-col sm:flex-row gap-3 justify-center" action="#" method="post">
+        <input
+          type="email"
+          name="email"
+          placeholder="Your email address"
+          required
+          class="flex-1 border border-gray-300 rounded px-4 py-3 text-sm focus:outline-none focus:border-[#27CCC0]"
+        />
+        <button type="submit" class="btn-primary whitespace-nowrap">Subscribe</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- MEDIA COVERAGE -->
+  <section class="py-10 bg-gray-50 border-t border-gray-100">
+    <div class="max-w-4xl mx-auto px-6">
+      <p class="text-center text-xs text-gray-400 uppercase tracking-widest mb-6 font-semibold">As Seen In</p>
+      <div class="flex flex-wrap justify-center gap-8 items-center">
+        <a href="https://www.gainesvilletoday.com" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-[#27CCC0] text-sm font-semibold transition-colors">GTN Newsclip</a>
+        <a href="https://www.wcjb.com" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-[#27CCC0] text-sm font-semibold transition-colors">WCJB TV 20</a>
+        <a href="https://www.alligator.org" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-[#27CCC0] text-sm font-semibold transition-colors">The Alligator</a>
+      </div>
+    </div>
+  </section>
+
+</Layout>
