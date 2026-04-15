@@ -4,16 +4,16 @@ import Layout from '../../layouts/Layout.astro';
 
 <Layout title="Wheelchaired for a Day" description="Wheelchaired for a Day — an empathy-building event where people experienced being in a wheelchair for a day.">
 
-  <section style="padding:3rem 1rem 2.5rem; text-align:center; background:#fff;">
-    <div class="page-title-block">
-      <span class="star">★</span>
-      <h1>Wheelchaired for a Day</h1>
+  <!-- HERO — cinematic image with title overlay -->
+  <section style="border-top:8px solid #35CCC0; border-bottom:8px solid #35CCC0; padding:5rem 1rem 4rem; text-align:center; background:#000; position:relative; overflow:hidden;">
+    <img src="/images/wheelchaired-hero.jpg" alt="Person navigating daily life in a wheelchair" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:0.45;" aria-hidden="true" />
+    <div style="position:relative; z-index:1; max-width:900px; margin:0 auto;">
+      <p style="font-family:'Raleway',sans-serif; font-weight:900; font-size:0.75rem; letter-spacing:0.15em; text-transform:uppercase; color:#F9A831; margin-bottom:0.5rem;">Empathy Event</p>
+      <h1 style="font-family:'Playfair Display',Georgia,serif; font-style:italic; font-weight:900; font-size:clamp(2.2rem,6vw,4.5rem); color:#fff; margin:0 0 0.5rem; text-shadow:0 2px 12px rgba(0,0,0,0.5);">Wheelchaired for a Day</h1>
+            <p style="font-family:'Raleway',sans-serif; font-size:1em; font-weight:500; color:#eee; line-height:1.8; max-width:640px; margin:0 auto;">
+        An empathy-building event where people experienced being in a wheelchair for a day.
+      </p>
     </div>
-  </section>
-
-  <!-- CINEMATIC HERO IMAGE -->
-  <section style="width:100%; overflow:hidden; line-height:0;">
-    <img src="/images/wheelchaired-hero.jpg" alt="Person navigating daily life in a wheelchair" style="width:100%; height:480px; object-fit:cover; display:block;" />
   </section>
 
   <!-- ABOUT + VIDEO -->
@@ -22,14 +22,10 @@ import Layout from '../../layouts/Layout.astro';
       <div style="display:grid; grid-template-columns:1fr 1fr; gap:3rem; align-items:center;" class="reveal">
         <div>
           <div class="section-heading" style="text-align:left;">
-            <span class="label">Empathy Event</span>
-            <h2>The Challenge</h2>
-            <span class="star" style="display:block; text-align:left;">★</span>
-          </div>
+            <span class="label">The Challenge</span>
+            <h2>About the Event</h2>
+                      </div>
           <p style="font-family:'Raleway',sans-serif; font-size:0.95em; color:#333; line-height:1.8; margin-top:1.5rem; margin-bottom:1rem;">
-            Wheelchaired for a Day is an empathy-building event where people experienced being in a wheelchair for a day.
-          </p>
-          <p style="font-family:'Raleway',sans-serif; font-size:0.9em; color:#555; line-height:1.8; margin-bottom:1rem;">
             The FDAAF launched this pilot project in summer 2015. Participants agreed to use wheelchairs for 24 hours while conducting their normal work activities, experiencing mobility from a wheelchair user's perspective.
           </p>
           <p style="font-family:'Raleway',sans-serif; font-size:0.9em; color:#555; line-height:1.8; margin-bottom:1.5rem;">
@@ -54,14 +50,13 @@ import Layout from '../../layouts/Layout.astro';
   <!-- DAN VASQUEZ -->
   <section style="padding:3.5rem 2rem; background:#f7f7f7;">
     <div style="max-width:1000px; margin:0 auto;">
-      <div style="display:grid; grid-template-columns:280px 1fr; gap:3rem; align-items:start;" class="reveal">
+      <div style="display:grid; grid-template-columns:280px 1fr; gap:3rem; align-items:center;" class="reveal">
         <img src="/images/dan-vasquez.jpg" alt="Dan Vasquez sitting in a wheelchair in his office" style="width:100%; object-fit:cover; display:block;" />
         <div>
           <div class="section-heading" style="text-align:left;">
             <span class="label">First Participant</span>
             <h2>Dan Vasquez</h2>
-            <span class="star" style="display:block; text-align:left;">★</span>
-          </div>
+                      </div>
           <p style="font-family:'Raleway',sans-serif; font-size:0.85rem; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; color:#35CCC0; margin-top:1.5rem; margin-bottom:0.75rem;">
             Personal Injury Attorney — Fine, Farkash &amp; Parlapiano, P.A.
           </p>
@@ -84,29 +79,26 @@ import Layout from '../../layouts/Layout.astro';
 
   <!-- GWENDOLYN SAFFO -->
   <section style="padding:3.5rem 2rem; background:#fff;">
-    <div style="max-width:1000px; margin:0 auto;">
-      <div class="reveal">
-        <div class="section-heading" style="text-align:left;">
-          <span class="label">Participant</span>
-          <h2>Gwendolyn Saffo</h2>
-          <span class="star" style="display:block; text-align:left;">★</span>
-        </div>
-        <p style="font-family:'Raleway',sans-serif; font-size:0.85rem; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; color:#35CCC0; margin-top:1.5rem; margin-bottom:0.75rem;">
-          Interim Director — Gainesville's Office of Equal Opportunity
-        </p>
-        <p style="font-family:'Raleway',sans-serif; font-size:0.9em; color:#555; line-height:1.8; margin-bottom:1rem;">
-          Gwendolyn Saffo chose August 6 for her participation because the city commission convened that day. She borrowed a wheelchair from Nu Motion, loaned to FDAAF for the event. Her day began at 11 a.m. in the wheelchair-accessible conference room at the Office of Equal Opportunity, then continued to City Hall where she navigated elevators and exterior ramps.
-        </p>
-        <p style="font-family:'Raleway',sans-serif; font-size:0.9em; color:#555; line-height:1.8; margin-bottom:1.5rem;">
-          During a meeting with city colleagues — including city manager Russ Blackburn — Ms. Saffo challenged others in city government to participate in the challenge themselves, helping recruit additional participants like Dan Vasquez, Nell Page, Ben Boukari, Greg Undeen, and staff from The Hippodrome Theatre.
-        </p>
-        <blockquote style="border-left:4px solid #35CCC0; padding-left:1.25rem; margin:0; font-family:'Playfair Display',Georgia,serif; font-style:italic; font-size:1.05rem; color:#333; line-height:1.7;">
-          "I'm already learning a lot...It takes a lot of strength."
-        </blockquote>
-        <p style="font-family:'Raleway',sans-serif; font-size:0.8rem; color:#999; margin-top:0.75rem;">
-          — Gwendolyn Saffo, as she navigated an exterior ramp at City Hall
-        </p>
-      </div>
+    <div style="max-width:700px; margin:0 auto; text-align:center;" class="reveal">
+      <div class="section-heading">
+        <span class="label">Participant</span>
+        <h2>Gwendolyn Saffo</h2>
+              </div>
+      <p style="font-family:'Raleway',sans-serif; font-size:0.85rem; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; color:#35CCC0; margin-top:1.5rem; margin-bottom:0.75rem;">
+        Interim Director — Gainesville's Office of Equal Opportunity
+      </p>
+      <p style="font-family:'Raleway',sans-serif; font-size:0.9em; color:#555; line-height:1.8; margin-bottom:1rem;">
+        Gwendolyn Saffo chose August 6 for her participation because the city commission convened that day. She borrowed a wheelchair from Nu Motion, loaned to FDAAF for the event. Her day began at 11 a.m. in the wheelchair-accessible conference room at the Office of Equal Opportunity, then continued to City Hall where she navigated elevators and exterior ramps.
+      </p>
+      <p style="font-family:'Raleway',sans-serif; font-size:0.9em; color:#555; line-height:1.8; margin-bottom:1.5rem;">
+        During a meeting with city colleagues — including city manager Russ Blackburn — Ms. Saffo challenged others in city government to participate in the challenge themselves, helping recruit additional participants like Dan Vasquez, Nell Page, Ben Boukari, Greg Undeen, and staff from The Hippodrome Theatre.
+      </p>
+      <blockquote style="border-left:4px solid #35CCC0; padding-left:1.25rem; margin:0 auto; text-align:left; max-width:560px; font-family:'Playfair Display',Georgia,serif; font-style:italic; font-size:1.05rem; color:#333; line-height:1.7;">
+        "I'm already learning a lot...It takes a lot of strength."
+      </blockquote>
+      <p style="font-family:'Raleway',sans-serif; font-size:0.8rem; color:#999; margin-top:0.75rem;">
+        — Gwendolyn Saffo, as she navigated an exterior ramp at City Hall
+      </p>
     </div>
   </section>
 

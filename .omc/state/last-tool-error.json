@@ -1,0 +1,7 @@
+{
+  "tool_name": "WebFetch",
+  "tool_input_preview": "{\"url\":\"https://fdaaf.org/wheelchaired-for-a-day/\",\"prompt\":\"Extract all text content about Dan Vasquez, his role, any quotes, and what the page says about the Wheelchaired for a Day event. Include al...",
+  "error": "Request failed with status code 404",
+  "timestamp": "2026-04-15T23:15:42.162Z",
+  "retry_count": 1
+}
