@@ -28,27 +28,21 @@ import Layout from '../../layouts/Layout.astro';
           </p>
           <a href="/volunteer/" class="btn-teal">Get Involved</a>
         </div>
-        <img src="/images/project-wheelchaired.jpg" alt="Wheelchaired for a Day event" style="width:100%; height:280px; object-fit:cover; display:block;" />
+        <div style="position:relative; width:100%; padding-top:56.25%; background:#000;">
+          <iframe
+            src="https://www.youtube.com/embed/9ErDQo7kPUQ"
+            title="Wheelchaired for a Day"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowfullscreen
+            style="position:absolute; inset:0; width:100%; height:100%; border:none; display:block;"
+          ></iframe>
+        </div>
       </div>
     </div>
   </section>
 
-  <section style="padding:3.5rem 2rem; background:#f7f7f7;">
-    <div style="max-width:1000px; margin:0 auto;">
-      <div class="section-heading reveal">
-        <span class="label">Photos</span>
-        <h2>Event Gallery</h2>
-        <span class="star">★</span>
-      </div>
-      <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:1rem; margin-top:2rem;">
-        {[1,2,3,4,5,6].map((n,i) => (
-          <img src="/images/project-wheelchaired.jpg" alt={`Event photo ${n}`} class="reveal" style={`width:100%; height:160px; object-fit:cover; display:block; transition-delay:${i*60}ms;`} />
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <section style="padding:2rem 2rem; background:#fff; border-top:1px solid #eee;">
+  <section style="padding:2rem 2rem; background:#f7f7f7; border-top:1px solid #eee;">
     <div style="max-width:1000px; margin:0 auto; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem;">
       <a href="/projects/" style="color:#35CCC0; font-family:'Raleway',sans-serif; font-size:0.85rem; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; text-decoration:none;">← All Projects</a>
       <a href="/donate/" class="btn-orange">Support This Project</a>
