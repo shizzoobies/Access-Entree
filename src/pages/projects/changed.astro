@@ -2,12 +2,18 @@
 import Layout from '../../layouts/Layout.astro';
 
 const characters = [
-  { name:'Jesse White', role:'The main character of Changed' },
-  { name:'Jessica White', role:"Jesse's sister" },
-  { name:'Curtis Devine', role:"Jesse's friend from the military" },
+  { name:'Jesse White', role:'The main character of Changed', img:'/images/changed-jesse.png' },
+  { name:'Jessica White', role:"Jesse's sister", img:'/images/changed-jessica.png' },
+  { name:'Curtis Devine', role:"Jesse's friend from the military", img:'/images/changed-curtis.png' },
 ];
 
-const environments = ["Jesse's House (Interior)", "Jesse's House (Exterior)", "Hospital Room", "Trailer Park"];
+const environments = [
+  { label:"Jesse's House (Interior)", img:'/images/changed-env-interior-1.jpg' },
+  { label:"Jesse's House (Interior)", img:'/images/changed-env-interior-2.jpg' },
+  { label:"Jesse's House (Exterior)", img:'/images/changed-env-exterior.jpg' },
+  { label:"Hospital Room", img:'/images/changed-env-hospital.jpg' },
+  { label:"Trailer Park", img:'/images/changed-env-trailerpark.jpg' },
+];
 ---
 
 <Layout title="Changed" description="Changed is the world's first choice-based video game about a character who finds himself in a wheelchair after an accident.">
@@ -54,7 +60,7 @@ const environments = ["Jesse's House (Interior)", "Jesse's House (Exterior)", "H
       <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:2rem; margin-top:2rem;">
         {characters.map((c, i) => (
           <div class="reveal" style={`transition-delay:${i*80}ms; text-align:center;`}>
-            <img src="/images/project-changed.jpg" alt={`${c.name} character art`} style="width:100%; height:180px; object-fit:cover; display:block; margin-bottom:1rem;" />
+            <img src={c.img} alt={`${c.name} character art`} style="width:100%; height:180px; object-fit:cover; display:block; margin-bottom:1rem;" />
             <h3 style="font-family:'Raleway',sans-serif; font-weight:900; font-size:0.9rem; text-transform:uppercase; letter-spacing:0.06em; color:#000; margin:0 0 0.25rem;">{c.name}</h3>
             <p style="font-family:'Raleway',sans-serif; font-size:0.8rem; color:#35CCC0;">{c.role}</p>
           </div>
@@ -73,8 +79,8 @@ const environments = ["Jesse's House (Interior)", "Jesse's House (Exterior)", "H
       <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:1rem; margin-top:2rem;">
         {environments.map((env, i) => (
           <div class="reveal" style={`transition-delay:${i*60}ms;`}>
-            <img src="/images/project-changed.jpg" alt={env} style="width:100%; height:140px; object-fit:cover; display:block; margin-bottom:0.5rem;" />
-            <p style="font-family:'Raleway',sans-serif; font-size:0.75rem; color:#777; text-align:center;">{env}</p>
+            <img src={env.img} alt={env.label} style="width:100%; height:140px; object-fit:cover; display:block; margin-bottom:0.5rem;" />
+            <p style="font-family:'Raleway',sans-serif; font-size:0.75rem; color:#777; text-align:center;">{env.label}</p>
           </div>
         ))}
       </div>
