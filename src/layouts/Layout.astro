@@ -41,5 +41,16 @@ const { title, description = "Florida Disability Access and Awareness Foundation
       );
       document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
     </script>
+
+    <!-- Ko-fi floating widget -->
+    <script src="https://storage.ko-fi.com/cdn/scripts/overlay-widget.umd.min.js"></script>
+    <script>
+      kofiWidgetOverlay.draw('accessentreegame', {
+        'type': 'floating-chat',
+        'floating-chat.donateButton.text': 'Support Us',
+        'floating-chat.donateButton.background-color': '#27CCC0',
+        'floating-chat.donateButton.text-color': '#fff'
+      });
+    </script>
   </body>
 </html>
