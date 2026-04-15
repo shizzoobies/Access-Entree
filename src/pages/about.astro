@@ -5,21 +5,25 @@ const team = [
   {
     name: 'Ralph Strzalkowski',
     role: 'President',
+    img: '/images/team-ralph.jpg',
     bio: 'Born in Poland with cerebral palsy, Strzalkowski uses a wheelchair. He became a lawyer in America and founded FDAAF to improve how individuals with disabilities are perceived in the community, aiming to dispel stereotypes and promote empathy through media and technology.',
   },
   {
     name: 'Zachary Taylor',
     role: 'Lead Developer',
+    img: '/images/team-zachary.jpg',
     bio: 'Taylor lost his hearing and balance to meningitis in third grade. He holds two electronics degrees and a BS in Game Design from Full Sail University. His involvement with FDAAF focuses on accessibility design, particularly captioning and inclusive features for those with hearing impairments.',
   },
   {
     name: 'Michael Bridges',
     role: 'Audio Engineer',
+    img: '/images/team-michael.jpg',
     bio: "Bridges graduated from Carnegie Mellon's Audio Recording & Production program and founded SoundTruss Productions. He brings expertise in music, film, and video game audio to FDAAF, believing sound is a powerful storytelling tool for this cause.",
   },
   {
     name: 'Paul Brophy',
     role: 'Corporate Secretary and Treasurer',
+    img: '/images/team-paul.jpg',
     bio: "An Irish emigrant to Florida, Brophy built an accessible business in Gainesville and joined FDAAF in 2013. He works with Florida's Agency for People with Disabilities.",
   },
 ];
@@ -66,7 +70,7 @@ const team = [
       <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:2rem; margin-top:2.5rem;">
         {team.map((member, i) => (
           <div class="reveal" style={`transition-delay:${i*80}ms; background:#fff; border:1px solid #eee; padding:1.75rem; text-align:center;`}>
-            <div class="img-placeholder" style="width:100px; height:100px; border-radius:50%; margin:0 auto 1.25rem; border:3px solid #35CCC0;">{member.name.split(' ')[0][0]}{member.name.split(' ')[1][0]}</div>
+            <img src={member.img} alt={member.name} style="width:100px; height:100px; border-radius:50%; margin:0 auto 1.25rem; display:block; object-fit:cover; border:3px solid #35CCC0;" />
             <h3 style="font-family:'Raleway',sans-serif; font-weight:900; font-size:0.9rem; text-transform:uppercase; letter-spacing:0.08em; color:#000; margin:0 0 0.25rem;">{member.name}</h3>
             <p style="font-family:'Raleway',sans-serif; font-size:0.75rem; font-weight:700; text-transform:uppercase; letter-spacing:0.1em; color:#35CCC0; margin:0 0 1rem;">{member.role}</p>
             <p style="font-family:'Raleway',sans-serif; font-size:0.83rem; color:#555; line-height:1.7;">{member.bio}</p>

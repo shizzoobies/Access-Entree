@@ -28,7 +28,7 @@ import Layout from '../../layouts/Layout.astro';
           </p>
           <a href="/volunteer/" class="btn-teal">Get Involved</a>
         </div>
-        <div class="img-placeholder" style="height:280px; width:100%;">Event Photo</div>
+        <img src="/images/project-wheelchaired.jpg" alt="Wheelchaired for a Day event" style="width:100%; height:280px; object-fit:cover; display:block;" />
       </div>
     </div>
   </section>
@@ -42,7 +42,7 @@ import Layout from '../../layouts/Layout.astro';
       </div>
       <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:1rem; margin-top:2rem;">
         {[1,2,3,4,5,6].map((n,i) => (
-          <div class="img-placeholder reveal" style={`height:160px; width:100%; transition-delay:${i*60}ms;`}>Photo {n}</div>
+          <img src="/images/project-wheelchaired.jpg" alt={`Event photo ${n}`} class="reveal" style={`width:100%; height:160px; object-fit:cover; display:block; transition-delay:${i*60}ms;`} />
         ))}
       </div>
     </div>

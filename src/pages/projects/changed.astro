@@ -39,7 +39,7 @@ const environments = ["Jesse's House (Interior)", "Jesse's House (Exterior)", "H
           </p>
           <a href="/donate/" class="btn-teal">Support This Project</a>
         </div>
-        <div class="img-placeholder" style="height:280px; width:100%;">Changed Game Image</div>
+        <img src="/images/project-changed.jpg" alt="Changed video game" style="width:100%; height:280px; object-fit:cover; display:block;" />
       </div>
     </div>
   </section>
@@ -54,7 +54,7 @@ const environments = ["Jesse's House (Interior)", "Jesse's House (Exterior)", "H
       <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:2rem; margin-top:2rem;">
         {characters.map((c, i) => (
           <div class="reveal" style={`transition-delay:${i*80}ms; text-align:center;`}>
-            <div class="img-placeholder" style="height:180px; width:100%; margin-bottom:1rem;">{c.name} Art</div>
+            <img src="/images/project-changed.jpg" alt={`${c.name} character art`} style="width:100%; height:180px; object-fit:cover; display:block; margin-bottom:1rem;" />
             <h3 style="font-family:'Raleway',sans-serif; font-weight:900; font-size:0.9rem; text-transform:uppercase; letter-spacing:0.06em; color:#000; margin:0 0 0.25rem;">{c.name}</h3>
             <p style="font-family:'Raleway',sans-serif; font-size:0.8rem; color:#35CCC0;">{c.role}</p>
           </div>
@@ -73,7 +73,7 @@ const environments = ["Jesse's House (Interior)", "Jesse's House (Exterior)", "H
       <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:1rem; margin-top:2rem;">
         {environments.map((env, i) => (
           <div class="reveal" style={`transition-delay:${i*60}ms;`}>
-            <div class="img-placeholder" style="height:140px; width:100%; margin-bottom:0.5rem;">{env}</div>
+            <img src="/images/project-changed.jpg" alt={env} style="width:100%; height:140px; object-fit:cover; display:block; margin-bottom:0.5rem;" />
             <p style="font-family:'Raleway',sans-serif; font-size:0.75rem; color:#777; text-align:center;">{env}</p>
           </div>
         ))}

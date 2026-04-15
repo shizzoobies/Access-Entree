@@ -5,8 +5,9 @@ import Layout from '../layouts/Layout.astro';
 <Layout title="Home" description="Florida Disability Access and Awareness Foundation — Using media for change. A nonprofit creating media to promote understanding, empathy, and empowerment for the disability community.">
 
   <!-- ═══ HERO ═══ -->
-  <section style="border-top:8px solid #35CCC0; border-bottom:8px solid #35CCC0; padding:4rem 1rem 3rem; text-align:center; background:#fff;">
-    <div style="max-width:900px; margin:0 auto;">
+  <section style="border-top:8px solid #35CCC0; border-bottom:8px solid #35CCC0; padding:4rem 1rem 3rem; text-align:center; background:#fff; position:relative; overflow:hidden;">
+    <img src="/images/hero.jpg" alt="FDAAF community" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; opacity:0.15;" aria-hidden="true" />
+    <div style="position:relative; z-index:1; max-width:900px; margin:0 auto;">
       <p style="font-family:'Raleway',sans-serif; font-weight:900; font-size:0.75rem; letter-spacing:0.15em; text-transform:uppercase; color:#F9A831; margin-bottom:0.5rem;">Using Media for Change</p>
       <h1 style="font-family:'Playfair Display',Georgia,serif; font-style:italic; font-weight:900; font-size:clamp(2.5rem,7vw,5rem); color:#000; margin:0 0 0.5rem;">Using Media for Change</h1>
       <div style="font-size:1.4rem; color:#F9A831; margin:1rem 0;">★</div>
@@ -104,7 +105,7 @@ import Layout from '../layouts/Layout.astro';
         },
       ].map(post => (
         <article style="border:1px solid #eee; overflow:hidden; cursor:pointer;" onclick={`openModal('${post.id}')`}>
-          <div class="img-placeholder" style="height:180px; width:100%;">Post Image</div>
+          <img src={`/images/${post.id}.jpg`} alt={post.title} style="width:100%; height:180px; object-fit:cover; display:block;" />
           <div style="padding:1.25rem;">
             <p style="font-family:'Raleway',sans-serif; font-size:0.7rem; color:#999; text-transform:uppercase; letter-spacing:0.1em; margin-bottom:0.25rem;">{post.date}</p>
             <h3 style="font-family:'Playfair Display',Georgia,serif; font-size:1.05rem; font-weight:700; margin:0 0 0.5rem; color:#000; line-height:1.4;">{post.title}</h3>
@@ -189,7 +190,7 @@ import Layout from '../layouts/Layout.astro';
           { title:'Passion', text:"We believe in what we do and what we create. We are experienced and passionate about the tools that we are using and the results we want to achieve." },
         ].map((v, i) => (
           <div class="reveal" style={`transition-delay:${i*80}ms; text-align:left;`}>
-            <div class="img-placeholder" style="width:64px; height:64px; border-radius:50%; margin-bottom:1rem;">{v.title[0]}</div>
+            <div style="width:64px; height:64px; border-radius:50%; margin-bottom:1rem; background:#35CCC0; display:flex; align-items:center; justify-content:center; color:#fff; font-family:'Playfair Display',serif; font-size:1.5rem; font-style:italic;">{v.title[0]}</div>
             <h3 style="font-family:'Raleway',sans-serif; font-weight:900; font-size:0.85rem; text-transform:uppercase; letter-spacing:0.1em; color:#35CCC0; margin:0 0 0.4rem; border-left:3px solid #F9A831; padding-left:0.6rem;">{v.title}</h3>
             <p style="font-family:'Raleway',sans-serif; font-size:0.85rem; color:#333; line-height:1.7;">{v.text}</p>
           </div>
@@ -213,7 +214,7 @@ import Layout from '../layouts/Layout.astro';
           { title:'Access: Entree', desc:'A new mobile game that promotes accessibility awareness. Currently in development.', href:'/projects/access-entree/' },
         ].map((p, i) => (
           <div class="reveal" style={`transition-delay:${i*80}ms; border:1px solid #eee; overflow:hidden;`}>
-            <div class="img-placeholder" style="height:180px; width:100%;">{p.title} Image</div>
+            <img src={p.title === 'Changed' ? '/images/project-changed.jpg' : p.title === 'Wheelchaired for a Day' ? '/images/project-wheelchaired.jpg' : '/images/project-access-entree.jpg'} alt={p.title} style="width:100%; height:180px; object-fit:cover; display:block;" />
             <div style="padding:1.25rem; text-align:center;">
               <h3 style="font-family:'Playfair Display',Georgia,serif; font-size:1.1rem; font-weight:700; color:#000; margin:0 0 0.5rem;">{p.title}</h3>
               <p style="font-family:'Raleway',sans-serif; font-size:0.85rem; color:#555; line-height:1.6; margin-bottom:1rem;">{p.desc}</p>

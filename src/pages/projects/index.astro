@@ -30,7 +30,7 @@ const projects = [
       <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); gap:2rem; margin-top:2.5rem;">
         {projects.map((p, i) => (
           <div class="reveal" style={`transition-delay:${i*80}ms; border:1px solid #eee; overflow:hidden;`}>
-            <div class="img-placeholder" style="height:200px; width:100%;">{p.title} Image</div>
+            <img src={p.title === 'Changed' ? '/images/project-changed.jpg' : p.title === 'Wheelchaired for a Day' ? '/images/project-wheelchaired.jpg' : '/images/project-access-entree.jpg'} alt={p.title} style="width:100%; height:200px; object-fit:cover; display:block;" />
             <div style="padding:1.5rem; text-align:center;">
               <p style="font-family:'Raleway',sans-serif; font-size:0.7rem; font-weight:700; text-transform:uppercase; letter-spacing:0.12em; color:#35CCC0; margin-bottom:0.5rem;">{p.tag}</p>
               <h2 style="font-family:'Playfair Display',Georgia,serif; font-size:1.2rem; font-weight:700; color:#000; margin:0 0 0.75rem;">{p.title}</h2>
