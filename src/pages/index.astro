@@ -37,19 +37,141 @@ import Layout from '../layouts/Layout.astro';
   <!-- ═══ BLOG / UPDATES CARDS ═══ -->
   <section style="padding:2rem 2rem 3.5rem; background:#fff;">
     <div style="max-width:1200px; margin:0 auto; display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:2rem;">
-      {[1,2,3,4].map(n => (
-        <article style="border:1px solid #eee; overflow:hidden;">
-          <div class="img-placeholder" style="height:180px; width:100%;">Post Image {n}</div>
+
+      {[
+        {
+          id: 'post-1',
+          date: 'March 4, 2026',
+          author: 'Ralph Strzalkowski',
+          title: "We're teaming up with Eleven Labs for professionally narrated videos!",
+          excerpt: 'FDAAF is partnering with ElevenLabs to bring professional-quality narration to our educational video content.',
+          body: `<p>At the Florida Disability Access and Awareness Foundation (FDAAF), storytelling has always been one of our most powerful tools. Whether documenting real-world accessibility challenges through our "Wheelchair for a Day" initiative or showcasing inclusive design through our upcoming game AccessEnTree, video has become essential for educating and inspiring conversation.</p>
+<p>FDAAF is partnering with ElevenLabs to bring professional-quality narration to video content. This collaboration helps elevate educational videos with clear, engaging, studio-level voice narration—reaching more people with accessibility messaging.</p>
+<h3>Why Narration Matters for Accessibility Education</h3>
+<p>The "Wheelchair for a Day" series places volunteers—attorneys, nurses, musicians, city officials, and performers—into wheelchairs for 24 hours to experience real-world barriers. Videos capture powerful moments: struggling with steep ramps, navigating narrow doorways, encountering inaccessible bathrooms, and realizing how small design choices create major obstacles.</p>
+<p>High-quality narration guides viewers through these experiences, providing context and explaining accessibility standards. Professional narration transforms short clips into a clear, compelling story about accessibility and inclusion.</p>
+<h3>Bringing AccessEnTree to Life</h3>
+<p>The partnership also supports narration for clips from AccessEnTree, an accessibility-focused game being developed by FDAAF. Players build a vibrant village while learning about inclusive design—adding ramps, Braille signage, accessible doors, and other features creating environments everyone can use.</p>
+<h3>Why ElevenLabs</h3>
+<p>ElevenLabs has become a leader in AI voice technology, producing natural-sounding, expressive narration rivaling professional studio recordings. The partnership allows FDAAF to produce clear, consistent voiceovers across many videos; narrate educational clips quickly and efficiently; maintain professional audio quality for short social-media videos; and focus more time on creating new accessibility content.</p>
+<h3>Looking Ahead</h3>
+<p>This collaboration represents another step in FDAAF's mission to raise awareness about disability access through creativity, technology, and storytelling. Together, we can continue breaking down barriers—one story at a time.</p>`,
+        },
+        {
+          id: 'post-2',
+          date: 'September 5, 2020',
+          author: 'destiny99nash',
+          title: 'What does accessibility mean to you?',
+          excerpt: 'Accessibility extends far beyond ramps and elevators. Here\'s what it means to us at FDAAF.',
+          body: `<p>Accessibility is at the heart of many businesses and foundations, but what does being accessible mean exactly? Some people may believe that being accessible means having a wheelchair ramp or elevator. Others may believe it may be giving extended time to students with learning disabilities. Yes, it does mean these two things but that is not an all-inclusive list.</p>
+<p>Accessibility at our foundation takes the face of our volunteers working unpaid hours to create a video game featuring a cop named Jessie. Accessibility is Jessie not being looked down upon for being a war vet. Accessibility is us providing audio versions of this post for our visually impaired friends.</p>
+<p>In my daycare working days, I had a training about availability vs accessibility in the terms of an early childcare environment. The term availability meant what was available in the room—toys, cots and clothes. Accessibility was what the children had access to—toys, books.</p>
+<p>What does this anecdote mean for you? Well, we have an opportunity and request for you. We have a survey helping us make our video game, <em>Changed</em>, accessible to more groups of people. If you are not familiar with our main character, Jessie, he is a war vet who is also a cop. Our game shows his struggles and victories, and his journey. You can help us make our game more accessible for people with disabilities. Your small sacrifice of time can make a big difference.</p>
+<p><strong>YOU can make a change!</strong></p>
+<p><a href="https://www.surveymonkey.com/r/6R9TF6H" target="_blank" rel="noopener noreferrer" style="color:#35CCC0;">Take the survey →</a></p>`,
+        },
+        {
+          id: 'post-3',
+          date: 'September 4, 2020',
+          author: 'destiny99nash',
+          title: 'Welcome to our blog',
+          excerpt: 'We will be updating here regularly about our game and other cool stuff.',
+          body: `<p>Welcome to our blog. We will be updating here regularly about our game and other cool stuff. If you would like to stay informed, join our mailing list.</p>`,
+        },
+        {
+          id: 'post-4',
+          date: 'March 7, 2019',
+          author: 'John Christie',
+          title: 'Florida Disability Access and Awareness Foundation',
+          excerpt: 'Since 2013, FDAAF has worked to support individuals with disabilities through media and technology.',
+          body: `<p>Since 2013, the Florida Disability Access and Awareness Foundation (FDAAF) has worked to support individuals with disabilities. The organization's mission focuses on creating media that promotes disability inclusion while challenging stereotypes.</p>
+<p>Led by President Ralph Strzalkowski, an attorney with cerebral palsy, FDAAF is developing video games as engagement tools. Strzalkowski explains: "The philosophy of FDAAF regarding these games is create engagement and discussions on disability" to raise awareness about accessibility and participation.</p>
+<p>The organization's team brings diverse perspectives. Zachary Taylor, the Lead Developer, lost his hearing and balance to meningitis at a young age. This diversity strengthens their work.</p>
+<p>The foundation plans to launch a social media game in the coming months, followed by a larger national release. Reflecting on the collaborative effort, Strzalkowski states: "A bunch of strangers with diverse perspectives coming in to build something for the greater good—I think there's nothing better."</p>`,
+        },
+        {
+          id: 'post-5',
+          date: 'May 28',
+          author: 'Ralph Strzalkowski',
+          title: "A Letter from FDAAF's President",
+          excerpt: 'A personal reflection on founding FDAAF and the mission to give the power back to individuals with disabilities.',
+          body: `<p>I believe in giving to the community and doing things that matter. I believe in helping people like me. If there's something positive I can use my skills and education for, I will do it. But I'm also a realist. I wasn't too keen on jumping in to build yet another nonprofit, because I understand how difficult it is to make it work.</p>
+<p>But I know what it's like. I have a disability too, I've been in a wheelchair all my life. I know how frustrated I get if I'm planning to go somewhere—a venue, a motel, a store—not knowing how much my condition will get in the way of enjoying my night. Will I be able to use the restroom? Will I even be able to get in? Inclusion comes from people with disabilities being able to do things for themselves.</p>
+<p>That is how the Florida Disability Access and Awareness Foundation came to be. The mission: to give the power back to individuals with disabilities. Information is that power and education is the key. I figured, we all know how to live our lives and how to cope with what we have, so rather than lecturing people we should just give them tools they can choose to use.</p>
+<p>With that in mind, I reached out to people who have, in one way or another, been involved with or affected by disabilities. All as concerned as I was, ready to share the burden, the stress of making it work. We chose Gainesville, Florida as a starting point—not too big, not too small—to test some of our ideas, but our dreams and ambitions are broader.</p>
+<p>We live in an age of video games, social media and apps that have integrated themselves with and affect our everyday lives. I'm excited to learn what role they can play in disability inclusion and how we can use them to change perceptions and build self-confidence. A modern take on disability with modern tools for modern times.</p>
+<p>It's an exciting time for us, but we need help to keep going. Please consider helping us by spreading the word and donating if you can. We are a 501(c)(3) nonprofit, and your donations are tax-deductible.</p>`,
+        },
+      ].map(post => (
+        <article style="border:1px solid #eee; overflow:hidden; cursor:pointer;" onclick={`openModal('${post.id}')`}>
+          <div class="img-placeholder" style="height:180px; width:100%;">Post Image</div>
           <div style="padding:1.25rem;">
-            <p style="font-family:'Raleway',sans-serif; font-size:0.7rem; color:#999; text-transform:uppercase; letter-spacing:0.1em; margin-bottom:0.5rem;">Update</p>
-            <h3 style="font-family:'Playfair Display',Georgia,serif; font-size:1.1rem; font-weight:700; margin:0 0 0.5rem; color:#000;">Latest Update {n}</h3>
-            <p style="font-family:'Raleway',sans-serif; font-size:0.85rem; color:#555; line-height:1.6; margin-bottom:0.75rem;">News and updates from the foundation will appear here.</p>
-            <a href="/projects/" style="color:#35CCC0; font-family:'Raleway',sans-serif; font-size:0.8rem; font-weight:700; text-transform:uppercase; letter-spacing:0.05em; text-decoration:none;">Read More →</a>
+            <p style="font-family:'Raleway',sans-serif; font-size:0.7rem; color:#999; text-transform:uppercase; letter-spacing:0.1em; margin-bottom:0.25rem;">{post.date}</p>
+            <h3 style="font-family:'Playfair Display',Georgia,serif; font-size:1.05rem; font-weight:700; margin:0 0 0.5rem; color:#000; line-height:1.4;">{post.title}</h3>
+            <p style="font-family:'Raleway',sans-serif; font-size:0.83rem; color:#555; line-height:1.6; margin-bottom:0.75rem;">{post.excerpt}</p>
+            <span style="color:#35CCC0; font-family:'Raleway',sans-serif; font-size:0.8rem; font-weight:700; text-transform:uppercase; letter-spacing:0.05em;">Read More →</span>
           </div>
         </article>
       ))}
+
     </div>
   </section>
+
+  <!-- ═══ POST MODALS ═══ -->
+  <div id="modal-overlay" onclick="closeModal()" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.6); z-index:2000; align-items:center; justify-content:center; padding:1rem;">
+    <div id="modal-box" onclick="event.stopPropagation()" style="background:#fff; max-width:720px; width:100%; max-height:85vh; overflow-y:auto; position:relative; padding:2.5rem;">
+      <button onclick="closeModal()" aria-label="Close" style="position:sticky; top:0; float:right; background:none; border:none; font-size:1.5rem; cursor:pointer; color:#999; line-height:1;">&times;</button>
+      <p id="modal-date" style="font-family:'Raleway',sans-serif; font-size:0.75rem; color:#999; text-transform:uppercase; letter-spacing:0.1em; margin-bottom:0.4rem;"></p>
+      <h2 id="modal-title" style="font-family:'Playfair Display',Georgia,serif; font-style:italic; font-weight:900; font-size:clamp(1.4rem,4vw,2rem); color:#000; margin:0 0 0.5rem; padding-right:2rem; border-bottom:4px solid #35CCC0; padding-bottom:0.75rem;"></h2>
+      <p id="modal-author" style="font-family:'Raleway',sans-serif; font-size:0.78rem; color:#35CCC0; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; margin-bottom:1.5rem;"></p>
+      <div id="modal-body" style="font-family:'Raleway',sans-serif; font-size:0.92rem; color:#333; line-height:1.85;"></div>
+    </div>
+  </div>
+
+  <script is:inline>
+    const posts = {
+      'post-1': { date:'March 4, 2026', author:'Ralph Strzalkowski', title:"We're teaming up with Eleven Labs for professionally narrated videos!", body: document.querySelector ? null : '' },
+    };
+
+    const modalData = {};
+    document.querySelectorAll('article[onclick]').forEach(el => {
+      const id = el.getAttribute('onclick').match(/'([^']+)'/)?.[1];
+      if (id) {
+        const title = el.querySelector('h3')?.textContent;
+        const date = el.querySelectorAll('p')[0]?.textContent;
+        // body stored in data attrs
+      }
+    });
+
+    // Store bodies as escaped HTML in hidden elements
+    function openModal(id) {
+      const overlay = document.getElementById('modal-overlay');
+      const src = document.getElementById('modal-src-' + id);
+      if (!src || !overlay) return;
+      document.getElementById('modal-date').textContent = src.dataset.date;
+      document.getElementById('modal-title').textContent = src.dataset.title;
+      document.getElementById('modal-author').textContent = 'By ' + src.dataset.author;
+      document.getElementById('modal-body').innerHTML = src.innerHTML;
+      overlay.style.display = 'flex';
+      document.body.style.overflow = 'hidden';
+    }
+    function closeModal() {
+      document.getElementById('modal-overlay').style.display = 'none';
+      document.body.style.overflow = '';
+    }
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+  </script>
+
+  <!-- Hidden post body stores -->
+  {[
+    { id:'post-1', date:'March 4, 2026', author:'Ralph Strzalkowski', title:"We're teaming up with Eleven Labs for professionally narrated videos!", body:`<p>At the Florida Disability Access and Awareness Foundation (FDAAF), storytelling has always been one of our most powerful tools. Whether documenting real-world accessibility challenges through our "Wheelchair for a Day" initiative or showcasing inclusive design through our upcoming game AccessEnTree, video has become essential for educating and inspiring conversation.</p><p>FDAAF is partnering with ElevenLabs to bring professional-quality narration to video content. This collaboration helps elevate educational videos with clear, engaging, studio-level voice narration—reaching more people with accessibility messaging.</p><h3 style="font-family:'Playfair Display',serif;font-size:1.1rem;margin:1.25rem 0 0.5rem;">Why Narration Matters</h3><p>The "Wheelchair for a Day" series places volunteers into wheelchairs for 24 hours to experience real-world barriers. High-quality narration guides viewers through these experiences, providing context and explaining accessibility standards.</p><h3 style="font-family:'Playfair Display',serif;font-size:1.1rem;margin:1.25rem 0 0.5rem;">Bringing AccessEnTree to Life</h3><p>The partnership also supports narration for clips from AccessEnTree. Players build a vibrant village while learning about inclusive design—adding ramps, Braille signage, accessible doors, and other features creating environments everyone can use.</p><h3 style="font-family:'Playfair Display',serif;font-size:1.1rem;margin:1.25rem 0 0.5rem;">Looking Ahead</h3><p>This collaboration represents another step in FDAAF's mission to raise awareness about disability access through creativity, technology, and storytelling. Together, we can continue breaking down barriers—one story at a time.</p>` },
+    { id:'post-2', date:'September 5, 2020', author:'destiny99nash', title:'What does accessibility mean to you?', body:`<p>Accessibility is at the heart of many businesses and foundations, but what does being accessible mean exactly? Some people may believe that being accessible means having a wheelchair ramp or elevator. Others may believe it may be giving extended time to students with learning disabilities. Yes, it does mean these two things but that is not an all-inclusive list.</p><p>Accessibility at our foundation takes the face of our volunteers working unpaid hours to create a video game featuring a cop named Jessie. Accessibility is Jessie not being looked down upon for being a war vet. Accessibility is us providing audio versions of this post for our visually impaired friends.</p><p>In my daycare working days, I had a training about availability vs accessibility. The term availability meant what was available in the room. Accessibility was what the children had access to.</p><p>We have a survey helping us make our video game, <em>Changed</em>, accessible to more groups of people. Our main character Jessie is a war vet who is also a cop. Our game shows his struggles and victories, and his journey. You can help us make our game more accessible for people with disabilities. Your small sacrifice of time can make a big difference.</p><p><strong>YOU can make a change!</strong></p><p><a href="https://www.surveymonkey.com/r/6R9TF6H" target="_blank" rel="noopener noreferrer" style="color:#35CCC0;">Take the survey →</a></p>` },
+    { id:'post-3', date:'September 4, 2020', author:'destiny99nash', title:'Welcome to our blog', body:`<p>Welcome to our blog. We will be updating here regularly about our game and other cool stuff. If you would like to stay informed, join our mailing list.</p>` },
+    { id:'post-4', date:'March 7, 2019', author:'John Christie', title:'Florida Disability Access and Awareness Foundation', body:`<p>Since 2013, the Florida Disability Access and Awareness Foundation (FDAAF) has worked to support individuals with disabilities. The organization's mission focuses on creating media that promotes disability inclusion while challenging stereotypes.</p><p>Led by President Ralph Strzalkowski, an attorney with cerebral palsy, FDAAF is developing video games as engagement tools. Strzalkowski explains: "The philosophy of FDAAF regarding these games is create engagement and discussions on disability" to raise awareness about accessibility and participation.</p><p>The organization's team brings diverse perspectives. Zachary Taylor, the Lead Developer, lost his hearing and balance to meningitis at a young age. This diversity strengthens their work.</p><p>The foundation plans to launch a social media game in the coming months, followed by a larger national release. Reflecting on the collaborative effort, Strzalkowski states: "A bunch of strangers with diverse perspectives coming in to build something for the greater good—I think there's nothing better."</p>` },
+    { id:'post-5', date:'May 28', author:'Ralph Strzalkowski', title:"A Letter from FDAAF's President", body:`<p>I believe in giving to the community and doing things that matter. I believe in helping people like me. If there's something positive I can use my skills and education for, I will do it. But I'm also a realist. I wasn't too keen on jumping in to build yet another nonprofit, because I understand how difficult it is to make it work.</p><p>But I know what it's like. I have a disability too, I've been in a wheelchair all my life. I know how frustrated I get if I'm planning to go somewhere—not knowing how much my condition will get in the way of enjoying my night. Will I be able to use the restroom? Will I even be able to get in? Inclusion comes from people with disabilities being able to do things for themselves.</p><p>That is how the Florida Disability Access and Awareness Foundation came to be. The mission: to give the power back to individuals with disabilities. Information is that power and education is the key.</p><p>With that in mind, I reached out to people who have, in one way or another, been involved with or affected by disabilities. We chose Gainesville, Florida as a starting point to test some of our ideas, but our dreams and ambitions are broader. Ideally, in time, we'll be able to hire people with disabilities—not in spite of their conditions, but <em>because</em> of their experience.</p><p>We live in an age of video games, social media and apps that have integrated themselves with our everyday lives. I'm excited to learn what role they can play in disability inclusion and how we can use them to change perceptions and build self-confidence. A modern take on disability with modern tools for modern times.</p><p>It's an exciting time for us, but we need help to keep going. Please consider helping us by spreading the word and donating if you can. We are a 501(c)(3) nonprofit, and your donations are tax-deductible.</p>` },
+  ].map(p => (
+    <div id={`modal-src-${p.id}`} data-date={p.date} data-author={p.author} data-title={p.title} style="display:none;" set:html={p.body} />
+  ))}
 
   <!-- ═══ CORE VALUES ═══ -->
   <section style="padding:3.5rem 2rem; background:#f7f7f7;">
