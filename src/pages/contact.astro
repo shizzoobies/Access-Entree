@@ -19,110 +19,88 @@ const departments = [
 
 <Layout title="Contact Us" description="Contact the Florida Disability Access and Awareness Foundation — learn more about how we promote inclusion through developing video games and using media.">
 
-  <!-- PAGE HEADER -->
-  <section class="bg-[#1a1a1a] py-20 text-center">
-    <div class="max-w-3xl mx-auto px-6">
-      <h1 class="text-4xl sm:text-5xl font-display font-bold text-white mb-4">Contact Us</h1>
+  <!-- PAGE TITLE -->
+  <section style="padding:3rem 1rem 2.5rem; text-align:center; background:#fff;">
+    <div class="page-title-block">
+      <span class="star">★</span>
+      <h1>Contact Us</h1>
     </div>
   </section>
 
-  <!-- CONTACT SECTION -->
-  <section class="py-20 bg-white">
-    <div class="max-w-5xl mx-auto px-6">
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-14 items-start">
+  <!-- CONTENT -->
+  <section style="padding:3.5rem 2rem; background:#fff;">
+    <div style="max-width:1100px; margin:0 auto; display:grid; grid-template-columns:1fr 1fr; gap:4rem; align-items:start;">
 
-        <!-- Intro -->
-        <div class="reveal">
-          <h2 class="text-2xl font-display font-bold text-[#1a1a1a] mb-5">Get in touch</h2>
-          <p class="text-gray-600 leading-relaxed mb-4">
-            Contact us to learn more on how we promote inclusion through developing video games and using media. Get in touch to receive more information on how you can get involved with promoting disability awareness and accessibility.
+      <!-- Intro -->
+      <div class="reveal">
+        <div class="section-heading" style="text-align:left;">
+          <span class="label">Reach Out</span>
+          <h2>Get in touch</h2>
+          <span class="star" style="text-align:left; display:block;">★</span>
+        </div>
+        <p style="font-family:'Raleway',sans-serif; font-size:0.95em; color:#333; line-height:1.8; margin-top:1.5rem;">
+          Contact us to learn more on how we promote inclusion through developing video games and using media. Get in touch to receive more information on how you can get involved with promoting disability awareness and accessibility.
+        </p>
+        <div style="margin-top:2rem; display:flex; flex-direction:column; gap:0.75rem;">
+          <p style="font-family:'Raleway',sans-serif; font-size:0.85rem; color:#555;">
+            <strong style="color:#000;">Email:</strong>&nbsp;
+            <a href="mailto:info@fdaaf.org" style="color:#35CCC0; text-decoration:none;">info@fdaaf.org</a>
           </p>
-          <div class="space-y-3 mt-8">
-            <p class="text-sm text-gray-500">
-              <span class="font-semibold text-[#1a1a1a]">Email:</span>{' '}
-              <a href="mailto:info@fdaaf.org" class="text-[#27CCC0] hover:underline">info@fdaaf.org</a>
-            </p>
-            <div class="flex gap-4 pt-2">
-              <a href="https://twitter.com/FDAAFoundation" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-[#27CCC0] transition-colors text-sm font-semibold">Twitter</a>
-              <a href="https://www.facebook.com/fdaaf" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-[#27CCC0] transition-colors text-sm font-semibold">Facebook</a>
-              <a href="https://www.youtube.com/@fdaaf" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-[#27CCC0] transition-colors text-sm font-semibold">YouTube</a>
-            </div>
+          <div style="display:flex; gap:1.25rem;">
+            <a href="https://twitter.com/FDAAFoundation" target="_blank" rel="noopener noreferrer"
+              style="font-family:'Raleway',sans-serif; font-size:0.82rem; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; color:#555; text-decoration:none;"
+              onmouseover="this.style.color='#27CCC0'" onmouseout="this.style.color='#555'">Twitter</a>
+            <a href="https://www.facebook.com/fdaaf" target="_blank" rel="noopener noreferrer"
+              style="font-family:'Raleway',sans-serif; font-size:0.82rem; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; color:#555; text-decoration:none;"
+              onmouseover="this.style.color='#27CCC0'" onmouseout="this.style.color='#555'">Facebook</a>
+            <a href="https://www.youtube.com/@fdaaf" target="_blank" rel="noopener noreferrer"
+              style="font-family:'Raleway',sans-serif; font-size:0.82rem; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; color:#555; text-decoration:none;"
+              onmouseover="this.style.color='#27CCC0'" onmouseout="this.style.color='#555'">YouTube</a>
           </div>
         </div>
+      </div>
 
-        <!-- Form -->
-        <div class="reveal" style="transition-delay:100ms">
-          <h2 class="text-2xl font-display font-bold text-[#1a1a1a] mb-2">Send us a message</h2>
-          <p class="text-gray-400 text-sm mb-6">All fields are required.</p>
+      <!-- Form -->
+      <div class="reveal" style="transition-delay:100ms;">
+        <h2 style="font-family:'Playfair Display',Georgia,serif; font-style:italic; font-weight:900; font-size:1.6rem; color:#000; margin-bottom:0.25rem;">Send us a message</h2>
+        <p style="font-family:'Raleway',sans-serif; font-size:0.8rem; color:#999; margin-bottom:1.5rem;">All fields are required.</p>
 
-          <form name="contact" method="POST" action="/success/" class="space-y-4">
-            <div>
-              <label for="name" class="block text-sm font-semibold text-gray-700 mb-1">Your Name</label>
-              <input
-                id="name"
-                type="text"
-                name="name"
-                required
-                class="w-full border border-gray-300 rounded px-4 py-3 text-sm focus:outline-none focus:border-[#27CCC0]"
-              />
-            </div>
-
-            <div>
-              <label for="email" class="block text-sm font-semibold text-gray-700 mb-1">Your Email</label>
-              <input
-                id="email"
-                type="email"
-                name="email"
-                required
-                class="w-full border border-gray-300 rounded px-4 py-3 text-sm focus:outline-none focus:border-[#27CCC0]"
-              />
-            </div>
-
-            <div>
-              <label for="subject" class="block text-sm font-semibold text-gray-700 mb-1">Subject</label>
-              <input
-                id="subject"
-                type="text"
-                name="subject"
-                required
-                class="w-full border border-gray-300 rounded px-4 py-3 text-sm focus:outline-none focus:border-[#27CCC0]"
-              />
-            </div>
-
-            <div>
-              <label for="department" class="block text-sm font-semibold text-gray-700 mb-1">
-                Department or Person You Would Like to Contact
-              </label>
-              <select
-                id="department"
-                name="department"
-                required
-                class="w-full border border-gray-300 rounded px-4 py-3 text-sm focus:outline-none focus:border-[#27CCC0] bg-white"
-              >
-                <option value="" disabled selected>Select a department or person</option>
-                {departments.map(d => (
-                  <option value={d}>{d}</option>
-                ))}
-              </select>
-            </div>
-
-            <div>
-              <label for="message" class="block text-sm font-semibold text-gray-700 mb-1">Your Message</label>
-              <textarea
-                id="message"
-                name="message"
-                rows={5}
-                required
-                class="w-full border border-gray-300 rounded px-4 py-3 text-sm focus:outline-none focus:border-[#27CCC0] resize-y"
-              ></textarea>
-            </div>
-
-            <button type="submit" class="btn-primary w-full text-center">Send Message</button>
-          </form>
-        </div>
-
+        <form name="contact" method="POST" action="/contact/" style="display:flex; flex-direction:column; gap:1rem;">
+          <div>
+            <label for="name" style="display:block; font-family:'Raleway',sans-serif; font-size:0.8rem; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; color:#333; margin-bottom:0.35rem;">Your Name</label>
+            <input id="name" type="text" name="name" required />
+          </div>
+          <div>
+            <label for="email" style="display:block; font-family:'Raleway',sans-serif; font-size:0.8rem; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; color:#333; margin-bottom:0.35rem;">Your Email</label>
+            <input id="email" type="email" name="email" required />
+          </div>
+          <div>
+            <label for="subject" style="display:block; font-family:'Raleway',sans-serif; font-size:0.8rem; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; color:#333; margin-bottom:0.35rem;">Subject</label>
+            <input id="subject" type="text" name="subject" required />
+          </div>
+          <div>
+            <label for="department" style="display:block; font-family:'Raleway',sans-serif; font-size:0.8rem; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; color:#333; margin-bottom:0.35rem;">Department or Person You Would Like to Contact</label>
+            <select id="department" name="department" required>
+              <option value="" disabled selected>Select a department or person</option>
+              {departments.map(d => <option value={d}>{d}</option>)}
+            </select>
+          </div>
+          <div>
+            <label for="message" style="display:block; font-family:'Raleway',sans-serif; font-size:0.8rem; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; color:#333; margin-bottom:0.35rem;">Your Message</label>
+            <textarea id="message" name="message" rows={5} required style="resize:vertical;"></textarea>
+          </div>
+          <button type="submit" class="btn-teal" style="align-self:flex-start; font-size:0.85rem; padding:0.85rem 2.5rem; text-transform:uppercase; letter-spacing:0.12em;">Send Message</button>
+        </form>
       </div>
     </div>
   </section>
+
+  <style>
+    @media (max-width: 700px) {
+      section > div[style*="grid-template-columns:1fr 1fr"] {
+        grid-template-columns: 1fr !important;
+      }
+    }
+  </style>
 
 </Layout>

@@ -2,81 +2,96 @@
 import Layout from '../../layouts/Layout.astro';
 
 const characters = [
-  { name: 'Jesse White', role: 'The main character of Changed' },
-  { name: 'Jessica White', role: "Jesse's sister" },
-  { name: 'Curtis Devine', role: "Jesse's friend from the military" },
+  { name:'Jesse White', role:'The main character of Changed' },
+  { name:'Jessica White', role:"Jesse's sister" },
+  { name:'Curtis Devine', role:"Jesse's friend from the military" },
 ];
+
+const environments = ["Jesse's House (Interior)", "Jesse's House (Exterior)", "Hospital Room", "Trailer Park"];
 ---
 
 <Layout title="Changed" description="Changed is the world's first choice-based video game about a character who finds himself in a wheelchair after an accident.">
 
-  <!-- PAGE HEADER -->
-  <section class="bg-[#1a1a1a] py-20 text-center">
-    <div class="max-w-3xl mx-auto px-6">
-      <span class="text-[#27CCC0] text-xs font-semibold uppercase tracking-widest mb-4 block">Video Game</span>
-      <h1 class="text-4xl sm:text-5xl font-display font-bold text-white mb-4">Changed</h1>
+  <section style="padding:3rem 1rem 2.5rem; text-align:center; background:#fff;">
+    <div class="page-title-block">
+      <span class="star">★</span>
+      <h1>Changed</h1>
     </div>
   </section>
 
-  <!-- ABOUT -->
-  <section class="py-20 bg-white">
-    <div class="max-w-5xl mx-auto px-6">
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
-        <div class="reveal">
-          <h2 class="text-2xl font-display font-bold text-[#1a1a1a] mb-5">About the Game</h2>
-          <p class="text-gray-600 leading-relaxed text-lg mb-4">
+  <section style="padding:3.5rem 2rem; background:#fff;">
+    <div style="max-width:1000px; margin:0 auto;">
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:3rem; align-items:start;" class="reveal">
+        <div>
+          <div class="section-heading" style="text-align:left;">
+            <span class="label">Video Game</span>
+            <h2>About the Game</h2>
+            <span class="star" style="display:block; text-align:left;">★</span>
+          </div>
+          <p style="font-family:'Raleway',sans-serif; font-size:0.95em; color:#333; line-height:1.8; margin-top:1.5rem; margin-bottom:1rem;">
             Changed is the world's first choice-based video game about a character who finds himself in a wheelchair after an accident.
           </p>
-          <p class="text-gray-600 leading-relaxed mb-4">
+          <p style="font-family:'Raleway',sans-serif; font-size:0.9em; color:#555; line-height:1.8; margin-bottom:1rem;">
             On his journey he is faced with numerous difficult situations. How he decides to tackle these situations develops his personality and advances the plot of the game.
           </p>
-          <p class="text-gray-600 leading-relaxed mb-6">
+          <p style="font-family:'Raleway',sans-serif; font-size:0.9em; color:#555; line-height:1.8; margin-bottom:1.5rem;">
             We are currently producing a two-scene demo for the game.
           </p>
-          <a href="/donate/" class="btn-primary">Support This Project</a>
+          <a href="/donate/" class="btn-teal">Support This Project</a>
         </div>
-        <div class="reveal img-placeholder h-72 w-full rounded-lg" style="transition-delay:100ms">Changed Game Image</div>
+        <div class="img-placeholder" style="height:280px; width:100%;">Changed Game Image</div>
       </div>
     </div>
   </section>
 
-  <!-- CHARACTERS -->
-  <section class="py-20 bg-gray-50">
-    <div class="max-w-5xl mx-auto px-6">
-      <h2 class="text-3xl font-display font-bold text-[#1a1a1a] mb-10 text-center reveal">Characters</h2>
-      <div class="grid grid-cols-1 sm:grid-cols-3 gap-8">
+  <section style="padding:3.5rem 2rem; background:#f7f7f7;">
+    <div style="max-width:1000px; margin:0 auto;">
+      <div class="section-heading reveal">
+        <span class="label">Meet the Cast</span>
+        <h2>Characters</h2>
+        <span class="star">★</span>
+      </div>
+      <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:2rem; margin-top:2rem;">
         {characters.map((c, i) => (
-          <div class="reveal text-center" style={`transition-delay: ${i * 100}ms`}>
-            <div class="img-placeholder h-48 w-full rounded-lg mb-4">{c.name} Art</div>
-            <h3 class="font-display text-lg font-bold text-[#1a1a1a]">{c.name}</h3>
-            <p class="text-[#27CCC0] text-sm">{c.role}</p>
+          <div class="reveal" style={`transition-delay:${i*80}ms; text-align:center;`}>
+            <div class="img-placeholder" style="height:180px; width:100%; margin-bottom:1rem;">{c.name} Art</div>
+            <h3 style="font-family:'Raleway',sans-serif; font-weight:900; font-size:0.9rem; text-transform:uppercase; letter-spacing:0.06em; color:#000; margin:0 0 0.25rem;">{c.name}</h3>
+            <p style="font-family:'Raleway',sans-serif; font-size:0.8rem; color:#35CCC0;">{c.role}</p>
           </div>
         ))}
       </div>
     </div>
   </section>
 
-  <!-- ENVIRONMENTS -->
-  <section class="py-20 bg-white">
-    <div class="max-w-5xl mx-auto px-6">
-      <h2 class="text-3xl font-display font-bold text-[#1a1a1a] mb-10 text-center reveal">Environments</h2>
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
-        {["Jesse's House (Interior)", "Jesse's House (Exterior)", "Hospital Room", "Trailer Park"].map((env, i) => (
-          <div class="reveal" style={`transition-delay: ${i * 80}ms`}>
-            <div class="img-placeholder h-36 w-full rounded">{env}</div>
-            <p class="text-xs text-gray-500 mt-2 text-center">{env}</p>
+  <section style="padding:3.5rem 2rem; background:#fff;">
+    <div style="max-width:1000px; margin:0 auto;">
+      <div class="section-heading reveal">
+        <span class="label">Concept Art</span>
+        <h2>Environments</h2>
+        <span class="star">★</span>
+      </div>
+      <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:1rem; margin-top:2rem;">
+        {environments.map((env, i) => (
+          <div class="reveal" style={`transition-delay:${i*60}ms;`}>
+            <div class="img-placeholder" style="height:140px; width:100%; margin-bottom:0.5rem;">{env}</div>
+            <p style="font-family:'Raleway',sans-serif; font-size:0.75rem; color:#777; text-align:center;">{env}</p>
           </div>
         ))}
       </div>
     </div>
   </section>
 
-  <!-- BACK -->
-  <section class="py-10 bg-gray-50 border-t border-gray-100">
-    <div class="max-w-5xl mx-auto px-6 flex justify-between items-center">
-      <a href="/projects/" class="text-[#27CCC0] hover:underline text-sm font-semibold">&larr; All Projects</a>
+  <section style="padding:2rem 2rem; background:#f7f7f7; border-top:1px solid #eee;">
+    <div style="max-width:1000px; margin:0 auto; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem;">
+      <a href="/projects/" style="color:#35CCC0; font-family:'Raleway',sans-serif; font-size:0.85rem; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; text-decoration:none;">← All Projects</a>
       <a href="/donate/" class="btn-orange">Support This Project</a>
     </div>
   </section>
+
+  <style>
+    @media (max-width:700px) {
+      section > div[style*="grid-template-columns:1fr 1fr"] { grid-template-columns:1fr !important; }
+    }
+  </style>
 
 </Layout>

@@ -4,54 +4,61 @@ import Layout from '../../layouts/Layout.astro';
 
 <Layout title="Access: Entree" description="Access: Entree is a unique social-simulation roleplaying game where the player moves into a small town and helps develop the community to be more accessible to its residents with disabilities.">
 
-  <!-- PAGE HEADER -->
-  <section class="bg-[#1a1a1a] py-20 text-center">
-    <div class="max-w-3xl mx-auto px-6">
-      <span class="text-[#27CCC0] text-xs font-semibold uppercase tracking-widest mb-4 block">In Development</span>
-      <h1 class="text-4xl sm:text-5xl font-display font-bold text-white mb-4">Access: Entree</h1>
+  <section style="padding:3rem 1rem 2.5rem; text-align:center; background:#fff;">
+    <div class="page-title-block">
+      <span class="star">★</span>
+      <h1>Access: Entree</h1>
     </div>
   </section>
 
-  <!-- MAIN CONTENT -->
-  <section class="py-20 bg-white">
-    <div class="max-w-5xl mx-auto px-6">
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
-        <div class="reveal">
-          <h2 class="text-2xl font-display font-bold text-[#1a1a1a] mb-5">About the Game</h2>
-          <p class="text-gray-600 leading-relaxed text-lg mb-6">
+  <section style="padding:3.5rem 2rem; background:#fff;">
+    <div style="max-width:1000px; margin:0 auto;">
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:3rem; align-items:start;" class="reveal">
+        <div>
+          <div class="section-heading" style="text-align:left;">
+            <span class="label">In Development</span>
+            <h2>About the Game</h2>
+            <span class="star" style="display:block; text-align:left;">★</span>
+          </div>
+          <p style="font-family:'Raleway',sans-serif; font-size:0.95em; color:#333; line-height:1.8; margin-top:1.5rem; margin-bottom:1.25rem;">
             Access: Entree is a unique social-simulation roleplaying game where the player moves into a small town and helps develop the community to be more accessible to its residents with disabilities.
           </p>
-          <div class="flex flex-wrap gap-3">
-            <a href="https://accessentree.com" target="_blank" rel="noopener noreferrer" class="btn-primary">Visit Game Website</a>
-            <a href="#" class="btn-orange">Support on Kickstarter</a>
+          <div style="display:flex; gap:1rem; flex-wrap:wrap; margin-top:1.5rem;">
+            <a href="https://accessentree.com" target="_blank" rel="noopener noreferrer" class="btn-teal">Visit Game Website</a>
+            <a href="/donate/" class="btn-orange">Support on Kickstarter</a>
           </div>
         </div>
-        <div class="reveal img-placeholder h-72 w-full rounded-lg" style="transition-delay:100ms">Access: Entree Screenshot</div>
+        <div class="img-placeholder" style="height:280px; width:100%;">Access: Entree Screenshot</div>
       </div>
     </div>
   </section>
 
-  <!-- GAMEPLAY -->
-  <section class="py-20 bg-gray-50">
-    <div class="max-w-4xl mx-auto px-6 reveal">
-      <h2 class="text-3xl font-display font-bold text-[#1a1a1a] mb-6 text-center">Gameplay</h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-        <div>
-          <div class="img-placeholder h-48 w-full rounded-lg mb-4">Gameplay Screenshot 1</div>
-        </div>
-        <div>
-          <div class="img-placeholder h-48 w-full rounded-lg mb-4">Gameplay Screenshot 2</div>
-        </div>
+  <section style="padding:3.5rem 2rem; background:#f7f7f7;">
+    <div style="max-width:1000px; margin:0 auto;">
+      <div class="section-heading reveal">
+        <span class="label">Screenshots</span>
+        <h2>Gameplay</h2>
+        <span class="star">★</span>
+      </div>
+      <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:1.5rem; margin-top:2rem;">
+        {[1,2,3].map(n => (
+          <div class="img-placeholder reveal" style={`height:180px; width:100%; transition-delay:${(n-1)*80}ms;`}>Screenshot {n}</div>
+        ))}
       </div>
     </div>
   </section>
 
-  <!-- BACK -->
-  <section class="py-10 bg-white border-t border-gray-100">
-    <div class="max-w-4xl mx-auto px-6 flex justify-between items-center">
-      <a href="/projects/" class="text-[#27CCC0] hover:underline text-sm font-semibold">&larr; All Projects</a>
+  <section style="padding:2rem 2rem; background:#fff; border-top:1px solid #eee;">
+    <div style="max-width:1000px; margin:0 auto; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem;">
+      <a href="/projects/" style="color:#35CCC0; font-family:'Raleway',sans-serif; font-size:0.85rem; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; text-decoration:none;">← All Projects</a>
       <a href="/donate/" class="btn-orange">Support This Project</a>
     </div>
   </section>
+
+  <style>
+    @media (max-width:700px) {
+      section > div[style*="grid-template-columns:1fr 1fr"] { grid-template-columns:1fr !important; }
+    }
+  </style>
 
 </Layout>

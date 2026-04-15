@@ -4,51 +4,61 @@ import Layout from '../../layouts/Layout.astro';
 
 <Layout title="Wheelchaired for a Day" description="Wheelchaired for a Day — an empathy-building event where people experienced being in a wheelchair for a day.">
 
-  <!-- PAGE HEADER -->
-  <section class="bg-[#1a1a1a] py-20 text-center">
-    <div class="max-w-3xl mx-auto px-6">
-      <span class="text-[#27CCC0] text-xs font-semibold uppercase tracking-widest mb-4 block">Empathy Event</span>
-      <h1 class="text-4xl sm:text-5xl font-display font-bold text-white mb-4">Wheelchaired for a Day</h1>
+  <section style="padding:3rem 1rem 2.5rem; text-align:center; background:#fff;">
+    <div class="page-title-block">
+      <span class="star">★</span>
+      <h1>Wheelchaired for a Day</h1>
     </div>
   </section>
 
-  <!-- ABOUT -->
-  <section class="py-20 bg-white">
-    <div class="max-w-5xl mx-auto px-6">
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-start">
-        <div class="reveal">
-          <h2 class="text-2xl font-display font-bold text-[#1a1a1a] mb-5">About the Event</h2>
-          <p class="text-gray-600 leading-relaxed text-lg mb-4">
+  <section style="padding:3.5rem 2rem; background:#fff;">
+    <div style="max-width:1000px; margin:0 auto;">
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:3rem; align-items:start;" class="reveal">
+        <div>
+          <div class="section-heading" style="text-align:left;">
+            <span class="label">Empathy Event</span>
+            <h2>About the Event</h2>
+            <span class="star" style="display:block; text-align:left;">★</span>
+          </div>
+          <p style="font-family:'Raleway',sans-serif; font-size:0.95em; color:#333; line-height:1.8; margin-top:1.5rem; margin-bottom:1rem;">
             Wheelchaired for a Day is an empathy-building event where people experienced being in a wheelchair for a day.
           </p>
-          <p class="text-gray-600 leading-relaxed mb-6">
+          <p style="font-family:'Raleway',sans-serif; font-size:0.9em; color:#555; line-height:1.8; margin-bottom:1.5rem;">
             By spending a full day navigating the world from a wheelchair, participants gain a firsthand understanding of the accessibility challenges faced daily by people with disabilities. This experience fosters genuine empathy and inspires real change.
           </p>
-          <a href="/volunteer/" class="btn-primary">Get Involved</a>
+          <a href="/volunteer/" class="btn-teal">Get Involved</a>
         </div>
-        <div class="reveal img-placeholder h-72 w-full rounded-lg" style="transition-delay:100ms">Event Photo</div>
+        <div class="img-placeholder" style="height:280px; width:100%;">Event Photo</div>
       </div>
     </div>
   </section>
 
-  <!-- GALLERY PLACEHOLDER -->
-  <section class="py-20 bg-gray-50">
-    <div class="max-w-5xl mx-auto px-6">
-      <h2 class="text-3xl font-display font-bold text-[#1a1a1a] mb-10 text-center reveal">Event Gallery</h2>
-      <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
-        {[1,2,3,4,5,6].map((n, i) => (
-          <div class="reveal img-placeholder h-44 w-full rounded" style={`transition-delay: ${i * 60}ms`}>Photo {n}</div>
+  <section style="padding:3.5rem 2rem; background:#f7f7f7;">
+    <div style="max-width:1000px; margin:0 auto;">
+      <div class="section-heading reveal">
+        <span class="label">Photos</span>
+        <h2>Event Gallery</h2>
+        <span class="star">★</span>
+      </div>
+      <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:1rem; margin-top:2rem;">
+        {[1,2,3,4,5,6].map((n,i) => (
+          <div class="img-placeholder reveal" style={`height:160px; width:100%; transition-delay:${i*60}ms;`}>Photo {n}</div>
         ))}
       </div>
     </div>
   </section>
 
-  <!-- BACK -->
-  <section class="py-10 bg-white border-t border-gray-100">
-    <div class="max-w-5xl mx-auto px-6 flex justify-between items-center">
-      <a href="/projects/" class="text-[#27CCC0] hover:underline text-sm font-semibold">&larr; All Projects</a>
+  <section style="padding:2rem 2rem; background:#fff; border-top:1px solid #eee;">
+    <div style="max-width:1000px; margin:0 auto; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem;">
+      <a href="/projects/" style="color:#35CCC0; font-family:'Raleway',sans-serif; font-size:0.85rem; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; text-decoration:none;">← All Projects</a>
       <a href="/donate/" class="btn-orange">Support This Project</a>
     </div>
   </section>
+
+  <style>
+    @media (max-width:700px) {
+      section > div[style*="grid-template-columns:1fr 1fr"] { grid-template-columns:1fr !important; }
+    }
+  </style>
 
 </Layout>

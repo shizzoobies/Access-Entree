@@ -1,85 +1,109 @@
 ---
-const navLinks = [
-  { label: 'Projects', href: '/projects/' },
-  { label: 'Volunteer', href: '/volunteer/' },
-  { label: 'Donate', href: '/donate/' },
-  { label: 'Contact', href: '/contact/' },
-  { label: 'About Us', href: '/about/' },
-];
-
 const currentPath = Astro.url.pathname;
+
+const projectLinks = [
+  { label: 'Access: EnTree', href: '/projects/access-entree/' },
+  { label: 'Latest Updates', href: '/projects/' },
+  { label: 'Changed', href: '/projects/changed/' },
+  { label: 'Wheelchaired for a Day', href: '/projects/wheelchaired-for-a-day/' },
+];
 ---
 
-<header class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-100 shadow-sm">
-  <div class="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+<header style="background:#fff; border-bottom:1px solid #eee; position:sticky; top:0; z-index:1000;">
+  <div style="max-width:1400px; margin:0 auto; padding:0 2rem; display:flex; align-items:center; justify-content:space-between; height:80px;">
+
     <!-- Logo -->
-    <a href="/" class="flex items-center gap-3 group" aria-label="FDAAF Home">
-      <img src="/images/logo.png" alt="FDAAF Logo" class="h-10 w-auto" />
-      <span class="font-display font-bold text-lg text-[#1a1a1a] leading-tight hidden sm:block">
-        FDAAF
-      </span>
+    <a href="/" aria-label="FDAAF Home" style="display:flex; align-items:center; gap:0.75rem; text-decoration:none;">
+      <div class="img-placeholder" style="width:120px; height:40px; border-radius:2px; font-size:0.6rem;">Logo</div>
     </a>
 
     <!-- Desktop Nav -->
-    <nav aria-label="Main navigation" class="hidden md:flex items-center gap-8">
-      {navLinks.map(link => (
-        <a
-          href={link.href}
-          class={`font-body text-sm font-500 tracking-wide transition-colors duration-200 ${
-            currentPath.startsWith(link.href)
-              ? 'text-[#27CCC0]'
-              : 'text-gray-700 hover:text-[#27CCC0]'
-          }`}
-        >
-          {link.label}
+    <nav aria-label="Main navigation" style="display:flex; align-items:center; gap:2rem; font-family:'Roboto',sans-serif; font-size:0.8rem; font-weight:700; text-transform:uppercase; letter-spacing:0.08em;">
+      <a href="/" style={`color:${currentPath === '/' ? '#27CCC0' : '#000'}; text-decoration:none;`}
+        onmouseover="this.style.color='#27CCC0'" onmouseout="this.style.color='#000'">Home</a>
+
+      <!-- Projects dropdown -->
+      <div style="position:relative;" class="nav-dropdown-wrap">
+        <a href="/projects/"
+          style={`color:${currentPath.startsWith('/projects') ? '#27CCC0' : '#000'}; text-decoration:none; display:flex; align-items:center; gap:0.3rem; cursor:pointer;`}>
+          Projects <span style="font-size:0.6rem;">▾</span>
         </a>
-      ))}
-      <a href="/donate/" class="btn-primary text-xs py-2 px-5">Donate</a>
+        <div class="nav-dropdown" style="display:none; position:absolute; top:100%; left:0; background:#fff; border:1px solid #eee; box-shadow:0 4px 12px rgba(0,0,0,0.1); min-width:200px; z-index:100; padding:0.5rem 0;">
+          {projectLinks.map(link => (
+            <a href={link.href} style="display:block; padding:0.6rem 1.2rem; color:#000; font-size:0.75rem; text-decoration:none; white-space:nowrap;"
+              onmouseover="this.style.color='#27CCC0'; this.style.background='#f9f9f9'"
+              onmouseout="this.style.color='#000'; this.style.background='transparent'">
+              {link.label}
+            </a>
+          ))}
+        </div>
+      </div>
+
+      <a href="/volunteer/" style={`color:${currentPath.startsWith('/volunteer') ? '#27CCC0' : '#000'}; text-decoration:none;`}
+        onmouseover="this.style.color='#27CCC0'" onmouseout="this.style.color='#000'">Volunteer</a>
+      <a href="/donate/" style={`color:${currentPath.startsWith('/donate') ? '#27CCC0' : '#000'}; text-decoration:none;`}
+        onmouseover="this.style.color='#27CCC0'" onmouseout="this.style.color='#000'">Donate</a>
+      <a href="/contact/" style={`color:${currentPath.startsWith('/contact') ? '#27CCC0' : '#000'}; text-decoration:none;`}
+        onmouseover="this.style.color='#27CCC0'" onmouseout="this.style.color='#000'">Contact</a>
+      <a href="/about/" style={`color:${currentPath.startsWith('/about') ? '#27CCC0' : '#000'}; text-decoration:none;`}
+        onmouseover="this.style.color='#27CCC0'" onmouseout="this.style.color='#000'">About Us</a>
+
+      <!-- Social icons -->
+      <div style="display:flex; align-items:center; gap:0.75rem; margin-left:0.5rem;">
+        <a href="https://twitter.com/FDAAFoundation" target="_blank" rel="noopener noreferrer" aria-label="Twitter" style="color:#000; text-decoration:none;"
+          onmouseover="this.style.color='#27CCC0'" onmouseout="this.style.color='#000'">
+          <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        </a>
+        <a href="https://www.facebook.com/fdaaf" target="_blank" rel="noopener noreferrer" aria-label="Facebook" style="color:#000; text-decoration:none;"
+          onmouseover="this.style.color='#27CCC0'" onmouseout="this.style.color='#000'">
+          <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"/></svg>
+        </a>
+        <a href="https://www.youtube.com/@fdaaf" target="_blank" rel="noopener noreferrer" aria-label="YouTube" style="color:#000; text-decoration:none;"
+          onmouseover="this.style.color='#27CCC0'" onmouseout="this.style.color='#000'">
+          <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+        </a>
+      </div>
     </nav>
 
     <!-- Mobile hamburger -->
-    <button
-      id="menu-toggle"
-      aria-label="Open menu"
-      aria-expanded="false"
-      aria-controls="mobile-menu"
-      class="md:hidden flex flex-col gap-1.5 p-2"
-    >
-      <span class="block w-6 h-0.5 bg-gray-700 transition-all"></span>
-      <span class="block w-6 h-0.5 bg-gray-700 transition-all"></span>
-      <span class="block w-6 h-0.5 bg-gray-700 transition-all"></span>
+    <button id="menu-toggle" aria-label="Open menu" aria-expanded="false"
+      style="display:none; flex-direction:column; gap:5px; background:none; border:none; cursor:pointer; padding:0.5rem;">
+      <span style="display:block; width:24px; height:2px; background:#000;"></span>
+      <span style="display:block; width:24px; height:2px; background:#000;"></span>
+      <span style="display:block; width:24px; height:2px; background:#000;"></span>
     </button>
   </div>
 
   <!-- Mobile menu -->
-  <div
-    id="mobile-menu"
-    class="hidden md:hidden bg-white border-t border-gray-100"
-    role="dialog"
-    aria-label="Mobile navigation"
-  >
-    <nav class="max-w-6xl mx-auto px-6 py-6 flex flex-col gap-4">
-      {navLinks.map(link => (
-        <a
-          href={link.href}
-          class="font-body text-base text-gray-700 hover:text-[#27CCC0] transition-colors py-1 border-b border-gray-50"
-        >
-          {link.label}
-        </a>
-      ))}
-      <a href="/donate/" class="btn-primary text-center mt-2">Donate Now</a>
+  <div id="mobile-menu" style="display:none; background:#fff; border-top:1px solid #eee;">
+    <nav style="max-width:1400px; margin:0 auto; padding:1rem 2rem; display:flex; flex-direction:column; gap:1rem; font-family:'Roboto',sans-serif; font-size:0.85rem; font-weight:700; text-transform:uppercase;">
+      <a href="/" style="color:#000; text-decoration:none;">Home</a>
+      <a href="/projects/" style="color:#000; text-decoration:none;">Projects</a>
+      <a href="/projects/access-entree/" style="color:#555; text-decoration:none; padding-left:1rem; font-size:0.78rem;">↳ Access: EnTree</a>
+      <a href="/projects/changed/" style="color:#555; text-decoration:none; padding-left:1rem; font-size:0.78rem;">↳ Changed</a>
+      <a href="/projects/wheelchaired-for-a-day/" style="color:#555; text-decoration:none; padding-left:1rem; font-size:0.78rem;">↳ Wheelchaired for a Day</a>
+      <a href="/volunteer/" style="color:#000; text-decoration:none;">Volunteer</a>
+      <a href="/donate/" style="color:#000; text-decoration:none;">Donate</a>
+      <a href="/contact/" style="color:#000; text-decoration:none;">Contact</a>
+      <a href="/about/" style="color:#000; text-decoration:none;">About Us</a>
     </nav>
   </div>
 </header>
 
-<!-- Spacer so content isn't hidden under fixed header -->
-<div class="h-[73px]"></div>
+<style>
+  @media (max-width: 900px) {
+    header nav { display: none !important; }
+    #menu-toggle { display: flex !important; }
+  }
+  .nav-dropdown-wrap:hover .nav-dropdown { display: block !important; }
+</style>
 
 <script>
   const toggle = document.getElementById('menu-toggle');
   const menu = document.getElementById('mobile-menu');
   toggle?.addEventListener('click', () => {
-    const open = menu?.classList.toggle('hidden') === false;
+    const open = menu?.style.display === 'none';
+    menu!.style.display = open ? 'block' : 'none';
     toggle.setAttribute('aria-expanded', String(open));
   });
 </script>

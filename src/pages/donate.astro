@@ -11,81 +11,89 @@ const tiers = [
 
 <Layout title="Donate" description="Support FDAAF — empowering the disability community through media and innovation. Your donation makes a difference.">
 
-  <!-- PAGE HEADER -->
-  <section class="bg-[#1a1a1a] py-20 text-center">
-    <div class="max-w-3xl mx-auto px-6">
-      <h1 class="text-4xl sm:text-5xl font-display font-bold text-white mb-4">Donate to FDAAF</h1>
-      <p class="text-white/60 text-lg">Your Donation Makes a Difference!</p>
+  <!-- PAGE TITLE -->
+  <section style="padding:3rem 1rem 2.5rem; text-align:center; background:#fff;">
+    <div class="page-title-block">
+      <span class="star">★</span>
+      <h1>Donate to FDAAF</h1>
     </div>
   </section>
 
   <!-- MISSION -->
-  <section class="py-20 bg-white">
-    <div class="max-w-4xl mx-auto px-6 reveal">
-      <h2 class="text-3xl font-display font-bold text-[#1a1a1a] mb-6 text-center">
+  <section style="padding:3.5rem 2rem; background:#fff; text-align:center;">
+    <div style="max-width:800px; margin:0 auto;" class="reveal">
+      <div class="section-heading">
+        <span class="label">Make a Difference</span>
+        <h2>Your Donation Makes a Difference!</h2>
+        <span class="star">★</span>
+      </div>
+      <p style="font-family:'Raleway',sans-serif; font-size:1em; color:#333; line-height:1.8; margin-top:1.5rem;">
         Support FDAAF: Empowering the Disability Community Through Media and Innovation
-      </h2>
-      <p class="text-gray-600 leading-relaxed text-lg text-center mb-4">
+      </p>
+      <p style="font-family:'Raleway',sans-serif; font-size:0.9em; color:#555; line-height:1.8; margin-top:1rem;">
         At the Florida Disability Access and Awareness Foundation (FDAAF), we're on a mission to create a more inclusive world. We develop interactive media, including video games and empathy-building experiences, that give a voice to people with disabilities.
       </p>
-      <p class="text-gray-500 text-center text-sm">
-        We accept every donation with gratitude, also offering sponsorship and investment possibilities. We don't believe in large corporate structures, excessive salaries and overhead. In fact, we rely mostly on volunteers and interns who appreciate the experience of driving social change. Still, we need your help to push our projects further.
+      <p style="font-family:'Raleway',sans-serif; font-size:0.9em; color:#555; line-height:1.8; margin-top:1rem;">
+        Every donation is used to boost awareness and accessibility for the disability community through media and technology.
       </p>
     </div>
   </section>
 
   <!-- TIERS -->
-  <section class="py-20 bg-gray-50">
-    <div class="max-w-5xl mx-auto px-6">
-      <h2 class="text-3xl font-display font-bold text-[#1a1a1a] mb-12 text-center reveal">Your Impact</h2>
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+  <section style="padding:3.5rem 2rem; background:#f7f7f7;">
+    <div style="max-width:1100px; margin:0 auto;">
+      <div class="section-heading reveal">
+        <span class="label">Give Today</span>
+        <h2>Your Impact</h2>
+        <span class="star">★</span>
+      </div>
+      <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:1.5rem; margin-top:2.5rem;">
         {tiers.map((tier, i) => (
-          <div class="reveal bg-white rounded-lg border border-gray-100 shadow-sm p-6 text-center flex flex-col" style={`transition-delay: ${i * 80}ms`}>
-            <div class="text-4xl font-display font-bold text-[#27CCC0] mb-4">{tier.amount}</div>
-            <p class="text-gray-600 text-sm leading-relaxed flex-1">{tier.desc}</p>
-            <a
-              href="https://www.mightycause.com/organization/Fdaaf"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="btn-primary mt-5 text-center"
-            >
-              Donate {tier.amount}
-            </a>
+          <div class="reveal" style={`transition-delay:${i*80}ms; background:#fff; border:1px solid #eee; padding:2rem; text-align:center;`}>
+            <div style="font-family:'Playfair Display',Georgia,serif; font-style:italic; font-size:2.5rem; font-weight:900; color:#35CCC0; margin-bottom:1rem;">{tier.amount}</div>
+            <p style="font-family:'Raleway',sans-serif; font-size:0.85rem; color:#555; line-height:1.7; margin-bottom:1.5rem;">{tier.desc}</p>
+            <a href="https://www.mightycause.com/organization/Fdaaf" target="_blank" rel="noopener noreferrer" class="btn-teal">Donate {tier.amount}</a>
           </div>
         ))}
       </div>
     </div>
   </section>
 
-  <!-- MIGHTYCAUSE EMBED PLACEHOLDER -->
-  <section class="py-20 bg-white">
-    <div class="max-w-3xl mx-auto px-6 text-center reveal">
-      <h2 class="text-2xl font-display font-bold text-[#1a1a1a] mb-6">Donate Now</h2>
-      <div class="img-placeholder h-48 w-full rounded-lg mb-6" style="background:#f0faf9; border-color:#27CCC0;">
-        MightyCause Donation Form — Embed Here
+  <!-- MIGHTYCAUSE EMBED -->
+  <section style="padding:3.5rem 2rem; background:#fff; text-align:center;">
+    <div style="max-width:900px; margin:0 auto;" class="reveal">
+      <div class="section-heading">
+        <span class="label">Secure Donation</span>
+        <h2>Donate Now</h2>
+        <span class="star">★</span>
       </div>
-      <a
-        href="https://www.mightycause.com/organization/Fdaaf"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="btn-primary"
-      >
-        Donate on MightyCause
-      </a>
+      <!-- MightyCause iframe embed — displays their hosted donation page inline -->
+      <div style="margin-top:2rem; border:1px solid #eee; overflow:hidden; border-radius:2px;">
+        <iframe
+          src="https://www.mightycause.com/organization/Fdaaf/donate"
+          width="100%"
+          height="700"
+          frameborder="0"
+          scrolling="auto"
+          title="Donate to FDAAF via MightyCause"
+          style="display:block;"
+          loading="lazy"
+        ></iframe>
+      </div>
+      <!-- Fallback if iframe is blocked by MightyCause -->
+      <p style="font-family:'Raleway',sans-serif; font-size:0.8rem; color:#999; margin-top:1rem;">
+        If the form above doesn't load,{' '}
+        <a href="https://www.mightycause.com/organization/Fdaaf" target="_blank" rel="noopener noreferrer" style="color:#35CCC0; text-decoration:none;">click here to donate directly on MightyCause</a>.
+      </p>
     </div>
   </section>
 
-  <!-- LEGAL + CONTACT -->
-  <section class="py-14 bg-gray-50 border-t border-gray-100">
-    <div class="max-w-3xl mx-auto px-6 text-center reveal">
-      <p class="text-gray-500 text-sm leading-relaxed mb-2">
-        FDAAF is a registered 501(c)(3) nonprofit, Florida registration CH42912. All contributions are tax-deductible.
-      </p>
-      <p class="text-gray-500 text-sm">
-        For sponsorships or custom giving arrangements, contact us at{' '}
-        <a href="mailto:info@fdaaf.org" class="text-[#27CCC0] hover:underline">info@fdaaf.org</a>
-        {' '}or{' '}
-        <a href="https://twitter.com/FDAAFoundation" target="_blank" rel="noopener noreferrer" class="text-[#27CCC0] hover:underline">@FDAAFoundation</a>.
+  <!-- LEGAL -->
+  <section style="padding:2rem 2rem; background:#f7f7f7; border-top:1px solid #eee; text-align:center;">
+    <div style="max-width:700px; margin:0 auto;" class="reveal">
+      <p style="font-family:'Raleway',sans-serif; font-size:0.82rem; color:#999; line-height:1.8;">
+        FDAAF is a registered 501(c)(3) nonprofit, Florida registration CH42912. All contributions are tax-deductible.<br />
+        For sponsorships or custom giving, contact us at <a href="mailto:info@fdaaf.org" style="color:#35CCC0; text-decoration:none;">info@fdaaf.org</a> or <a href="https://twitter.com/FDAAFoundation" target="_blank" rel="noopener noreferrer" style="color:#35CCC0; text-decoration:none;">@FDAAFoundation</a>.
       </p>
     </div>
   </section>

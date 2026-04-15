@@ -15,60 +15,61 @@ const team = [
   {
     name: 'Michael Bridges',
     role: 'Audio Engineer',
-    bio: 'Bridges graduated from Carnegie Mellon\'s Audio Recording & Production program and founded SoundTruss Productions. He brings expertise in music, film, and video game audio to FDAAF, believing sound is a powerful storytelling tool for this cause.',
+    bio: "Bridges graduated from Carnegie Mellon's Audio Recording & Production program and founded SoundTruss Productions. He brings expertise in music, film, and video game audio to FDAAF, believing sound is a powerful storytelling tool for this cause.",
   },
   {
     name: 'Paul Brophy',
     role: 'Corporate Secretary and Treasurer',
-    bio: 'An Irish emigrant to Florida, Brophy built an accessible business in Gainesville and joined FDAAF in 2013. He works with Florida\'s Agency for People with Disabilities.',
+    bio: "An Irish emigrant to Florida, Brophy built an accessible business in Gainesville and joined FDAAF in 2013. He works with Florida's Agency for People with Disabilities.",
   },
 ];
 ---
 
 <Layout title="About Us" description="Learn about the Florida Disability Access and Awareness Foundation — our mission, our team, and our commitment to the disability community.">
 
-  <!-- PAGE HEADER -->
-  <section class="bg-[#1a1a1a] py-20 text-center">
-    <div class="max-w-3xl mx-auto px-6">
-      <h1 class="text-4xl sm:text-5xl font-display font-bold text-white mb-4">About Us</h1>
-      <p class="text-white/60 text-lg">Acceptance. Accessibility.</p>
+  <!-- PAGE TITLE -->
+  <section style="padding:3rem 1rem 2.5rem; text-align:center; background:#fff;">
+    <div class="page-title-block">
+      <span class="star">★</span>
+      <h1>About Us</h1>
     </div>
   </section>
 
   <!-- MISSION -->
-  <section class="py-20 bg-white">
-    <div class="max-w-4xl mx-auto px-6">
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-        <div class="reveal">
-          <h2 class="text-3xl font-display font-bold text-[#1a1a1a] mb-6">Our Mission</h2>
-          <p class="text-gray-600 leading-relaxed text-lg mb-4">
-            The Florida Disability Access and Awareness Foundation creates media to promote empathy and empowerment for the disability community.
-          </p>
-          <p class="text-gray-600 leading-relaxed mb-4">
-            Our ultimate goal is to help create an inclusive society where those with physical and intellectual challenges are treated with respect and their needs are understood and accommodated.
-          </p>
-          <p class="text-gray-500 text-sm">
-            FDAAF is a 501(c)(3) public charity. All contributions are tax-deductible.
-          </p>
-        </div>
-        <div class="reveal img-placeholder h-72 w-full rounded-lg" style="transition-delay:100ms">Mission Image</div>
+  <section style="padding:3.5rem 2rem; background:#fff; text-align:center;">
+    <div style="max-width:800px; margin:0 auto;" class="reveal">
+      <div class="section-heading">
+        <span class="label">Who We Are</span>
+        <h2>Acceptance. Accessibility.</h2>
+        <span class="star">★</span>
       </div>
+      <p style="font-family:'Raleway',sans-serif; font-size:1em; color:#333; line-height:1.8; margin-top:1.5rem;">
+        The Florida Disability Access and Awareness Foundation creates media to promote empathy and empowerment for the disability community.
+      </p>
+      <p style="font-family:'Raleway',sans-serif; font-size:0.95em; color:#555; line-height:1.8; margin-top:1rem;">
+        Our ultimate goal is to help create an inclusive society where those with physical and intellectual challenges are treated with respect and their needs are understood and accommodated.
+      </p>
+      <p style="font-family:'Raleway',sans-serif; font-size:0.85em; color:#999; margin-top:1rem;">
+        FDAAF is a 501(c)(3) public charity. All contributions are tax-deductible.
+      </p>
     </div>
   </section>
 
   <!-- TEAM -->
-  <section class="py-20 bg-gray-50">
-    <div class="max-w-6xl mx-auto px-6">
-      <h2 class="text-3xl sm:text-4xl font-display font-bold text-center text-[#1a1a1a] mb-14 reveal">Our Team</h2>
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+  <section style="padding:3.5rem 2rem; background:#f7f7f7;">
+    <div style="max-width:1100px; margin:0 auto;">
+      <div class="section-heading reveal">
+        <span class="label">The Team</span>
+        <h2>Meet Our People</h2>
+        <span class="star">★</span>
+      </div>
+      <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:2rem; margin-top:2.5rem;">
         {team.map((member, i) => (
-          <div class="reveal bg-white rounded-lg overflow-hidden shadow-sm border border-gray-100 flex flex-col" style={`transition-delay: ${i * 100}ms`}>
-            <div class="img-placeholder h-52 w-full">{member.name} Photo</div>
-            <div class="p-5 flex flex-col flex-1">
-              <h3 class="font-display text-lg font-bold text-[#1a1a1a] mb-1">{member.name}</h3>
-              <p class="text-[#27CCC0] text-xs font-semibold uppercase tracking-wide mb-3">{member.role}</p>
-              <p class="text-gray-600 text-sm leading-relaxed">{member.bio}</p>
-            </div>
+          <div class="reveal" style={`transition-delay:${i*80}ms; background:#fff; border:1px solid #eee; padding:1.75rem; text-align:center;`}>
+            <div class="img-placeholder" style="width:100px; height:100px; border-radius:50%; margin:0 auto 1.25rem; border:3px solid #35CCC0;">{member.name.split(' ')[0][0]}{member.name.split(' ')[1][0]}</div>
+            <h3 style="font-family:'Raleway',sans-serif; font-weight:900; font-size:0.9rem; text-transform:uppercase; letter-spacing:0.08em; color:#000; margin:0 0 0.25rem;">{member.name}</h3>
+            <p style="font-family:'Raleway',sans-serif; font-size:0.75rem; font-weight:700; text-transform:uppercase; letter-spacing:0.1em; color:#35CCC0; margin:0 0 1rem;">{member.role}</p>
+            <p style="font-family:'Raleway',sans-serif; font-size:0.83rem; color:#555; line-height:1.7;">{member.bio}</p>
           </div>
         ))}
       </div>
@@ -76,15 +77,19 @@ const team = [
   </section>
 
   <!-- GET INVOLVED -->
-  <section class="py-20 bg-[#27CCC0]">
-    <div class="max-w-3xl mx-auto px-6 text-center reveal">
-      <h2 class="text-3xl font-display font-bold text-white mb-4">Get Involved</h2>
-      <p class="text-white/90 leading-relaxed mb-8">
+  <section style="padding:3rem 2rem; background:#fff; text-align:center;">
+    <div style="max-width:600px; margin:0 auto;" class="reveal">
+      <div class="section-heading">
+        <span class="label">Join Us</span>
+        <h2>Get Involved</h2>
+        <span class="star">★</span>
+      </div>
+      <p style="font-family:'Raleway',sans-serif; font-size:0.95em; color:#333; line-height:1.8; margin-top:1.5rem;">
         Whether you want to volunteer, donate, or simply learn more, there's a place for you at FDAAF.
       </p>
-      <div class="flex flex-wrap gap-4 justify-center">
-        <a href="/volunteer/" class="inline-block bg-white text-[#27CCC0] font-bold font-body text-sm uppercase tracking-wide px-6 py-3 rounded hover:bg-gray-100 transition-colors">Volunteer</a>
-        <a href="/donate/" class="inline-block bg-[#F9A831] text-white font-bold font-body text-sm uppercase tracking-wide px-6 py-3 rounded hover:bg-[#e09420] transition-colors">Donate</a>
+      <div style="display:flex; gap:1rem; justify-content:center; flex-wrap:wrap; margin-top:1.75rem;">
+        <a href="/volunteer/" class="btn-teal">Volunteer</a>
+        <a href="/donate/" class="btn-orange">Donate</a>
       </div>
     </div>
   </section>

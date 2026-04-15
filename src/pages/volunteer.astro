@@ -17,55 +17,49 @@ const positions = [
 
 <Layout title="Volunteer" description="Volunteer with FDAAF — help empower the disability community by promoting accessibility and empathy through visual media.">
 
-  <!-- PAGE HEADER -->
-  <section class="bg-[#1a1a1a] py-20 text-center">
-    <div class="max-w-3xl mx-auto px-6">
-      <h1 class="text-4xl sm:text-5xl font-display font-bold text-white mb-4">Volunteer</h1>
+  <!-- PAGE TITLE -->
+  <section style="padding:3rem 1rem 2.5rem; text-align:center; background:#fff;">
+    <div class="page-title-block">
+      <span class="star">★</span>
+      <h1>Volunteer</h1>
     </div>
   </section>
 
   <!-- INTRO -->
-  <section class="py-20 bg-white">
-    <div class="max-w-4xl mx-auto px-6">
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-        <div class="reveal">
-          <h2 class="text-3xl font-display font-bold text-[#1a1a1a] mb-5">Volunteer with us</h2>
-          <p class="text-gray-600 leading-relaxed mb-4">
-            Our purpose is to raise awareness and create inclusion for the disability community. We rely on our dedicated volunteers to make our projects a reality.
-          </p>
-          <p class="text-gray-600 leading-relaxed mb-4">
-            When you volunteer with us, you help empower the disability community by promoting accessibility and empathy.
-          </p>
-          <p class="text-gray-600 leading-relaxed mb-4">
-            Our entire team works remotely from all across the US, interacting online and working on your own schedules.
-          </p>
-          <p class="text-gray-600 leading-relaxed mb-4">
-            We are looking for independent, driven, and organized people who want to be a part of something different and create positive change through visual media.
-          </p>
-          <p class="text-gray-600 leading-relaxed">
-            There are various positions being offered so, regardless of your talent you can be involved with creating a better future.
-          </p>
-        </div>
-        <div class="reveal img-placeholder h-64 w-full rounded-lg" style="transition-delay:100ms">Volunteer Image</div>
+  <section style="padding:3.5rem 2rem; background:#fff; text-align:center;">
+    <div style="max-width:800px; margin:0 auto;" class="reveal">
+      <div class="section-heading">
+        <span class="label">Join the Team</span>
+        <h2>Volunteer with us</h2>
+        <span class="star">★</span>
+      </div>
+      <div style="font-family:'Raleway',sans-serif; font-size:0.95em; color:#333; line-height:1.8; margin-top:1.5rem; text-align:left; max-width:680px; margin-left:auto; margin-right:auto;">
+        <p style="margin-bottom:1rem;">Our purpose is to raise awareness and create inclusion for the disability community. We rely on our dedicated volunteers to make our projects a reality.</p>
+        <p style="margin-bottom:1rem;">When you volunteer with us, you help empower the disability community by promoting accessibility and empathy.</p>
+        <p style="margin-bottom:1rem;">Our entire team works remotely from all across the US, interacting online and working on your own schedules.</p>
+        <p style="margin-bottom:1rem;">We are looking for independent, driven, and organized people who want to be a part of something different and create positive change through visual media.</p>
+        <p>There are various positions being offered so, regardless of your talent you can be involved with creating a better future.</p>
       </div>
     </div>
   </section>
 
   <!-- OPEN POSITIONS -->
-  <section class="py-20 bg-gray-50">
-    <div class="max-w-4xl mx-auto px-6">
-      <h2 class="text-3xl font-display font-bold text-[#1a1a1a] mb-10 text-center reveal">Open Positions</h2>
-      <div class="space-y-6">
+  <section style="padding:3.5rem 2rem; background:#f7f7f7;">
+    <div style="max-width:900px; margin:0 auto;">
+      <div class="section-heading reveal">
+        <span class="label">Now Hiring</span>
+        <h2>Open Positions</h2>
+        <span class="star">★</span>
+      </div>
+      <div style="display:flex; flex-direction:column; gap:1.5rem; margin-top:2.5rem;">
         {positions.map((pos, i) => (
-          <div class="reveal bg-white rounded-lg border border-gray-100 shadow-sm p-6" style={`transition-delay: ${i * 100}ms`}>
-            <div class="flex flex-col sm:flex-row sm:items-start sm:justify-between gap-4">
-              <div>
-                <h3 class="font-display text-xl font-bold text-[#1a1a1a] mb-1">{pos.title}</h3>
-                <p class="text-[#27CCC0] text-xs font-semibold uppercase tracking-wide mb-3">{pos.type}</p>
-                <p class="text-gray-600 text-sm leading-relaxed">{pos.desc}</p>
-              </div>
-              <a href="/contact/" class="btn-primary whitespace-nowrap self-start">More Details</a>
+          <div class="reveal" style={`transition-delay:${i*80}ms; background:#fff; border:1px solid #eee; padding:1.75rem; display:flex; flex-wrap:wrap; justify-content:space-between; align-items:flex-start; gap:1.5rem;`}>
+            <div style="flex:1; min-width:200px;">
+              <h3 style="font-family:'Raleway',sans-serif; font-weight:900; font-size:0.95rem; text-transform:uppercase; letter-spacing:0.05em; color:#000; margin:0 0 0.4rem;">{pos.title}</h3>
+              <p style="font-family:'Raleway',sans-serif; font-size:0.75rem; font-weight:700; text-transform:uppercase; letter-spacing:0.1em; color:#35CCC0; margin:0 0 0.75rem;">{pos.type}</p>
+              <p style="font-family:'Raleway',sans-serif; font-size:0.85rem; color:#555; line-height:1.6;">{pos.desc}</p>
             </div>
+            <a href="/contact/" class="btn-teal" style="white-space:nowrap; align-self:flex-start;">More Details</a>
           </div>
         ))}
       </div>
@@ -73,30 +67,29 @@ const positions = [
   </section>
 
   <!-- STUDENTS -->
-  <section class="py-16 bg-white border-t border-gray-100">
-    <div class="max-w-3xl mx-auto px-6 text-center reveal">
-      <h2 class="text-2xl font-display font-bold text-[#1a1a1a] mb-4">Students & Interns</h2>
-      <p class="text-gray-600 leading-relaxed mb-6">
-        Student volunteers can use positions as internship experience. We coordinate with partner schools to arrange credit where available.
+  <section style="padding:3rem 2rem; background:#fff; text-align:center;">
+    <div style="max-width:650px; margin:0 auto;" class="reveal">
+      <div class="section-heading">
+        <span class="label">Students & Veterans</span>
+        <h2>Student Opportunities</h2>
+        <span class="star">★</span>
+      </div>
+      <p style="font-family:'Raleway',sans-serif; font-size:0.95em; color:#333; line-height:1.8; margin-top:1.5rem;">
+        Student volunteers can use positions as internship experience. We coordinate with partner schools to arrange credit where available. Students and military veterans are especially welcome!
       </p>
-      <a href="/contact/" class="btn-outline">Contact Us to Learn More</a>
+      <div style="margin-top:1.75rem;">
+        <a href="/contact/" class="btn-teal">Contact Us to Learn More</a>
+      </div>
     </div>
   </section>
 
   <!-- NEWSLETTER -->
-  <section class="py-16 bg-gray-50 border-t border-gray-100">
-    <div class="max-w-xl mx-auto px-6 text-center reveal">
-      <h2 class="text-2xl font-display font-bold text-[#1a1a1a] mb-4">Stay Updated</h2>
-      <p class="text-gray-500 mb-6">Subscribe to our newsletter to hear about new volunteer opportunities.</p>
-      <form class="flex flex-col sm:flex-row gap-3 justify-center" action="#" method="post">
-        <input
-          type="email"
-          name="email"
-          placeholder="Your email address"
-          required
-          class="flex-1 border border-gray-300 rounded px-4 py-3 text-sm focus:outline-none focus:border-[#27CCC0]"
-        />
-        <button type="submit" class="btn-primary whitespace-nowrap">Subscribe</button>
+  <section style="padding:3rem 2rem; background:#f7f7f7; text-align:center;">
+    <div style="max-width:500px; margin:0 auto;" class="reveal">
+      <h3 style="font-family:'Raleway',sans-serif; font-weight:900; font-size:1rem; text-transform:uppercase; letter-spacing:0.1em; margin-bottom:1.25rem;">Subscribe to our Newsletter</h3>
+      <form style="display:flex; gap:0.5rem; flex-wrap:wrap;" action="#" method="post">
+        <input type="email" name="email" placeholder="Your email address" required style="flex:1; min-width:220px;" />
+        <button type="submit" class="btn-teal">Subscribe</button>
       </form>
     </div>
   </section>

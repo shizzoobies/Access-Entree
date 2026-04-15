@@ -4,93 +4,98 @@ import Layout from '../layouts/Layout.astro';
 
 <Layout title="Home" description="Florida Disability Access and Awareness Foundation — Using media for change. A nonprofit creating media to promote understanding, empathy, and empowerment for the disability community.">
 
-  <!-- HERO -->
-  <section class="relative min-h-[560px] flex items-center justify-center text-center bg-[#1a1a1a] overflow-hidden">
-    <div class="img-placeholder absolute inset-0 w-full h-full" aria-hidden="true" style="border:none; background: linear-gradient(135deg, #1a3a3a 0%, #1a1a1a 100%);">
-      <span class="opacity-30">Hero Image Placeholder</span>
-    </div>
-    <div class="relative z-10 max-w-3xl mx-auto px-6 py-24">
-      <h1 class="text-5xl sm:text-6xl lg:text-7xl font-display font-bold text-white leading-tight mb-6">
-        Using Media for Change
-      </h1>
-      <p class="text-white/80 text-lg leading-relaxed mb-8 max-w-2xl mx-auto">
+  <!-- ═══ HERO ═══ -->
+  <section style="border-top:8px solid #35CCC0; border-bottom:8px solid #35CCC0; padding:4rem 1rem 3rem; text-align:center; background:#fff;">
+    <div style="max-width:900px; margin:0 auto;">
+      <p style="font-family:'Raleway',sans-serif; font-weight:900; font-size:0.75rem; letter-spacing:0.15em; text-transform:uppercase; color:#F9A831; margin-bottom:0.5rem;">Using Media for Change</p>
+      <h1 style="font-family:'Playfair Display',Georgia,serif; font-style:italic; font-weight:900; font-size:clamp(2.5rem,7vw,5rem); color:#000; margin:0 0 0.5rem;">Using Media for Change</h1>
+      <div style="font-size:1.4rem; color:#F9A831; margin:1rem 0;">★</div>
+      <p style="font-family:'Raleway',sans-serif; font-size:1em; font-weight:500; color:#333; line-height:1.8; max-width:680px; margin:0 auto 1.5rem;">
         The Florida Disability Access and Awareness Foundation is a nonprofit creating media to promote understanding, empathy, and empowerment for the disability community. We challenge stereotypes and negativity through optimism and positive storytelling.
       </p>
-      <div class="flex flex-wrap gap-4 justify-center">
-        <a href="/about/" class="btn-primary">Learn More</a>
-        <a href="/donate/" class="btn-orange">Donate</a>
+      <a href="/about/" class="btn-teal">Learn More</a>
+    </div>
+  </section>
+
+  <!-- ═══ ABOUT / UPDATES INTRO ═══ -->
+  <section style="padding:3.5rem 2rem; background:#fff; text-align:center;">
+    <div style="max-width:800px; margin:0 auto;">
+      <div class="section-heading">
+        <span class="label">Updates</span>
+        <h2>There's Always Something New</h2>
+        <span class="star">★</span>
+      </div>
+      <p style="font-family:'Raleway',sans-serif; font-size:1em; color:#333; line-height:1.8; margin-top:1.5rem;">
+        The Florida Disability Access and Awareness Foundation is a nonprofit creating media to promote understanding, empathy, and empowerment for the disability community. We challenge stereotypes and negativity through optimism and positive storytelling.
+      </p>
+      <div style="margin-top:1.5rem;">
+        <a href="/projects/" class="btn-teal">Learn More</a>
       </div>
     </div>
   </section>
 
-  <!-- CORE VALUES -->
-  <section class="py-20 bg-white">
-    <div class="max-w-6xl mx-auto px-6">
-      <h2 class="text-3xl sm:text-4xl font-display text-center text-[#1a1a1a] mb-14 reveal">Our Values</h2>
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+  <!-- ═══ BLOG / UPDATES CARDS ═══ -->
+  <section style="padding:2rem 2rem 3.5rem; background:#fff;">
+    <div style="max-width:1200px; margin:0 auto; display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:2rem;">
+      {[1,2,3,4].map(n => (
+        <article style="border:1px solid #eee; overflow:hidden;">
+          <div class="img-placeholder" style="height:180px; width:100%;">Post Image {n}</div>
+          <div style="padding:1.25rem;">
+            <p style="font-family:'Raleway',sans-serif; font-size:0.7rem; color:#999; text-transform:uppercase; letter-spacing:0.1em; margin-bottom:0.5rem;">Update</p>
+            <h3 style="font-family:'Playfair Display',Georgia,serif; font-size:1.1rem; font-weight:700; margin:0 0 0.5rem; color:#000;">Latest Update {n}</h3>
+            <p style="font-family:'Raleway',sans-serif; font-size:0.85rem; color:#555; line-height:1.6; margin-bottom:0.75rem;">News and updates from the foundation will appear here.</p>
+            <a href="/projects/" style="color:#35CCC0; font-family:'Raleway',sans-serif; font-size:0.8rem; font-weight:700; text-transform:uppercase; letter-spacing:0.05em; text-decoration:none;">Read More →</a>
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <!-- ═══ CORE VALUES ═══ -->
+  <section style="padding:3.5rem 2rem; background:#f7f7f7;">
+    <div style="max-width:1200px; margin:0 auto;">
+      <div class="section-heading reveal">
+        <span class="label">What We Stand For</span>
+        <h2>Our Values</h2>
+        <span class="star">★</span>
+      </div>
+      <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:2rem; margin-top:2.5rem;">
         {[
-          {
-            title: 'Connection',
-            text: 'There are a lot of great people out there. Our goal is to bring them together to make the world a better place and touch their hearts and minds.',
-            icon: '🤝',
-          },
-          {
-            title: 'Change',
-            text: 'You can participate in one of our products, help to fundraise them or just use one of our products. It will change your life like nothing before.',
-            icon: '🌱',
-          },
-          {
-            title: 'Technology',
-            text: 'Interactive solutions and virtual reality are marking our lives more and more every day. It doesn\'t have to be pure entertainment. It can change the world.',
-            icon: '💡',
-          },
-          {
-            title: 'Passion',
-            text: 'We believe in what we do and what we create. We are experienced and passionate about the tools that we are using and the results we want to achieve.',
-            icon: '❤️',
-          },
+          { title:'Connection', text:"There are a lot of great people out there. Our goal is to bring them together to make the world a better place and touch their hearts and minds." },
+          { title:'Change', text:"You can participate in one of our products, help to fundraise them or just use one of our products. It will change your life like nothing before." },
+          { title:'Technology', text:"Interactive solutions and virtual reality are marking our lives more and more every day. It doesn't have to be pure entertainment. It can change the world." },
+          { title:'Passion', text:"We believe in what we do and what we create. We are experienced and passionate about the tools that we are using and the results we want to achieve." },
         ].map((v, i) => (
-          <div class="reveal text-center p-6" style={`transition-delay: ${i * 100}ms`}>
-            <div class="text-4xl mb-4">{v.icon}</div>
-            <h3 class="font-display text-xl font-bold text-[#27CCC0] mb-3">{v.title}</h3>
-            <p class="text-gray-600 text-sm leading-relaxed">{v.text}</p>
+          <div class="reveal" style={`transition-delay:${i*80}ms; text-align:left;`}>
+            <div class="img-placeholder" style="width:64px; height:64px; border-radius:50%; margin-bottom:1rem;">{v.title[0]}</div>
+            <h3 style="font-family:'Raleway',sans-serif; font-weight:900; font-size:0.85rem; text-transform:uppercase; letter-spacing:0.1em; color:#35CCC0; margin:0 0 0.4rem; border-left:3px solid #F9A831; padding-left:0.6rem;">{v.title}</h3>
+            <p style="font-family:'Raleway',sans-serif; font-size:0.85rem; color:#333; line-height:1.7;">{v.text}</p>
           </div>
         ))}
       </div>
     </div>
   </section>
 
-  <!-- PROJECTS -->
-  <section class="py-20 bg-gray-50">
-    <div class="max-w-6xl mx-auto px-6">
-      <h2 class="text-3xl sm:text-4xl font-display text-center text-[#1a1a1a] mb-4 reveal">Great Ideas Done Right</h2>
-      <p class="text-center text-gray-600 mb-14 max-w-2xl mx-auto reveal">
-        We develop video games and other interactive media to give people with disabilities a voice.
-      </p>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+  <!-- ═══ PROJECTS ═══ -->
+  <section style="padding:3.5rem 2rem; background:#fff;">
+    <div style="max-width:1200px; margin:0 auto;">
+      <div class="section-heading reveal">
+        <span class="label">Projects</span>
+        <h2>Great Ideas Done Right</h2>
+        <span class="star">★</span>
+      </div>
+      <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:2rem; margin-top:2.5rem;">
         {[
-          {
-            title: 'Changed',
-            desc: 'A choice-based video game about a disabled military veteran.',
-            href: '/projects/changed/',
-          },
-          {
-            title: 'Wheelchaired for a Day',
-            desc: 'An empathy-building event where people experienced being in a wheelchair for a day.',
-            href: '/projects/wheelchaired-for-a-day/',
-          },
-          {
-            title: 'Access: Entree',
-            desc: 'A new mobile game that promotes accessibility awareness. Currently in development.',
-            href: '/projects/access-entree/',
-          },
+          { title:'Changed', desc:'A choice-based video game about a disabled military veteran.', href:'/projects/changed/' },
+          { title:'Wheelchaired for a Day', desc:'An empathy-building event where people experienced being in a wheelchair for a day.', href:'/projects/wheelchaired-for-a-day/' },
+          { title:'Access: Entree', desc:'A new mobile game that promotes accessibility awareness. Currently in development.', href:'/projects/access-entree/' },
         ].map((p, i) => (
-          <div class="reveal bg-white rounded-lg overflow-hidden shadow-sm border border-gray-100 flex flex-col" style={`transition-delay: ${i * 100}ms`}>
-            <div class="img-placeholder h-48 w-full">{p.title} Image</div>
-            <div class="p-6 flex flex-col flex-1">
-              <h3 class="font-display text-xl font-bold text-[#1a1a1a] mb-2">{p.title}</h3>
-              <p class="text-gray-600 text-sm leading-relaxed flex-1">{p.desc}</p>
-              <a href={p.href} class="btn-outline mt-4 text-center text-xs">Learn More</a>
+          <div class="reveal" style={`transition-delay:${i*80}ms; border:1px solid #eee; overflow:hidden;`}>
+            <div class="img-placeholder" style="height:180px; width:100%;">{p.title} Image</div>
+            <div style="padding:1.25rem; text-align:center;">
+              <h3 style="font-family:'Playfair Display',Georgia,serif; font-size:1.1rem; font-weight:700; color:#000; margin:0 0 0.5rem;">{p.title}</h3>
+              <p style="font-family:'Raleway',sans-serif; font-size:0.85rem; color:#555; line-height:1.6; margin-bottom:1rem;">{p.desc}</p>
+              <a href={p.href} style="color:#35CCC0; font-family:'Raleway',sans-serif; font-size:0.8rem; font-weight:700; text-transform:uppercase; letter-spacing:0.05em; text-decoration:none;">Learn More →</a>
             </div>
           </div>
         ))}
@@ -98,84 +103,80 @@ import Layout from '../layouts/Layout.astro';
     </div>
   </section>
 
-  <!-- TEAM -->
-  <section class="py-20 bg-white">
-    <div class="max-w-4xl mx-auto px-6 text-center reveal">
-      <h2 class="text-3xl sm:text-4xl font-display text-[#1a1a1a] mb-6">Love Your Work, Find Your Purpose</h2>
-      <p class="text-gray-600 leading-relaxed text-lg">
+  <!-- ═══ TEAM ═══ -->
+  <section style="padding:3.5rem 2rem; background:#f7f7f7; text-align:center;">
+    <div style="max-width:700px; margin:0 auto;" class="reveal">
+      <div class="section-heading">
+        <span class="label">Work with us</span>
+        <h2>Love Your Work Find Your Purpose</h2>
+        <span class="star">★</span>
+      </div>
+      <p style="font-family:'Raleway',sans-serif; font-size:0.95em; color:#333; line-height:1.8; margin-top:1.5rem;">
         We have a diverse and talented team with members from all over the world, working together through the power of technology. Some of us have a disability, some don't, but we all have a common goal: creating a more inclusive society where physical and intellectual challenges never overshadow the strength of the human spirit.
       </p>
     </div>
   </section>
 
-  <!-- UPDATES -->
-  <section class="py-20 bg-gray-50">
-    <div class="max-w-6xl mx-auto px-6">
-      <h2 class="text-3xl sm:text-4xl font-display text-center text-[#1a1a1a] mb-4 reveal">There's Always Something New</h2>
-      <p class="text-center text-gray-500 mb-12 reveal">Latest news and updates from FDAAF.</p>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        {[1, 2, 3].map((n) => (
-          <div class="reveal bg-white rounded-lg overflow-hidden shadow-sm border border-gray-100">
-            <div class="img-placeholder h-40 w-full">Post Image {n}</div>
-            <div class="p-5">
-              <p class="text-xs text-[#27CCC0] font-semibold uppercase tracking-wide mb-2">Update</p>
-              <h3 class="font-display text-lg font-bold text-[#1a1a1a] mb-2">Latest Update {n}</h3>
-              <p class="text-gray-500 text-sm">News and updates from the foundation will appear here.</p>
-            </div>
-          </div>
-        ))}
+  <!-- ═══ DONATIONS ═══ -->
+  <section style="padding:3.5rem 2rem; background:#fff; text-align:center;">
+    <div style="max-width:700px; margin:0 auto;" class="reveal">
+      <div class="section-heading">
+        <span class="label">Support Us</span>
+        <h2>Your Donation Makes a Difference</h2>
+        <span class="star">★</span>
+      </div>
+      <p style="font-family:'Raleway',sans-serif; font-size:0.95em; color:#333; line-height:1.8; margin-top:1.5rem;">
+        We accept every donation with gratitude, also offering sponsorship and investment possibilities. We don't believe in large corporate structures, excessive salaries and overhead. In fact, we rely mostly on volunteers and interns who appreciate the experience of driving social change. Still, we need your help to push our projects further.
+      </p>
+      <div style="margin-top:1.75rem;">
+        <a href="/donate/" class="btn-teal">Support Us</a>
       </div>
     </div>
   </section>
 
-  <!-- DONATE CTA -->
-  <section class="py-20 bg-[#27CCC0]">
-    <div class="max-w-3xl mx-auto px-6 text-center reveal">
-      <h2 class="text-3xl sm:text-4xl font-display font-bold text-white mb-6">Your Donation Makes a Difference</h2>
-      <p class="text-white/90 leading-relaxed text-lg mb-8">
-        We accept every donation with gratitude, also offering sponsorship and investment possibilities. We don't believe in large corporate structures, excessive salaries and overhead. In fact, we rely mostly on volunteers and interns who appreciate the experience of driving social change. Still, we need your help to push our projects further.
-      </p>
-      <a href="/donate/" class="inline-block bg-white text-[#27CCC0] font-bold font-body text-sm uppercase tracking-wide px-8 py-4 rounded hover:bg-gray-100 transition-colors">Donate Today</a>
-    </div>
-  </section>
-
-  <!-- VOLUNTEER CTA -->
-  <section class="py-20 bg-[#F9A831]">
-    <div class="max-w-3xl mx-auto px-6 text-center reveal">
-      <h2 class="text-3xl sm:text-4xl font-display font-bold text-white mb-6">Start Changing the World</h2>
-      <p class="text-white/90 leading-relaxed text-lg mb-8">
+  <!-- ═══ VOLUNTEER CTA ═══ -->
+  <section style="padding:3.5rem 2rem; background:#f7f7f7; text-align:center;">
+    <div style="max-width:700px; margin:0 auto;" class="reveal">
+      <div class="section-heading">
+        <span class="label">Work with us</span>
+        <h2>Start Changing the World</h2>
+        <span class="star">★</span>
+      </div>
+      <p style="font-family:'Raleway',sans-serif; font-size:0.95em; color:#333; line-height:1.8; margin-top:1.5rem;">
         Changing the way society views disability starts with you! If you share our vision of building a better world for everyone, we invite you to volunteer or intern with us. Students and military veterans welcome!
       </p>
-      <a href="/volunteer/" class="inline-block bg-white text-[#F9A831] font-bold font-body text-sm uppercase tracking-wide px-8 py-4 rounded hover:bg-gray-100 transition-colors">Volunteer with Us</a>
+      <div style="margin-top:1.75rem;">
+        <a href="/volunteer/" class="btn-teal">Join Us</a>
+      </div>
     </div>
   </section>
 
-  <!-- NEWSLETTER -->
-  <section class="py-16 bg-white border-t border-gray-100">
-    <div class="max-w-xl mx-auto px-6 text-center reveal">
-      <h2 class="text-2xl font-display font-bold text-[#1a1a1a] mb-4">Subscribe to our Newsletter</h2>
-      <p class="text-gray-500 mb-6">Stay up to date with the latest from FDAAF.</p>
-      <form class="flex flex-col sm:flex-row gap-3 justify-center" action="#" method="post">
-        <input
-          type="email"
-          name="email"
-          placeholder="Your email address"
-          required
-          class="flex-1 border border-gray-300 rounded px-4 py-3 text-sm focus:outline-none focus:border-[#27CCC0]"
-        />
-        <button type="submit" class="btn-primary whitespace-nowrap">Subscribe</button>
+  <!-- ═══ NEWSLETTER ═══ -->
+  <section style="padding:3rem 2rem; background:#fff; text-align:center;">
+    <div style="max-width:500px; margin:0 auto;" class="reveal">
+      <h3 style="font-family:'Raleway',sans-serif; font-weight:900; font-size:1rem; text-transform:uppercase; letter-spacing:0.1em; margin-bottom:1.25rem;">Subscribe to our Newsletter</h3>
+      <form style="display:flex; gap:0.5rem; flex-wrap:wrap;" action="#" method="post">
+        <input type="email" name="email" placeholder="Your email address" required style="flex:1; min-width:220px;" />
+        <button type="submit" class="btn-teal">Subscribe</button>
       </form>
     </div>
   </section>
 
-  <!-- MEDIA COVERAGE -->
-  <section class="py-10 bg-gray-50 border-t border-gray-100">
-    <div class="max-w-4xl mx-auto px-6">
-      <p class="text-center text-xs text-gray-400 uppercase tracking-widest mb-6 font-semibold">As Seen In</p>
-      <div class="flex flex-wrap justify-center gap-8 items-center">
-        <a href="https://www.gainesvilletoday.com" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-[#27CCC0] text-sm font-semibold transition-colors">GTN Newsclip</a>
-        <a href="https://www.wcjb.com" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-[#27CCC0] text-sm font-semibold transition-colors">WCJB TV 20</a>
-        <a href="https://www.alligator.org" target="_blank" rel="noopener noreferrer" class="text-gray-400 hover:text-[#27CCC0] text-sm font-semibold transition-colors">The Alligator</a>
+  <!-- ═══ MEDIA ═══ -->
+  <section style="padding:2.5rem 2rem; background:#fff; border-top:1px solid #eee; text-align:center;">
+    <div style="max-width:800px; margin:0 auto;">
+      <h3 style="font-family:'Raleway',sans-serif; font-weight:900; font-size:0.75rem; text-transform:uppercase; letter-spacing:0.15em; color:#999; margin-bottom:1.5rem;">Media About Us</h3>
+      <div style="border-top:3px solid #F9A831; width:60px; margin:0 auto 1.5rem;"></div>
+      <div style="display:flex; flex-wrap:wrap; justify-content:center; gap:2rem;">
+        <a href="https://www.gainesvilletoday.com" target="_blank" rel="noopener noreferrer"
+          style="font-family:'Raleway',sans-serif; font-size:0.85rem; font-weight:700; color:#555; text-decoration:none;"
+          onmouseover="this.style.color='#27CCC0'" onmouseout="this.style.color='#555'">GTN Newsclip</a>
+        <a href="https://www.wcjb.com" target="_blank" rel="noopener noreferrer"
+          style="font-family:'Raleway',sans-serif; font-size:0.85rem; font-weight:700; color:#555; text-decoration:none;"
+          onmouseover="this.style.color='#27CCC0'" onmouseout="this.style.color='#555'">WCJB TV 20</a>
+        <a href="https://www.alligator.org" target="_blank" rel="noopener noreferrer"
+          style="font-family:'Raleway',sans-serif; font-size:0.85rem; font-weight:700; color:#555; text-decoration:none;"
+          onmouseover="this.style.color='#27CCC0'" onmouseout="this.style.color='#555'">The Alligator</a>
       </div>
     </div>
   </section>
