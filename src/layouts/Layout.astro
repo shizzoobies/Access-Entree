@@ -17,7 +17,8 @@ const {
   ogUrl,
 } = Astro.props;
 
-const canonicalUrl = ogUrl ?? `https://fdaaf.org${Astro.url.pathname}`;
+const siteOrigin = Astro.url.origin;
+const canonicalUrl = ogUrl ?? `${siteOrigin}${Astro.url.pathname}`;
 ---
 
 <!doctype html>
@@ -32,13 +33,13 @@ const canonicalUrl = ogUrl ?? `https://fdaaf.org${Astro.url.pathname}`;
     <meta property="og:url" content={canonicalUrl} />
     <meta property="og:title" content={`${title} | FDAAF`} />
     <meta property="og:description" content={description} />
-    <meta property="og:image" content={`https://fdaaf.org${ogImage}`} />
+    <meta property="og:image" content={`${siteOrigin}${ogImage}`} />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="628" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={`${title} | FDAAF`} />
     <meta name="twitter:description" content={description} />
-    <meta name="twitter:image" content={`https://fdaaf.org${ogImage}`} />
+    <meta name="twitter:image" content={`${siteOrigin}${ogImage}`} />
     <link rel="canonical" href={canonicalUrl} />
 
     <link rel="icon" type="image/png" sizes="64x64" href="/favicon-64.png" />
