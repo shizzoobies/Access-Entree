@@ -232,15 +232,19 @@ import Layout from '../layouts/Layout.astro';
               </div>
       <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:2rem; margin-top:2.5rem;">
         {[
-          { title:'Connection', text:"There are a lot of great people out there. Our goal is to bring them together to make the world a better place and touch their hearts and minds." },
-          { title:'Change', text:"You can participate in one of our products, help to fundraise them or just use one of our products. It will change your life like nothing before." },
-          { title:'Technology', text:"Interactive solutions and virtual reality are marking our lives more and more every day. It doesn't have to be pure entertainment. It can change the world." },
-          { title:'Passion', text:"We believe in what we do and what we create. We are experienced and passionate about the tools that we are using and the results we want to achieve." },
+          { title:'Connection', img:'/images/value-connection.jpg', text:"There are a lot of great people out there. Our goal is to bring them together to make the world a better place and touch their hearts and minds." },
+          { title:'Change', img:'/images/value-change.jpg', text:"You can participate in one of our products, help to fundraise them or just use one of our products. It will change your life like nothing before." },
+          { title:'Technology', img:'/images/value-technology.jpg', text:"Interactive solutions and virtual reality are marking our lives more and more every day. It doesn't have to be pure entertainment. It can change the world." },
+          { title:'Passion', img:'/images/value-passion.jpg', text:"We believe in what we do and what we create. We are experienced and passionate about the tools that we are using and the results we want to achieve." },
         ].map((v, i) => (
-          <div class="reveal" style={`transition-delay:${i*80}ms; text-align:left;`}>
-            <div style="width:64px; height:64px; border-radius:50%; margin-bottom:1rem; background:#35CCC0; display:flex; align-items:center; justify-content:center; color:#fff; font-family:'Playfair Display',serif; font-size:1.5rem; font-style:italic;">{v.title[0]}</div>
-            <h3 style="font-family:'Raleway',sans-serif; font-weight:900; font-size:0.85rem; text-transform:uppercase; letter-spacing:0.1em; color:#35CCC0; margin:0 0 0.4rem; border-left:3px solid #F9A831; padding-left:0.6rem;">{v.title}</h3>
-            <p style="font-family:'Raleway',sans-serif; font-size:0.85rem; color:#333; line-height:1.7;">{v.text}</p>
+          <div class="reveal" style={`transition-delay:${i*80}ms; background:#fff; border:1px solid #eee; overflow:hidden;`}>
+            <div style="height:180px; overflow:hidden;">
+              <img src={v.img} alt={v.title} style="width:100%; height:100%; object-fit:cover; display:block;" />
+            </div>
+            <div style="padding:1.25rem 1.25rem 1.5rem;">
+              <h3 style="font-family:'Raleway',sans-serif; font-weight:900; font-size:0.85rem; text-transform:uppercase; letter-spacing:0.1em; color:#35CCC0; margin:0 0 0.5rem; border-left:3px solid #F9A831; padding-left:0.6rem;">{v.title}</h3>
+              <p style="font-family:'Raleway',sans-serif; font-size:0.85rem; color:#333; line-height:1.7; margin:0;">{v.text}</p>
+            </div>
           </div>
         ))}
       </div>
@@ -273,47 +277,24 @@ import Layout from '../layouts/Layout.astro';
     </div>
   </section>
 
-  <!-- ═══ TEAM ═══ -->
-  <section style="padding:3.5rem 2rem; background:#f7f7f7; text-align:center;">
-    <div style="max-width:700px; margin:0 auto;" class="reveal">
+  <!-- ═══ GET INVOLVED ═══ -->
+  <section style="padding:4rem 2rem; background:#f7f7f7; text-align:center;">
+    <div style="max-width:800px; margin:0 auto;" class="reveal">
       <div class="section-heading">
-        <span class="label">Work with us</span>
-        <h2>Love Your Work Find Your Purpose</h2>
-              </div>
-      <p style="font-family:'Raleway',sans-serif; font-size:0.95em; color:#333; line-height:1.8; margin-top:1.5rem;">
-        We have a diverse and talented team with members from all over the world, working together through the power of technology. Some of us have a disability, some don't, but we all have a common goal: creating a more inclusive society where physical and intellectual challenges never overshadow the strength of the human spirit.
-      </p>
-    </div>
-  </section>
-
-  <!-- ═══ DONATIONS ═══ -->
-  <section style="padding:3.5rem 2rem; background:#fff; text-align:center;">
-    <div style="max-width:700px; margin:0 auto;" class="reveal">
-      <div class="section-heading">
-        <span class="label">Support Us</span>
-        <h2>Your Donation Makes a Difference</h2>
-              </div>
-      <p style="font-family:'Raleway',sans-serif; font-size:0.95em; color:#333; line-height:1.8; margin-top:1.5rem;">
-        We accept every donation with gratitude, also offering sponsorship and investment possibilities. We don't believe in large corporate structures, excessive salaries and overhead. In fact, we rely mostly on volunteers and interns who appreciate the experience of driving social change. Still, we need your help to push our projects further.
-      </p>
-      <div style="margin-top:1.75rem;">
-        <a href="/donate/" class="btn-teal">Support Us</a>
+        <span class="label">Join Our Mission</span>
+        <h2>Get Involved</h2>
       </div>
-    </div>
-  </section>
-
-  <!-- ═══ VOLUNTEER CTA ═══ -->
-  <section style="padding:3.5rem 2rem; background:#f7f7f7; text-align:center;">
-    <div style="max-width:700px; margin:0 auto;" class="reveal">
-      <div class="section-heading">
-        <span class="label">Work with us</span>
-        <h2>Start Changing the World</h2>
-              </div>
-      <p style="font-family:'Raleway',sans-serif; font-size:0.95em; color:#333; line-height:1.8; margin-top:1.5rem;">
-        Changing the way society views disability starts with you! If you share our vision of building a better world for everyone, we invite you to volunteer or intern with us. Students and military veterans welcome!
+      <p style="font-family:'Raleway',sans-serif; font-size:0.95em; color:#333; line-height:1.8; margin-top:1.5rem; margin-bottom:1rem;">
+        We have a diverse and talented team working together from all over the world with a common goal: creating a more inclusive society where physical and intellectual challenges never overshadow the strength of the human spirit.
       </p>
-      <div style="margin-top:1.75rem;">
-        <a href="/volunteer/" class="btn-teal">Join Us</a>
+      <p style="font-family:'Raleway',sans-serif; font-size:0.95em; color:#555; line-height:1.8; margin-bottom:2rem;">
+        Whether you'd like to volunteer, donate, or simply learn more — there's a place for you here. We rely on dedicated volunteers and generous supporters to keep our projects moving forward. Students and military veterans are especially welcome!
+      </p>
+      <div style="display:flex; gap:1rem; justify-content:center; flex-wrap:wrap;">
+        <a href="/volunteer/" class="btn-teal">Volunteer with Us</a>
+        <a href="/donate/" class="btn-orange">Donate</a>
+        <a href="/contact/" style="font-family:'Raleway',sans-serif; font-size:0.82rem; font-weight:700; text-transform:uppercase; letter-spacing:0.1em; color:#555; text-decoration:none; padding:0.85rem 1.75rem; border:2px solid #ccc; display:inline-block;"
+          onmouseover="this.style.borderColor='#27CCC0'; this.style.color='#27CCC0'" onmouseout="this.style.borderColor='#ccc'; this.style.color='#555'">Contact Us</a>
       </div>
     </div>
   </section>
