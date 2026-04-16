@@ -4,12 +4,14 @@ import Layout from '../layouts/Layout.astro';
 
 <Layout title="Donate" description="Support FDAAF — empowering the disability community through media and innovation. Your donation makes a difference.">
 
-  <!-- HERO / PAGE TITLE -->
-  <section style="padding:4rem 2rem 3rem; text-align:center; background:#fff; border-bottom:1px solid #eee;">
-    <div style="max-width:800px; margin:0 auto;">
+  <!-- HERO -->
+  <section style="position:relative; height:480px; overflow:hidden; display:flex; align-items:center; justify-content:center;">
+    <img src="/images/donate-hero.jpg" alt="Two hands reaching toward each other in support" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center;" />
+    <div style="position:absolute; inset:0; background:linear-gradient(to bottom, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0.6) 100%);"></div>
+    <div style="position:relative; z-index:2; text-align:center; padding:0 2rem; max-width:800px;">
       <span style="display:inline-block; font-family:'Roboto',sans-serif; font-size:0.72rem; font-weight:700; letter-spacing:0.15em; text-transform:uppercase; color:#fff; background:#27CCC0; padding:0.25rem 0.75rem; margin-bottom:1.25rem;">Make a Difference</span>
-      <h1 style="font-family:'Playfair Display',serif; font-size:clamp(2rem,5vw,3.2rem); color:#111; font-weight:700; margin:0 0 1rem;">Donate to FDAAF</h1>
-      <p style="font-family:'Raleway',sans-serif; font-size:1.05rem; color:#444; line-height:1.8; max-width:640px; margin:0 auto;">
+      <h1 style="font-family:'Playfair Display',serif; font-size:clamp(2rem,5vw,3.4rem); color:#fff; font-weight:700; margin:0 0 1rem; text-shadow:0 2px 12px rgba(0,0,0,0.4);">Donate to FDAAF</h1>
+      <p style="font-family:'Raleway',sans-serif; font-size:1.05rem; color:rgba(255,255,255,0.9); line-height:1.8; max-width:600px; margin:0 auto; text-shadow:0 1px 6px rgba(0,0,0,0.3);">
         Support FDAAF: Empowering the Disability Community Through Media and Innovation
       </p>
     </div>
