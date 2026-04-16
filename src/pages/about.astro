@@ -6,25 +6,40 @@ const team = [
     name: 'Ralph Strzalkowski',
     role: 'President',
     img: '/images/team-ralph.jpg',
-    bio: "Born in Poland with cerebral palsy, Strzalkowski uses a wheelchair and initially felt limited by systemic barriers in his home country. He immigrated to America for a fresh start, becoming a lawyer and leveraging the Americans with Disabilities Act's opportunities. He founded FDAAF to address societal prejudice against people with disabilities, using media and technology to \"change how people think and feel about disabilities.\"",
+    bios: [
+      "Being born in Poland with cerebral palsy, I had to use a wheelchair all my life. My parents were always loving and supportive, but in Poland they're few systems in place to aid the disable. I felt limited by my physical capability there, unwelcome and unable to participate. There was no future that I could imagine for myself.",
+      "So, I came to America, where I was able to have a fresh start and become a lawyer. I love this country because laws like the Americans with Disabilities Act have given me opportunities I never would have had before. It empowered me to live an active, independent life. But there are still places where I feel limited, even here in America. Many people still show little understanding toward those with disabilities.",
+      "I started the Florida Disability Access and Awareness Foundation in recognition of a problem with how individuals with disabilities are received in the community. I wanted to improve that perception, dispel stereotypes and prejudice, and promote empathy and inclusion. In today's society we need to use tools that speak to the majority of people to be effective. That's why FDAAF uses new media projects and technology to change how people think and feel about disabilities.",
+    ],
   },
   {
     name: 'Zachary Taylor',
     role: 'Lead Developer',
     img: '/images/team-zachary.jpg',
-    bio: "Taylor lost his hearing and balance in third grade after being misdiagnosed with flu — the actual cause was meningitis. A cochlear implant later aided his balance. He earned two electronics degrees from community college and a BS in Game Design from Full Sail University. Throughout his education, he advocated for accessibility features like subtitles and collaborated on adaptive controller design. He became FDAAF's first online Game Design graduate and continues developing accessible games with the organization.",
+    bios: [
+      "I come from a hearing family. When I was halfway through the 3rd grade I fell ill. I was misdiagnosed with the flu that later turned out to be meningitis. One day my hearing and balance both disappeared. I couldn't walk very well under my own power much less ride a bike. A cochlear implant eventually aided my balance struggles on a bicycle.",
+      "From there I finished high school and obtained two degrees in electronics from a local community college. I've always judged games on whether they had subtitles or not. My interest in accessibility led to me designing my own levels for an existing game. Afterward, I attended Full Sail to obtain my BS in Game Design.",
+      "At Full Sail I designed a variety of games. I even designed a controller for those limited to one hand, collaborating with a different team each time. When audio cues were discussed I was always that person in groups who would ask, \"But what if the player can't hear or is playing with the volume muted?\" I also played a direct role in the captioning and accurate captioning of content for the Game Design program. It was likely fitting that I became the first online graduate for their Game Design program.",
+      "While there I became involved with FDAAF and continue working diligently with a fantastic team to this day to provide more access and awareness for those like me.",
+    ],
   },
   {
     name: 'Michael Bridges',
     role: 'Audio Engineer',
     img: '/images/team-michael.jpg',
-    bio: "Bridges brings expertise in music recording, production, and sound design from Carnegie Mellon School of Music's certificate program. He founded SoundTruss Productions as lead engineer. Bridges joined FDAAF recognizing sound as a \"uniquely effective story telling tool,\" applying his skills to amplify the foundation's disability awareness mission.",
+    bios: [
+      "I'm serving as an audio engineer for FDAAF. I have a background in music recording and production along with sound design. Also, I have experience working on audio for music, film, and video games. Graduating from Carnegie Mellon School of Music's Audio Recording & Production certificate program, I became the founder and lead engineer of SoundTruss Productions.",
+      "I believe that sound is an extremely powerful part of the human experience. It is a uniquely effective story telling tool. When I saw an opportunity to utilize this tool in support of such an important and unfortunately often overlooked cause, I was really happy to become involved in doing whatever I could to help tell the story that Ralph and the rest of The FDAAF had to share.",
+    ],
   },
   {
     name: 'Paul Brophy',
     role: 'Corporate Secretary and Treasurer',
     img: '/images/team-paul.png',
-    bio: "An Irish emigrant to Florida, Brophy built an accessible bar in Gainesville emphasizing disability accommodation. He joined FDAAF in 2013 as Corporate Secretary and Treasurer. Since 2013, he has worked for Florida's Agency for People with Disabilities, combining personal advocacy with professional expertise in addressing systemic barriers.",
+    bios: [
+      "I emigrated from Ireland to Florida. After, moving from one job to another I started a successful family business in the City of Gainesville which I have called home the last 22 years. When building out my bar in downtown Gainesville, I ensured the entire buildout was accessible by people with disabilities.",
+      "I joined Florida Disability Access and Awareness Foundation as the Corporate Secretary and Treasurer in 2013. I am an outspoken and active advocate for Persons with Disabilities. When I left my business to pursue my interests, I started working with the State of Florida's Agency for People with Disabilities in 2013 where I am currently employed. I have personal experience and knowledge of the difficulty that people with disabilities experience when trying to love what life has to offer with the minimum of distress.",
+    ],
   },
 ];
 ---
@@ -66,14 +81,20 @@ const team = [
       <div class="section-heading reveal">
         <span class="label">The Team</span>
         <h2>Meet Our People</h2>
-              </div>
-      <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:2rem; margin-top:2.5rem;">
+      </div>
+      <div style="display:flex; flex-direction:column; gap:2.5rem; margin-top:2.5rem;">
         {team.map((member, i) => (
-          <div class="reveal" style={`transition-delay:${i*80}ms; background:#fff; border:1px solid #eee; padding:1.75rem; text-align:center;`}>
-            <img src={member.img} alt={member.name} style="width:100px; height:100px; border-radius:50%; margin:0 auto 1.25rem; display:block; object-fit:cover; border:3px solid #35CCC0;" />
-            <h3 style="font-family:'Raleway',sans-serif; font-weight:900; font-size:0.9rem; text-transform:uppercase; letter-spacing:0.08em; color:#000; margin:0 0 0.25rem;">{member.name}</h3>
-            <p style="font-family:'Raleway',sans-serif; font-size:0.75rem; font-weight:700; text-transform:uppercase; letter-spacing:0.1em; color:#35CCC0; margin:0 0 1rem;">{member.role}</p>
-            <p style="font-family:'Raleway',sans-serif; font-size:0.83rem; color:#555; line-height:1.7;">{member.bio}</p>
+          <div class="reveal" style={`transition-delay:${i*80}ms; background:#fff; border:1px solid #eee; padding:2rem 2.5rem; display:flex; gap:2rem; align-items:flex-start;`}>
+            <div style="flex-shrink:0; text-align:center;">
+              <img src={member.img} alt={member.name} style="width:110px; height:110px; border-radius:50%; display:block; object-fit:cover; border:3px solid #35CCC0; margin-bottom:0.75rem;" />
+              <h3 style="font-family:'Raleway',sans-serif; font-weight:900; font-size:0.82rem; text-transform:uppercase; letter-spacing:0.08em; color:#000; margin:0 0 0.2rem; white-space:nowrap;">{member.name}</h3>
+              <p style="font-family:'Raleway',sans-serif; font-size:0.7rem; font-weight:700; text-transform:uppercase; letter-spacing:0.1em; color:#35CCC0; margin:0;">{member.role}</p>
+            </div>
+            <div style="flex:1;">
+              {member.bios.map((para) => (
+                <p style="font-family:'Raleway',sans-serif; font-size:0.88rem; color:#444; line-height:1.85; margin-bottom:0.85rem;">{para}</p>
+              ))}
+            </div>
           </div>
         ))}
       </div>
