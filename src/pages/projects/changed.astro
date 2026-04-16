@@ -28,22 +28,24 @@ const environments = [
   </section>
 
   <section style="padding:3.5rem 2rem; background:#fff;">
-    <div style="max-width:700px; margin:0 auto; text-align:center;" class="reveal">
-      <img src="/images/project-changed.jpg" alt="Changed video game" style="width:100%; display:block; margin:0 auto 2rem;" />
-      <div class="section-heading">
-        <span class="label">Video Game</span>
-        <h2>About the Game</h2>
+    <div style="max-width:1000px; margin:0 auto; display:grid; grid-template-columns:1fr auto; gap:3rem; align-items:center;" class="reveal changed-about-grid">
+      <div>
+        <div class="section-heading" style="text-align:left;">
+          <span class="label">Video Game</span>
+          <h2>About the Game</h2>
+        </div>
+        <p style="font-family:'Raleway',sans-serif; font-size:0.95em; color:#333; line-height:1.8; margin-top:1.5rem; margin-bottom:1rem;">
+          Changed is the world's first choice-based video game about a character who finds himself in a wheelchair after an accident.
+        </p>
+        <p style="font-family:'Raleway',sans-serif; font-size:0.9em; color:#555; line-height:1.8; margin-bottom:1rem;">
+          On his journey he is faced with numerous difficult situations. How he decides to tackle these situations develops his personality and advances the plot of the game.
+        </p>
+        <p style="font-family:'Raleway',sans-serif; font-size:0.9em; color:#555; line-height:1.8; margin-bottom:1.5rem;">
+          We are currently producing a two-scene demo for the game.
+        </p>
+        <a href="/donate/" class="btn-teal">Support This Project</a>
       </div>
-      <p style="font-family:'Raleway',sans-serif; font-size:0.95em; color:#333; line-height:1.8; margin-top:1.5rem; margin-bottom:1rem;">
-        Changed is the world's first choice-based video game about a character who finds himself in a wheelchair after an accident.
-      </p>
-      <p style="font-family:'Raleway',sans-serif; font-size:0.9em; color:#555; line-height:1.8; margin-bottom:1rem;">
-        On his journey he is faced with numerous difficult situations. How he decides to tackle these situations develops his personality and advances the plot of the game.
-      </p>
-      <p style="font-family:'Raleway',sans-serif; font-size:0.9em; color:#555; line-height:1.8; margin-bottom:1.5rem;">
-        We are currently producing a two-scene demo for the game.
-      </p>
-      <a href="/donate/" class="btn-teal">Support This Project</a>
+      <img src="/images/changed-about.jpg" alt="Changed game character — military veteran in wheelchair" style="width:260px; display:block; flex-shrink:0;" />
     </div>
   </section>
 
@@ -92,6 +94,8 @@ const environments = [
   <style>
     @media (max-width:700px) {
       section > div[style*="grid-template-columns:1fr 1fr"] { grid-template-columns:1fr !important; }
+      .changed-about-grid { grid-template-columns:1fr !important; }
+      .changed-about-grid img { width:100% !important; max-width:300px; margin:0 auto; }
     }
   </style>
 
