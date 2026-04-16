@@ -15,39 +15,33 @@ import Layout from '../layouts/Layout.astro';
     </div>
   </section>
 
-  <!-- MISSION + TIERS -->
+  <!-- MISSION -->
   <section style="padding:3.5rem 2rem; background:#fafafa; border-bottom:1px solid #eee;">
-    <div style="max-width:960px; margin:0 auto;">
+    <div style="max-width:800px; margin:0 auto;" class="reveal">
 
-      <div style="max-width:760px; margin:0 auto 2.5rem; text-align:center;" class="reveal">
-        <h2 style="font-family:'Playfair Display',serif; font-size:1.7rem; color:#111; margin:0 0 1rem;">Your Donation Makes a Difference</h2>
-        <p style="font-family:'Raleway',sans-serif; font-size:0.92rem; color:#555; line-height:1.85; margin-bottom:0.75rem;">
-          At the Florida Disability Access and Awareness Foundation (FDAAF), we're on a mission to create a more inclusive world. We develop interactive media — including video games and empathy-building experiences — that give a voice to people with disabilities.
-        </p>
-        <p style="font-family:'Raleway',sans-serif; font-size:0.92rem; color:#555; line-height:1.85;">
-          Every donation goes directly toward boosting awareness and accessibility for the disability community through media and technology.
-        </p>
-      </div>
+      <h2 style="font-family:'Playfair Display',serif; font-size:1.9rem; color:#111; margin:0 0 1.25rem;">Your Donation Makes a Difference!</h2>
 
-      <!-- Tier buttons — clicking pre-fills the form amount -->
-      <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:1rem;" class="tier-grid reveal">
-        <button class="tier-btn" data-amount="25">
-          <div class="tier-amount">$25</div>
-          <div class="tier-label">Funds accessibility features in our games</div>
-        </button>
-        <button class="tier-btn" data-amount="50">
-          <div class="tier-amount">$50</div>
-          <div class="tier-label">Supports volunteer training for empathy events</div>
-        </button>
-        <button class="tier-btn" data-amount="100">
-          <div class="tier-amount">$100</div>
-          <div class="tier-label">Contributes directly to game development</div>
-        </button>
-        <button class="tier-btn" data-amount="250">
-          <div class="tier-amount">$250+</div>
-          <div class="tier-label">Enables sponsorship of brand new projects</div>
-        </button>
-      </div>
+      <p style="font-family:'Raleway',sans-serif; font-size:0.95rem; color:#444; line-height:1.9; margin-bottom:1rem;">
+        At the Florida Disability Access and Awareness Foundation (FDAAF), we're on a mission to create a more inclusive world. We develop interactive media, including video games and empathy-building experiences, to promote understanding, empathy, and empowerment for people with disabilities. By challenging stereotypes and highlighting the strength of the human spirit, we give voices to those often overlooked—through stories built for, about, and by the disability community and their allies.
+      </p>
+      <p style="font-family:'Raleway',sans-serif; font-size:0.95rem; color:#444; line-height:1.9; margin-bottom:1rem;">
+        Our work transforms perceptions and drives real change. Projects like <strong>Access: EnTree</strong>, a social-simulation game where players build accessible communities, and <strong>Changed</strong>, a choice-based adventure following a disabled military veteran, educate and inspire. Events such as <em>"Wheelchaired for a Day"</em> let participants experience accessibility challenges firsthand, fostering deeper empathy and advocacy.
+      </p>
+      <p style="font-family:'Raleway',sans-serif; font-size:0.95rem; color:#444; line-height:1.9; margin-bottom:2rem;">
+        As a nonprofit with minimal overhead, we rely on dedicated volunteers, interns, and generous supporters like you to keep our initiatives going. Every donation helps us expand our reach, develop new games, and create more opportunities for positive storytelling.
+      </p>
+
+      <h3 style="font-family:'Playfair Display',serif; font-size:1.3rem; color:#111; margin:0 0 1rem;">How Your Gift Helps</h3>
+      <ul style="font-family:'Raleway',sans-serif; font-size:0.95rem; color:#444; line-height:1.9; padding-left:1.25rem; margin-bottom:1.5rem;">
+        <li><strong style="color:#27CCC0;">$25:</strong> Funds accessibility features in our games, making them playable for more users.</li>
+        <li><strong style="color:#27CCC0;">$50:</strong> Supports volunteer training to build empathy events like "Wheelchaired for a Day."</li>
+        <li><strong style="color:#27CCC0;">$100:</strong> Contributes to game development, bringing stories of empowerment to thousands.</li>
+        <li><strong style="color:#27CCC0;">$250+:</strong> Enables sponsorship of new projects, amplifying voices in the disability community.</li>
+      </ul>
+
+      <p style="font-family:'Raleway',sans-serif; font-size:0.95rem; color:#444; line-height:1.9;">
+        Whether it's a one-time gift or a monthly contribution, your support fuels innovation and inclusion. We also welcome sponsorships and investments — <a href="/contact/" style="color:#27CCC0; text-decoration:none; font-weight:600;">contact us to learn more!</a>
+      </p>
 
     </div>
   </section>
@@ -55,7 +49,8 @@ import Layout from '../layouts/Layout.astro';
   <!-- DONATION FORM WIDGET -->
   <section style="padding:3rem 2rem 4rem; background:#fff;" id="donate-form-section">
     <div style="max-width:960px; margin:0 auto;">
-      <h2 style="font-family:'Playfair Display',serif; font-size:1.4rem; color:#111; text-align:center; margin:0 0 2rem;">Give Securely Online</h2>
+      <h2 style="font-family:'Playfair Display',serif; font-size:1.5rem; color:#111; text-align:center; margin:0 0 0.5rem;">Donate Today!</h2>
+      <p style="font-family:'Raleway',sans-serif; font-size:0.92rem; color:#666; text-align:center; margin:0 0 2rem;">Ready to make an impact? Donate securely below. Your contribution is tax-deductible and we'll send a receipt for your records.</p>
       <div id="MC-donation-form"></div>
       <p style="font-family:'Raleway',sans-serif; font-size:0.75rem; color:#999; text-align:center; margin-top:1.5rem;">
         Form not loading?
@@ -65,60 +60,19 @@ import Layout from '../layouts/Layout.astro';
   </section>
 
   <!-- LEGAL -->
-  <section style="padding:2rem; background:#f7f7f7; border-top:1px solid #eee; text-align:center;">
-    <div style="max-width:700px; margin:0 auto;" class="reveal">
-      <p style="font-family:'Raleway',sans-serif; font-size:0.82rem; color:#999; line-height:1.8;">
-        FDAAF is a registered 501(c)(3) nonprofit, Florida registration CH42912. All contributions are tax-deductible.<br />
-        For sponsorships or custom giving, contact us at <a href="mailto:info@fdaaf.org" style="color:#35CCC0; text-decoration:none;">info@fdaaf.org</a> or <a href="https://twitter.com/FDAAFoundation" target="_blank" rel="noopener noreferrer" style="color:#35CCC0; text-decoration:none;">@FDAAFoundation</a>.
+  <section style="padding:2.5rem 2rem; background:#f7f7f7; border-top:1px solid #eee; text-align:center;">
+    <div style="max-width:760px; margin:0 auto;" class="reveal">
+      <p style="font-family:'Raleway',sans-serif; font-size:0.88rem; color:#555; line-height:1.9; margin-bottom:1rem;">
+        Thank you for standing with us. Together, we're building a world where disabilities don't define limits — they inspire possibilities.<br />
+        For questions or custom giving options, reach out at <a href="mailto:info@fdaaf.org" style="color:#27CCC0; text-decoration:none; font-weight:600;">info@fdaaf.org</a> or follow us on X <a href="https://twitter.com/FDAAFoundation" target="_blank" rel="noopener noreferrer" style="color:#27CCC0; text-decoration:none; font-weight:600;">@FDAAFoundation</a>.
+      </p>
+      <p style="font-family:'Raleway',sans-serif; font-size:0.78rem; color:#999; line-height:1.8;">
+        FDAAF is a registered 501(c)(3) nonprofit, Florida registration CH42912. A copy of the official registration and financial information may be obtained from the Division of Consumer Services by calling toll-free (800-435-7352) within the state. Registration does not imply endorsement, approval, or recommendation by the state.
       </p>
     </div>
   </section>
 
-
 </Layout>
-
-<style>
-  .tier-btn {
-    background: #fff;
-    border: 2px solid #e8e8e8;
-    border-radius: 8px;
-    padding: 1.5rem 1rem;
-    text-align: center;
-    cursor: pointer;
-    transition: border-color 0.2s, box-shadow 0.2s, transform 0.15s;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-  }
-  .tier-btn:hover {
-    border-color: #27CCC0;
-    box-shadow: 0 4px 16px rgba(39,204,192,0.15);
-    transform: translateY(-2px);
-  }
-  .tier-btn.active {
-    border-color: #27CCC0;
-    background: #f0fffe;
-    box-shadow: 0 4px 20px rgba(39,204,192,0.25);
-  }
-  .tier-amount {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.8rem;
-    font-weight: 700;
-    color: #27CCC0;
-    margin-bottom: 0.5rem;
-  }
-  .tier-label {
-    font-family: 'Raleway', sans-serif;
-    font-size: 0.8rem;
-    color: #555;
-    line-height: 1.5;
-  }
-  .tier-btn.active .tier-label { color: #222; }
-  @media (max-width: 720px) {
-    .tier-grid { grid-template-columns: 1fr 1fr !important; }
-  }
-  @media (max-width: 480px) {
-    .tier-grid { grid-template-columns: 1fr !important; }
-  }
-</style>
 
 <!-- Load MightyCause embed script inline so it runs immediately, then init form -->
 <script is:inline>
@@ -147,24 +101,5 @@ import Layout from '../layouts/Layout.astro';
     script.src = 'https://downloads.mightycause.com/widgets/v1/embed.js';
     script.onload = function() { waitForMCForms(null, 0); };
     document.head.appendChild(script);
-
-    // Expose for tier buttons
-    window._mcSelectTier = function(btn, amount) {
-      document.querySelectorAll('.tier-btn').forEach(function(b) { b.classList.remove('active'); });
-      btn.classList.add('active');
-      waitForMCForms(amount, 0);
-      var section = document.getElementById('donate-form-section');
-      if (section) section.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    };
-
-    // Wire up tier buttons once DOM is ready
-    document.addEventListener('DOMContentLoaded', function() {
-      document.querySelectorAll('.tier-btn').forEach(function(btn) {
-        btn.addEventListener('click', function() {
-          var amount = parseInt(btn.getAttribute('data-amount') || '0', 10);
-          window._mcSelectTier(btn, amount);
-        });
-      });
-    });
   })();
 </script>
