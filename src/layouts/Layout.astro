@@ -17,7 +17,7 @@ const {
   ogUrl,
 } = Astro.props;
 
-const siteOrigin = Astro.url.origin;
+const siteOrigin = (Astro.site ?? Astro.url).origin;
 const canonicalUrl = ogUrl ?? `${siteOrigin}${Astro.url.pathname}`;
 ---
 
