@@ -33,9 +33,12 @@ import Layout from '../layouts/Layout.astro';
     </div>
   </section>
 
-  <!-- ═══ BLOG / UPDATES CARDS ═══ -->
+  <!-- ═══ BLOG / UPDATES CARDS — auto-scroll marquee ═══ -->
   <section style="padding:2rem 0 3.5rem; background:#fff; overflow:hidden;">
-    <div style="display:flex; gap:1.5rem; overflow-x:auto; scroll-snap-type:x mandatory; padding:0 2rem 1rem; -webkit-overflow-scrolling:touch; scrollbar-width:thin; scrollbar-color:#35CCC0 #eee;">
+    <!-- fade edges -->
+    <div class="marquee-viewport">
+      <!-- track is rendered twice for seamless loop -->
+      <div class="marquee-track">
 
       {[
         {
@@ -102,7 +105,7 @@ import Layout from '../layouts/Layout.astro';
 <p>It's an exciting time for us, but we need help to keep going. Please consider helping us by spreading the word and donating if you can. We are a 501(c)(3) nonprofit, and your donations are tax-deductible.</p>`,
         },
       ].map(post => (
-        <article style="border:1px solid #eee; overflow:hidden; cursor:pointer; flex:0 0 280px; scroll-snap-align:start;" onclick={`openModal('${post.id}')`}>
+        <article class="marquee-card" onclick={`openModal('${post.id}')`}>
           <img src={`/images/${post.id}.jpg`} alt={post.title} style="width:100%; height:180px; object-fit:cover; display:block;" />
           <div style="padding:1.25rem;">
             <p style="font-family:'Raleway',sans-serif; font-size:0.7rem; color:#999; text-transform:uppercase; letter-spacing:0.1em; margin-bottom:0.25rem;">{post.date}</p>
@@ -113,8 +116,56 @@ import Layout from '../layouts/Layout.astro';
         </article>
       ))}
 
-    </div>
+      <!-- duplicate set for seamless loop -->
+      {[
+        { id:'post-1', date:'March 4, 2026', title:"We're teaming up with Eleven Labs for professionally narrated videos!", excerpt:'FDAAF is partnering with ElevenLabs to bring professional-quality narration to our educational video content.' },
+        { id:'post-2', date:'September 5, 2020', title:'What does accessibility mean to you?', excerpt:"Accessibility extends far beyond ramps and elevators. Here's what it means to us at FDAAF." },
+        { id:'post-3', date:'September 4, 2020', title:'Welcome to our blog', excerpt:'We will be updating here regularly about our game and other cool stuff.' },
+        { id:'post-4', date:'March 7, 2019', title:'Florida Disability Access and Awareness Foundation', excerpt:'Since 2013, FDAAF has worked to support individuals with disabilities through media and technology.' },
+        { id:'post-5', date:'May 28', title:"A Letter from FDAAF's President", excerpt:'A personal reflection on founding FDAAF and the mission to give the power back to individuals with disabilities.' },
+      ].map(post => (
+        <article class="marquee-card" aria-hidden="true" onclick={`openModal('${post.id}')`}>
+          <img src={`/images/${post.id}.jpg`} alt={post.title} style="width:100%; height:180px; object-fit:cover; display:block;" />
+          <div style="padding:1.25rem;">
+            <p style="font-family:'Raleway',sans-serif; font-size:0.7rem; color:#999; text-transform:uppercase; letter-spacing:0.1em; margin-bottom:0.25rem;">{post.date}</p>
+            <h3 style="font-family:'Playfair Display',Georgia,serif; font-size:1.05rem; font-weight:700; margin:0 0 0.5rem; color:#000; line-height:1.4;">{post.title}</h3>
+            <p style="font-family:'Raleway',sans-serif; font-size:0.83rem; color:#555; line-height:1.6; margin-bottom:0.75rem;">{post.excerpt}</p>
+            <span style="color:#35CCC0; font-family:'Raleway',sans-serif; font-size:0.8rem; font-weight:700; text-transform:uppercase; letter-spacing:0.05em;">Read More →</span>
+          </div>
+        </article>
+      ))}
+
+      </div><!-- end marquee-track -->
+    </div><!-- end marquee-viewport -->
   </section>
+
+  <style>
+    .marquee-viewport {
+      overflow: hidden;
+      -webkit-mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+      mask-image: linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%);
+    }
+    .marquee-track {
+      display: flex;
+      gap: 1.5rem;
+      width: max-content;
+      animation: marquee 28s linear infinite;
+      padding: 0.5rem 0 1rem;
+    }
+    .marquee-track:hover { animation-play-state: paused; }
+    @keyframes marquee {
+      0%   { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    .marquee-card {
+      flex: 0 0 280px;
+      border: 1px solid #eee;
+      overflow: hidden;
+      cursor: pointer;
+      background: #fff;
+    }
+    .marquee-card:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.08); }
+  </style>
 
   <!-- ═══ POST MODALS ═══ -->
   <div id="modal-overlay" onclick="closeModal()" style="display:none; position:fixed; inset:0; background:rgba(0,0,0,0.6); z-index:2000; align-items:center; justify-content:center; padding:1rem;">
