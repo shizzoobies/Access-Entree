@@ -15,48 +15,49 @@ import Layout from '../layouts/Layout.astro';
     </div>
   </section>
 
-  <!-- MISSION -->
+  <!-- MISSION + TIERS -->
   <section style="padding:3.5rem 2rem; background:#fafafa; border-bottom:1px solid #eee;">
-    <div style="max-width:860px; margin:0 auto; display:grid; grid-template-columns:1fr 1fr; gap:2.5rem; align-items:center;" class="reveal mission-grid">
-      <div>
-        <h2 style="font-family:'Playfair Display',serif; font-size:1.6rem; color:#111; margin:0 0 1rem;">Your Donation Makes a Difference</h2>
-        <p style="font-family:'Raleway',sans-serif; font-size:0.92rem; color:#555; line-height:1.85; margin-bottom:1rem;">
+    <div style="max-width:960px; margin:0 auto;">
+
+      <div style="max-width:760px; margin:0 auto 2.5rem; text-align:center;" class="reveal">
+        <h2 style="font-family:'Playfair Display',serif; font-size:1.7rem; color:#111; margin:0 0 1rem;">Your Donation Makes a Difference</h2>
+        <p style="font-family:'Raleway',sans-serif; font-size:0.92rem; color:#555; line-height:1.85; margin-bottom:0.75rem;">
           At the Florida Disability Access and Awareness Foundation (FDAAF), we're on a mission to create a more inclusive world. We develop interactive media — including video games and empathy-building experiences — that give a voice to people with disabilities.
         </p>
         <p style="font-family:'Raleway',sans-serif; font-size:0.92rem; color:#555; line-height:1.85;">
-          Our projects include <strong>Access: EnTree</strong>, a social-simulation game about building accessible communities, <strong>Changed</strong>, a choice-based adventure featuring a disabled military veteran, and <strong>Wheelchaired for a Day</strong> live empathy events.
+          Every donation goes directly toward boosting awareness and accessibility for the disability community through media and technology.
         </p>
       </div>
-      <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem;">
-        {[
-          { amount: '$25', impact: 'Funds accessibility features in our games' },
-          { amount: '$50', impact: 'Supports volunteer training for empathy events' },
-          { amount: '$100', impact: 'Contributes directly to game development' },
-          { amount: '$250+', impact: 'Enables sponsorship of brand new projects' },
-        ].map(tier => (
-          <div style="background:#fff; border:1px solid #e8e8e8; border-radius:6px; padding:1.25rem 1rem; text-align:center; box-shadow:0 2px 8px rgba(0,0,0,0.05);">
-            <div style="font-family:'Playfair Display',serif; font-size:1.6rem; font-weight:700; color:#27CCC0; margin-bottom:0.5rem;">{tier.amount}</div>
-            <div style="font-family:'Raleway',sans-serif; font-size:0.8rem; color:#555; line-height:1.6;">{tier.impact}</div>
-          </div>
-        ))}
+
+      <!-- Tier buttons — clicking pre-fills the form amount -->
+      <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:1rem;" class="tier-grid reveal">
+        <button class="tier-btn" data-amount="25">
+          <div class="tier-amount">$25</div>
+          <div class="tier-label">Funds accessibility features in our games</div>
+        </button>
+        <button class="tier-btn" data-amount="50">
+          <div class="tier-amount">$50</div>
+          <div class="tier-label">Supports volunteer training for empathy events</div>
+        </button>
+        <button class="tier-btn" data-amount="100">
+          <div class="tier-amount">$100</div>
+          <div class="tier-label">Contributes directly to game development</div>
+        </button>
+        <button class="tier-btn" data-amount="250">
+          <div class="tier-amount">$250+</div>
+          <div class="tier-label">Enables sponsorship of brand new projects</div>
+        </button>
       </div>
+
     </div>
   </section>
 
-  <!-- INLINE DONATION FORM -->
-  <section style="padding:3rem 2rem 4rem; background:#fff;">
-    <div style="max-width:900px; margin:0 auto;">
+  <!-- DONATION FORM WIDGET -->
+  <section style="padding:3rem 2rem 4rem; background:#fff;" id="donate-form-section">
+    <div style="max-width:960px; margin:0 auto;">
       <h2 style="font-family:'Playfair Display',serif; font-size:1.4rem; color:#111; text-align:center; margin:0 0 2rem;">Give Securely Online</h2>
-      <iframe
-        id="donate-iframe"
-        src="https://www.mightycause.com/organization/Fdaaf/donate"
-        width="100%"
-        frameborder="0"
-        scrolling="no"
-        title="Donate to FDAAF via MightyCause"
-        style="display:block; border:none; width:100%; height:1100px; overflow:hidden;"
-      ></iframe>
-      <p style="font-family:'Raleway',sans-serif; font-size:0.75rem; color:#999; text-align:center; margin-top:0.75rem;">
+      <div id="MC-donation-form"></div>
+      <p style="font-family:'Raleway',sans-serif; font-size:0.75rem; color:#999; text-align:center; margin-top:1.5rem;">
         Form not loading?
         <a href="https://www.mightycause.com/organization/Fdaaf" target="_blank" rel="noopener noreferrer" style="color:#35CCC0; text-decoration:none; font-weight:700;">Open MightyCause directly →</a>
       </p>
@@ -73,12 +74,76 @@ import Layout from '../layouts/Layout.astro';
     </div>
   </section>
 
+  <!-- MightyCause embed script (same as original fdaaf.org/donate/) -->
+  <script src="https://downloads.mightycause.com/widgets/v1/embed.js"></script>
+
 </Layout>
 
 <style>
+  .tier-btn {
+    background: #fff;
+    border: 2px solid #e8e8e8;
+    border-radius: 8px;
+    padding: 1.5rem 1rem;
+    text-align: center;
+    cursor: pointer;
+    transition: border-color 0.2s, box-shadow 0.2s, transform 0.15s;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  }
+  .tier-btn:hover {
+    border-color: #27CCC0;
+    box-shadow: 0 4px 16px rgba(39,204,192,0.15);
+    transform: translateY(-2px);
+  }
+  .tier-btn.active {
+    border-color: #27CCC0;
+    background: #f0fffe;
+    box-shadow: 0 4px 20px rgba(39,204,192,0.25);
+  }
+  .tier-amount {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #27CCC0;
+    margin-bottom: 0.5rem;
+  }
+  .tier-label {
+    font-family: 'Raleway', sans-serif;
+    font-size: 0.8rem;
+    color: #555;
+    line-height: 1.5;
+  }
+  .tier-btn.active .tier-label { color: #222; }
   @media (max-width: 720px) {
-    .mission-grid {
-      grid-template-columns: 1fr !important;
-    }
+    .tier-grid { grid-template-columns: 1fr 1fr !important; }
+  }
+  @media (max-width: 480px) {
+    .tier-grid { grid-template-columns: 1fr !important; }
   }
 </style>
+
+<script>
+  const BASE_URL = 'https://www.mightycause.com/forms/Fdaaf/?embed=embeddable_form';
+
+  function initForm(amount?: number) {
+    const container = document.getElementById('MC-donation-form');
+    if (!container) return;
+    container.innerHTML = '';
+    const url = amount ? `${BASE_URL}&amount=${amount}` : BASE_URL;
+    (window as any).MCForms.createEmbedForm({ elementID: 'MC-donation-form', url });
+  }
+
+  // Wait for MightyCause script to load then init
+  window.addEventListener('load', () => initForm());
+
+  // Tier button clicks
+  document.querySelectorAll('.tier-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.tier-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const amount = parseInt((btn as HTMLElement).dataset.amount || '0', 10);
+      initForm(amount);
+      document.getElementById('donate-form-section')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
+</script>
