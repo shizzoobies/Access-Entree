@@ -6,35 +6,38 @@ const team = [
     name: 'Ralph Strzalkowski',
     role: 'President',
     img: '/images/team-ralph.jpg',
-    bio: 'Born in Poland with cerebral palsy, Strzalkowski uses a wheelchair. He became a lawyer in America and founded FDAAF to improve how individuals with disabilities are perceived in the community, aiming to dispel stereotypes and promote empathy through media and technology.',
+    bio: "Born in Poland with cerebral palsy, Strzalkowski uses a wheelchair and initially felt limited by systemic barriers in his home country. He immigrated to America for a fresh start, becoming a lawyer and leveraging the Americans with Disabilities Act's opportunities. He founded FDAAF to address societal prejudice against people with disabilities, using media and technology to \"change how people think and feel about disabilities.\"",
   },
   {
     name: 'Zachary Taylor',
     role: 'Lead Developer',
     img: '/images/team-zachary.jpg',
-    bio: 'Taylor lost his hearing and balance to meningitis in third grade. He holds two electronics degrees and a BS in Game Design from Full Sail University. His involvement with FDAAF focuses on accessibility design, particularly captioning and inclusive features for those with hearing impairments.',
+    bio: "Taylor lost his hearing and balance in third grade after being misdiagnosed with flu — the actual cause was meningitis. A cochlear implant later aided his balance. He earned two electronics degrees from community college and a BS in Game Design from Full Sail University. Throughout his education, he advocated for accessibility features like subtitles and collaborated on adaptive controller design. He became FDAAF's first online Game Design graduate and continues developing accessible games with the organization.",
   },
   {
     name: 'Michael Bridges',
     role: 'Audio Engineer',
     img: '/images/team-michael.jpg',
-    bio: "Bridges graduated from Carnegie Mellon's Audio Recording & Production program and founded SoundTruss Productions. He brings expertise in music, film, and video game audio to FDAAF, believing sound is a powerful storytelling tool for this cause.",
+    bio: "Bridges brings expertise in music recording, production, and sound design from Carnegie Mellon School of Music's certificate program. He founded SoundTruss Productions as lead engineer. Bridges joined FDAAF recognizing sound as a \"uniquely effective story telling tool,\" applying his skills to amplify the foundation's disability awareness mission.",
   },
   {
     name: 'Paul Brophy',
     role: 'Corporate Secretary and Treasurer',
     img: '/images/team-paul.jpg',
-    bio: "An Irish emigrant to Florida, Brophy built an accessible business in Gainesville and joined FDAAF in 2013. He works with Florida's Agency for People with Disabilities.",
+    bio: "An Irish emigrant to Florida, Brophy built an accessible bar in Gainesville emphasizing disability accommodation. He joined FDAAF in 2013 as Corporate Secretary and Treasurer. Since 2013, he has worked for Florida's Agency for People with Disabilities, combining personal advocacy with professional expertise in addressing systemic barriers.",
   },
 ];
 ---
 
 <Layout title="About Us" description="Learn about the Florida Disability Access and Awareness Foundation — our mission, our team, and our commitment to the disability community.">
 
-  <!-- PAGE TITLE -->
-  <section style="padding:3rem 1rem 2.5rem; text-align:center; background:#fff;">
-    <div class="page-title-block">
-            <h1>About Us</h1>
+  <!-- HERO -->
+  <section style="position:relative; height:420px; overflow:hidden; display:flex; align-items:center; justify-content:center;">
+    <img src="/images/about-hero.jpg" alt="About FDAAF" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center;" />
+    <div style="position:absolute; inset:0; background:linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.6) 100%);"></div>
+    <div style="position:relative; z-index:2; text-align:center; padding:0 2rem; max-width:800px;">
+      <span style="display:inline-block; font-family:'Roboto',sans-serif; font-size:0.72rem; font-weight:700; letter-spacing:0.15em; text-transform:uppercase; color:#fff; background:#27CCC0; padding:0.25rem 0.75rem; margin-bottom:1.25rem;">Who We Are</span>
+      <h1 style="font-family:'Playfair Display',serif; font-size:clamp(2rem,5vw,3.4rem); color:#fff; font-weight:700; margin:0; text-shadow:0 2px 12px rgba(0,0,0,0.4);">About Us</h1>
     </div>
   </section>
 

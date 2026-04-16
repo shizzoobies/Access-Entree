@@ -17,26 +17,33 @@ const positions = [
 
 <Layout title="Volunteer" description="Volunteer with FDAAF — help empower the disability community by promoting accessibility and empathy through visual media.">
 
-  <!-- PAGE TITLE -->
-  <section style="padding:3rem 1rem 2.5rem; text-align:center; background:#fff;">
-    <div class="page-title-block">
-            <h1>Volunteer</h1>
+  <!-- HERO -->
+  <section style="position:relative; height:420px; overflow:hidden; display:flex; align-items:center; justify-content:center;">
+    <img src="/images/volunteer-hero.jpg" alt="Volunteers working together" style="position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center;" />
+    <div style="position:absolute; inset:0; background:linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, rgba(0,0,0,0.6) 100%);"></div>
+    <div style="position:relative; z-index:2; text-align:center; padding:0 2rem; max-width:800px;">
+      <span style="display:inline-block; font-family:'Roboto',sans-serif; font-size:0.72rem; font-weight:700; letter-spacing:0.15em; text-transform:uppercase; color:#fff; background:#27CCC0; padding:0.25rem 0.75rem; margin-bottom:1.25rem;">Join the Team</span>
+      <h1 style="font-family:'Playfair Display',serif; font-size:clamp(2rem,5vw,3.4rem); color:#fff; font-weight:700; margin:0; text-shadow:0 2px 12px rgba(0,0,0,0.4);">Volunteer with FDAAF</h1>
     </div>
   </section>
 
   <!-- INTRO -->
-  <section style="padding:3.5rem 2rem; background:#fff; text-align:center;">
-    <div style="max-width:800px; margin:0 auto;" class="reveal">
-      <div class="section-heading">
+  <section style="padding:3.5rem 2rem; background:#fff;">
+    <div style="max-width:1100px; margin:0 auto;" class="reveal">
+      <div class="section-heading" style="text-align:center;">
         <span class="label">Join the Team</span>
         <h2>Volunteer with us</h2>
               </div>
-      <div style="font-family:'Raleway',sans-serif; font-size:0.95em; color:#333; line-height:1.8; margin-top:1.5rem; text-align:left; max-width:680px; margin-left:auto; margin-right:auto;">
-        <p style="margin-bottom:1rem;">Our purpose is to raise awareness and create inclusion for the disability community. We rely on our dedicated volunteers to make our projects a reality.</p>
-        <p style="margin-bottom:1rem;">When you volunteer with us, you help empower the disability community by promoting accessibility and empathy.</p>
-        <p style="margin-bottom:1rem;">Our entire team works remotely from all across the US, interacting online and working on your own schedules.</p>
-        <p style="margin-bottom:1rem;">We are looking for independent, driven, and organized people who want to be a part of something different and create positive change through visual media.</p>
-        <p>There are various positions being offered so, regardless of your talent you can be involved with creating a better future.</p>
+      <div style="font-family:'Raleway',sans-serif; font-size:0.95em; color:#333; line-height:1.8; margin-top:1.5rem; display:grid; grid-template-columns:1fr 1fr; gap:2rem;" class="volunteer-intro-grid">
+        <div>
+          <p style="margin-bottom:1rem;">Our purpose is to raise awareness and create inclusion for the disability community. We rely on our dedicated volunteers to make our projects a reality.</p>
+          <p style="margin-bottom:1rem;">When you volunteer with us, you help empower the disability community by promoting accessibility and empathy.</p>
+        </div>
+        <div>
+          <p style="margin-bottom:1rem;">Our entire team works remotely from all across the US, interacting online and working on your own schedules.</p>
+          <p style="margin-bottom:1rem;">We are looking for independent, driven, and organized people who want to be a part of something different and create positive change through visual media.</p>
+          <p>There are various positions being offered so, regardless of your talent you can be involved with creating a better future.</p>
+        </div>
       </div>
     </div>
   </section>
@@ -91,3 +98,9 @@ const positions = [
   </section>
 
 </Layout>
+
+<style>
+  @media (max-width: 700px) {
+    .volunteer-intro-grid { grid-template-columns: 1fr !important; }
+  }
+</style>
