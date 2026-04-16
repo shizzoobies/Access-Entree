@@ -1,12 +1,5 @@
 ---
 import Layout from '../layouts/Layout.astro';
-
-const tiers = [
-  { amount: '$25', desc: 'Funds accessibility features in our games, making them playable for more users.' },
-  { amount: '$50', desc: "Supports volunteer training to build empathy events like 'Wheelchaired for a Day.'" },
-  { amount: '$100', desc: 'Contributes to game development, bringing stories of empowerment to thousands.' },
-  { amount: '$250+', desc: 'Enables sponsorship of new projects, amplifying voices in the disability community.' },
-];
 ---
 
 <Layout title="Donate" description="Support FDAAF — empowering the disability community through media and innovation. Your donation makes a difference.">
@@ -37,74 +30,24 @@ const tiers = [
     </div>
   </section>
 
-  <!-- TIERS -->
-  <section style="padding:3.5rem 2rem; background:#f7f7f7;">
-    <div style="max-width:1100px; margin:0 auto;">
-      <div class="section-heading reveal">
-        <span class="label">Give Today</span>
-        <h2>Your Impact</h2>
-      </div>
-
-      <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:1.5rem; margin-top:2.5rem;">
-        {tiers.map((tier, i) => (
-          <div class="reveal" style={`transition-delay:${i*80}ms; background:#fff; border:1px solid #eee; padding:2rem; text-align:center; display:flex; flex-direction:column;`}>
-            <div style="font-family:'Playfair Display',Georgia,serif; font-style:italic; font-size:2.5rem; font-weight:900; color:#35CCC0; margin-bottom:1rem;">{tier.amount}</div>
-            <p style="font-family:'Raleway',sans-serif; font-size:0.85rem; color:#555; line-height:1.7; flex:1; margin-bottom:1.5rem;">{tier.desc}</p>
-            <a href="#donate-form" class="btn-teal" style="width:100%; text-align:center; box-sizing:border-box;">
-              Donate {tier.amount}
-            </a>
-          </div>
-        ))}
-      </div>
-
-      <div style="text-align:center; margin-top:2rem;" class="reveal">
-        <a href="#donate-form" style="display:inline-block; background:none; border:2px solid #35CCC0; color:#35CCC0; font-family:'Raleway',sans-serif; font-weight:700; font-size:0.8rem; letter-spacing:0.1em; text-transform:uppercase; padding:0.75rem 2.5rem; text-decoration:none; transition:background 0.2s, color 0.2s;"
-          onmouseover="this.style.background='#35CCC0'; this.style.color='#fff'"
-          onmouseout="this.style.background='none'; this.style.color='#35CCC0'">
-          Donate Other Amount
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- INLINE DONATION FORM -->
-  <section id="donate-form" style="padding:3.5rem 2rem; background:#fff;">
+  <!-- INLINE DONATION FORM — auto-resizing, no scroll -->
+  <section style="padding:0 2rem 3.5rem; background:#fff;">
     <div style="max-width:900px; margin:0 auto;">
-      <div class="section-heading reveal" style="text-align:center;">
-        <span class="label">Secure Giving</span>
-        <h2>Make Your Donation</h2>
-      </div>
-      <div style="margin-top:2rem; border:1px solid #eee; overflow:hidden;" class="reveal">
-        <iframe
-          src="https://www.mightycause.com/organization/Fdaaf/donate"
-          width="100%"
-          height="900"
-          frameborder="0"
-          scrolling="auto"
-          title="Donate to FDAAF via MightyCause"
-          style="display:block; border:none;"
-          loading="lazy"
-        ></iframe>
-      </div>
-      <p style="font-family:'Raleway',sans-serif; font-size:0.75rem; color:#999; text-align:center; margin-top:1rem;">
+      <iframe
+        id="donate-iframe"
+        src="https://www.mightycause.com/organization/Fdaaf/donate"
+        width="100%"
+        frameborder="0"
+        scrolling="no"
+        title="Donate to FDAAF via MightyCause"
+        style="display:block; border:none; width:100%; height:1100px; overflow:hidden;"
+      ></iframe>
+      <p style="font-family:'Raleway',sans-serif; font-size:0.75rem; color:#999; text-align:center; margin-top:0.5rem;">
         Form not loading?
         <a href="https://www.mightycause.com/organization/Fdaaf" target="_blank" rel="noopener noreferrer" style="color:#35CCC0; text-decoration:none; font-weight:700;">Open MightyCause directly →</a>
       </p>
     </div>
   </section>
-
-  <style>
-    @media (max-width: 700px) {
-      div[style*="grid-template-columns:repeat(4,1fr)"] {
-        grid-template-columns: repeat(2, 1fr) !important;
-      }
-    }
-    @media (max-width: 420px) {
-      div[style*="grid-template-columns:repeat(4,1fr)"] {
-        grid-template-columns: 1fr !important;
-      }
-    }
-  </style>
 
   <!-- LEGAL -->
   <section style="padding:2rem 2rem; background:#f7f7f7; border-top:1px solid #eee; text-align:center;">
