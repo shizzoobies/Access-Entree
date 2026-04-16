@@ -4,35 +4,49 @@ import Layout from '../layouts/Layout.astro';
 
 <Layout title="Donate" description="Support FDAAF — empowering the disability community through media and innovation. Your donation makes a difference.">
 
-  <!-- PAGE TITLE -->
-  <section style="padding:3rem 1rem 2.5rem; text-align:center; background:#fff;">
-    <div class="page-title-block">
-      <h1>Donate to FDAAF</h1>
+  <!-- HERO / PAGE TITLE -->
+  <section style="padding:4rem 2rem 3rem; text-align:center; background:#fff; border-bottom:1px solid #eee;">
+    <div style="max-width:800px; margin:0 auto;">
+      <span style="display:inline-block; font-family:'Roboto',sans-serif; font-size:0.72rem; font-weight:700; letter-spacing:0.15em; text-transform:uppercase; color:#fff; background:#27CCC0; padding:0.25rem 0.75rem; margin-bottom:1.25rem;">Make a Difference</span>
+      <h1 style="font-family:'Playfair Display',serif; font-size:clamp(2rem,5vw,3.2rem); color:#111; font-weight:700; margin:0 0 1rem;">Donate to FDAAF</h1>
+      <p style="font-family:'Raleway',sans-serif; font-size:1.05rem; color:#444; line-height:1.8; max-width:640px; margin:0 auto;">
+        Support FDAAF: Empowering the Disability Community Through Media and Innovation
+      </p>
     </div>
   </section>
 
   <!-- MISSION -->
-  <section style="padding:3.5rem 2rem; background:#fff; text-align:center;">
-    <div style="max-width:800px; margin:0 auto;" class="reveal">
-      <div class="section-heading">
-        <span class="label">Make a Difference</span>
-        <h2>Your Donation Makes a Difference!</h2>
+  <section style="padding:3.5rem 2rem; background:#fafafa; border-bottom:1px solid #eee;">
+    <div style="max-width:860px; margin:0 auto; display:grid; grid-template-columns:1fr 1fr; gap:2.5rem; align-items:center;" class="reveal mission-grid">
+      <div>
+        <h2 style="font-family:'Playfair Display',serif; font-size:1.6rem; color:#111; margin:0 0 1rem;">Your Donation Makes a Difference</h2>
+        <p style="font-family:'Raleway',sans-serif; font-size:0.92rem; color:#555; line-height:1.85; margin-bottom:1rem;">
+          At the Florida Disability Access and Awareness Foundation (FDAAF), we're on a mission to create a more inclusive world. We develop interactive media — including video games and empathy-building experiences — that give a voice to people with disabilities.
+        </p>
+        <p style="font-family:'Raleway',sans-serif; font-size:0.92rem; color:#555; line-height:1.85;">
+          Our projects include <strong>Access: EnTree</strong>, a social-simulation game about building accessible communities, <strong>Changed</strong>, a choice-based adventure featuring a disabled military veteran, and <strong>Wheelchaired for a Day</strong> live empathy events.
+        </p>
       </div>
-      <p style="font-family:'Raleway',sans-serif; font-size:1em; color:#333; line-height:1.8; margin-top:1.5rem;">
-        Support FDAAF: Empowering the Disability Community Through Media and Innovation
-      </p>
-      <p style="font-family:'Raleway',sans-serif; font-size:0.9em; color:#555; line-height:1.8; margin-top:1rem;">
-        At the Florida Disability Access and Awareness Foundation (FDAAF), we're on a mission to create a more inclusive world. We develop interactive media, including video games and empathy-building experiences, that give a voice to people with disabilities.
-      </p>
-      <p style="font-family:'Raleway',sans-serif; font-size:0.9em; color:#555; line-height:1.8; margin-top:1rem;">
-        Every donation is used to boost awareness and accessibility for the disability community through media and technology.
-      </p>
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem;">
+        {[
+          { amount: '$25', impact: 'Funds accessibility features in our games' },
+          { amount: '$50', impact: 'Supports volunteer training for empathy events' },
+          { amount: '$100', impact: 'Contributes directly to game development' },
+          { amount: '$250+', impact: 'Enables sponsorship of brand new projects' },
+        ].map(tier => (
+          <div style="background:#fff; border:1px solid #e8e8e8; border-radius:6px; padding:1.25rem 1rem; text-align:center; box-shadow:0 2px 8px rgba(0,0,0,0.05);">
+            <div style="font-family:'Playfair Display',serif; font-size:1.6rem; font-weight:700; color:#27CCC0; margin-bottom:0.5rem;">{tier.amount}</div>
+            <div style="font-family:'Raleway',sans-serif; font-size:0.8rem; color:#555; line-height:1.6;">{tier.impact}</div>
+          </div>
+        ))}
+      </div>
     </div>
   </section>
 
-  <!-- INLINE DONATION FORM — auto-resizing, no scroll -->
-  <section style="padding:0 2rem 3.5rem; background:#fff;">
+  <!-- INLINE DONATION FORM -->
+  <section style="padding:3rem 2rem 4rem; background:#fff;">
     <div style="max-width:900px; margin:0 auto;">
+      <h2 style="font-family:'Playfair Display',serif; font-size:1.4rem; color:#111; text-align:center; margin:0 0 2rem;">Give Securely Online</h2>
       <iframe
         id="donate-iframe"
         src="https://www.mightycause.com/organization/Fdaaf/donate"
@@ -42,7 +56,7 @@ import Layout from '../layouts/Layout.astro';
         title="Donate to FDAAF via MightyCause"
         style="display:block; border:none; width:100%; height:1100px; overflow:hidden;"
       ></iframe>
-      <p style="font-family:'Raleway',sans-serif; font-size:0.75rem; color:#999; text-align:center; margin-top:0.5rem;">
+      <p style="font-family:'Raleway',sans-serif; font-size:0.75rem; color:#999; text-align:center; margin-top:0.75rem;">
         Form not loading?
         <a href="https://www.mightycause.com/organization/Fdaaf" target="_blank" rel="noopener noreferrer" style="color:#35CCC0; text-decoration:none; font-weight:700;">Open MightyCause directly →</a>
       </p>
@@ -50,7 +64,7 @@ import Layout from '../layouts/Layout.astro';
   </section>
 
   <!-- LEGAL -->
-  <section style="padding:2rem 2rem; background:#f7f7f7; border-top:1px solid #eee; text-align:center;">
+  <section style="padding:2rem; background:#f7f7f7; border-top:1px solid #eee; text-align:center;">
     <div style="max-width:700px; margin:0 auto;" class="reveal">
       <p style="font-family:'Raleway',sans-serif; font-size:0.82rem; color:#999; line-height:1.8;">
         FDAAF is a registered 501(c)(3) nonprofit, Florida registration CH42912. All contributions are tax-deductible.<br />
@@ -60,3 +74,11 @@ import Layout from '../layouts/Layout.astro';
   </section>
 
 </Layout>
+
+<style>
+  @media (max-width: 720px) {
+    .mission-grid {
+      grid-template-columns: 1fr !important;
+    }
+  }
+</style>
