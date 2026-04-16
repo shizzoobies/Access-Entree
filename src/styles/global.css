@@ -15,20 +15,20 @@ h1, h2, h3, h4 {
 
 a { text-decoration: none; }
 
-/* ─── Section heading style (gold borders + star) ─── */
+/* ─── Section heading style ─── */
 .section-heading {
   text-align: center;
   margin-bottom: 2rem;
 }
 .section-heading .label {
-  display: block;
+  display: inline-block;
   font-family: 'Raleway', sans-serif;
   font-weight: 900;
-  font-size: 0.75rem;
-  letter-spacing: 0.15em;
+  font-size: 0.7rem;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: #F9A831;
-  margin-bottom: 0.5rem;
+  color: #35CCC0;
+  margin-bottom: 0.65rem;
 }
 .section-heading h2 {
   font-family: 'Playfair Display', Georgia, serif;
@@ -36,17 +36,17 @@ a { text-decoration: none; }
   font-weight: 900;
   font-size: clamp(1.8rem, 4vw, 2.8rem);
   color: #000;
-  padding: 0.6rem 0;
-  border-top: 8px solid #35CCC0;
-  border-bottom: 8px solid #35CCC0;
-  display: inline-block;
-  margin: 0;
+  margin: 0 0 0.75rem;
+  line-height: 1.2;
 }
-.section-heading .star {
+.section-heading::after {
+  content: '';
   display: block;
-  font-size: 1.2rem;
-  color: #F9A831;
-  margin-top: 0.75rem;
+  width: 48px;
+  height: 3px;
+  background: linear-gradient(90deg, #35CCC0, #F9A831);
+  margin: 0 auto;
+  border-radius: 2px;
 }
 
 /* ─── Buttons ─── */
