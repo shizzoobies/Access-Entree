@@ -3,7 +3,7 @@ const year = new Date().getFullYear();
 ---
 
 <footer style="background:#111; color:#ccc; font-family:'Raleway',sans-serif; font-size:0.85rem;">
-  <div style="max-width:1400px; margin:0 auto; padding:3rem 2rem 2rem; display:grid; grid-template-columns:repeat(auto-fit, minmax(200px,1fr)); gap:2rem;">
+  <div style="max-width:1400px; margin:0 auto; padding:3rem 2rem 2rem; display:grid; grid-template-columns:2fr 1fr 1fr; gap:3rem;" class="footer-grid">
 
     <!-- Column 1: Logo + About -->
     <div>
@@ -59,6 +59,12 @@ const year = new Date().getFullYear();
     </div>
 
   </div>
+
+  <style>
+    @media (max-width: 640px) {
+      .footer-grid { grid-template-columns: 1fr !important; gap: 2rem !important; }
+    }
+  </style>
 
   <!-- Bottom bar -->
   <div style="border-top:1px solid rgba(255,255,255,0.1); margin-top:1rem;">
