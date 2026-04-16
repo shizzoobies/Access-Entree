@@ -191,23 +191,29 @@ const team = [
     <div onclick="event.stopPropagation()" style="background:#0d1a09; border:2px solid #4a8c3f; width:95vw; max-width:800px; max-height:92vh; display:flex; flex-direction:column; overflow:hidden;">
       <div style="display:flex; align-items:center; justify-content:space-between; padding:0.75rem 1.25rem; border-bottom:1px solid #2d4a25; flex-shrink:0;">
         <p style="font-family:'Raleway',sans-serif; font-weight:700; font-size:0.8rem; text-transform:uppercase; letter-spacing:0.1em; color:#7ab648; margin:0;">Access: Entree Team</p>
-        <button onclick="closeTeamModal()" aria-label="Close" style="background:none; border:none; font-size:1.5rem; cursor:pointer; color:#4a8c3f; line-height:1; padding:0;">&times;</button>
-      </div>
-      <div style="overflow-y:auto; padding:1.5rem; flex:1; min-height:0;">
-        <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(200px,1fr)); gap:1rem;">
-          {team.map(member => (
-            <div style="background:#162010; padding:1rem 1.25rem; border-left:3px solid #4a8c3f;">
-              <h3 style="font-family:'Raleway',sans-serif; font-weight:900; font-size:0.85rem; color:#e8f0e0; margin:0 0 0.25rem;">{member.name}</h3>
-              <p style="font-family:'Raleway',sans-serif; font-size:0.75rem; color:#7ab648; margin:0;">{member.role}</p>
-            </div>
-          ))}
+        <div style="display:flex; align-items:center; gap:1rem;">
+          <a href="https://accessentree.com/team/" target="_blank" rel="noopener noreferrer" style="font-family:'Raleway',sans-serif; font-size:0.75rem; color:#4a8c3f; text-decoration:none; font-weight:700;">Open full page →</a>
+          <button onclick="closeTeamModal()" aria-label="Close" style="background:none; border:none; font-size:1.5rem; cursor:pointer; color:#4a8c3f; line-height:1; padding:0;">&times;</button>
         </div>
       </div>
+      <iframe
+        id="team-iframe"
+        src=""
+        data-src="https://accessentree.com/team/"
+        width="100%"
+        frameborder="0"
+        title="Access: Entree Team"
+        style="display:block; border:none; flex:1; background:#fff; min-height:0;"
+      ></iframe>
     </div>
   </div>
 
   <script is:inline>
     function openTeamModal() {
+      const iframe = document.getElementById('team-iframe');
+      if (!iframe.src || iframe.src === window.location.href) {
+        iframe.src = iframe.dataset.src;
+      }
       document.getElementById('team-modal-overlay').style.display = 'flex';
       document.body.style.overflow = 'hidden';
     }
