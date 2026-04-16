@@ -52,33 +52,75 @@ a { text-decoration: none; }
 /* ─── Buttons ─── */
 .btn-teal {
   display: inline-block;
-  background: #35CCC0;
+  background: linear-gradient(135deg, #35CCC0 0%, #1aada2 100%);
   color: #fff;
   font-family: 'Raleway', sans-serif;
   font-weight: 700;
-  font-size: 0.8rem;
-  letter-spacing: 0.1em;
+  font-size: 0.78rem;
+  letter-spacing: 0.13em;
   text-transform: uppercase;
-  padding: 0.75rem 1.75rem;
-  border-radius: 2px;
-  transition: background 0.2s, transform 0.15s;
+  padding: 0.9rem 2.25rem;
+  border-radius: 50px;
+  box-shadow: 0 4px 18px rgba(39,204,192,0.32);
+  transition: all 0.25s ease;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
 }
-.btn-teal:hover { background: #27CCC0; transform: translateY(-1px); }
+.btn-teal:hover {
+  background: linear-gradient(135deg, #27CCC0 0%, #159990 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(39,204,192,0.45);
+  color: #fff;
+}
 
 .btn-orange {
   display: inline-block;
-  background: #F9A831;
+  background: linear-gradient(135deg, #F9A831 0%, #e08520 100%);
   color: #fff;
   font-family: 'Raleway', sans-serif;
   font-weight: 700;
-  font-size: 0.8rem;
-  letter-spacing: 0.1em;
+  font-size: 0.78rem;
+  letter-spacing: 0.13em;
   text-transform: uppercase;
-  padding: 0.75rem 1.75rem;
-  border-radius: 2px;
-  transition: background 0.2s, transform 0.15s;
+  padding: 0.9rem 2.25rem;
+  border-radius: 50px;
+  box-shadow: 0 4px 18px rgba(249,168,49,0.32);
+  transition: all 0.25s ease;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
 }
-.btn-orange:hover { background: #e09420; transform: translateY(-1px); }
+.btn-orange:hover {
+  background: linear-gradient(135deg, #fab840 0%, #cc7a1a 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(249,168,49,0.45);
+  color: #fff;
+}
+
+/* ─── Ghost / outline button ─── */
+.btn-ghost {
+  display: inline-block;
+  background: transparent;
+  color: #35CCC0;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 700;
+  font-size: 0.78rem;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  padding: 0.88rem 2.25rem;
+  border-radius: 50px;
+  border: 2px solid #35CCC0;
+  transition: all 0.25s ease;
+  cursor: pointer;
+  text-decoration: none;
+}
+.btn-ghost:hover {
+  background: #35CCC0;
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(39,204,192,0.3);
+}
 
 /* ─── Input / form ─── */
 input[type="text"],

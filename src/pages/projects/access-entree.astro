@@ -250,38 +250,50 @@ const team = [
   <style>
     .btn-wood {
       display: inline-block;
-      background: linear-gradient(180deg, #8b5e3c 0%, #6b4530 100%);
+      background: linear-gradient(135deg, #a0693f 0%, #6b4530 60%, #4a2e1a 100%);
       color: #f5e6d0;
       font-family: 'Raleway', sans-serif;
       font-weight: 700;
-      font-size: 0.85rem;
+      font-size: 0.8rem;
       text-transform: uppercase;
-      letter-spacing: 0.1em;
-      padding: 0.85rem 2rem;
+      letter-spacing: 0.13em;
+      padding: 0.9rem 2.25rem;
       text-decoration: none;
       border: none;
-      border-bottom: 3px solid #4a2e1a;
+      border-radius: 50px;
+      box-shadow: 0 4px 18px rgba(74,46,26,0.45), inset 0 1px 0 rgba(255,255,255,0.12);
       cursor: pointer;
-      transition: filter 0.2s, transform 0.1s;
+      transition: all 0.25s ease;
     }
-    .btn-wood:hover { filter: brightness(1.15); transform: translateY(-1px); }
-    .btn-wood:active { transform: translateY(1px); border-bottom-width: 1px; }
+    .btn-wood:hover {
+      background: linear-gradient(135deg, #b87a50 0%, #7d5238 60%, #5a3822 100%);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(74,46,26,0.55), inset 0 1px 0 rgba(255,255,255,0.15);
+      color: #f5e6d0;
+    }
+    .btn-wood:active { transform: translateY(0px); }
     .btn-wood-outline {
       display: inline-block;
       background: transparent;
-      color: #b8d4a8;
+      color: #a8d898;
       font-family: 'Raleway', sans-serif;
       font-weight: 700;
-      font-size: 0.85rem;
+      font-size: 0.8rem;
       text-transform: uppercase;
-      letter-spacing: 0.1em;
-      padding: 0.85rem 2rem;
+      letter-spacing: 0.13em;
+      padding: 0.88rem 2.25rem;
       text-decoration: none;
       border: 2px solid #4a8c3f;
+      border-radius: 50px;
       cursor: pointer;
-      transition: background 0.2s, color 0.2s;
+      transition: all 0.25s ease;
     }
-    .btn-wood-outline:hover { background: #4a8c3f; color: #fff; }
+    .btn-wood-outline:hover {
+      background: #4a8c3f;
+      color: #fff;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 20px rgba(74,140,63,0.4);
+    }
     @media (max-width:700px) {
       section > div[style*="grid-template-columns:1fr 1fr"] { grid-template-columns:1fr !important; }
     }
