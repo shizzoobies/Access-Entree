@@ -74,8 +74,6 @@ import Layout from '../layouts/Layout.astro';
     </div>
   </section>
 
-  <!-- MightyCause embed script (same as original fdaaf.org/donate/) -->
-  <script src="https://downloads.mightycause.com/widgets/v1/embed.js"></script>
 
 </Layout>
 
@@ -122,28 +120,51 @@ import Layout from '../layouts/Layout.astro';
   }
 </style>
 
-<script>
-  const BASE_URL = 'https://www.mightycause.com/forms/Fdaaf/?embed=embeddable_form';
+<!-- Load MightyCause embed script inline so it runs immediately, then init form -->
+<script is:inline>
+  (function() {
+    var BASE_URL = 'https://www.mightycause.com/forms/Fdaaf/?embed=embeddable_form';
 
-  function initForm(amount?: number) {
-    const container = document.getElementById('MC-donation-form');
-    if (!container) return;
-    container.innerHTML = '';
-    const url = amount ? `${BASE_URL}&amount=${amount}` : BASE_URL;
-    (window as any).MCForms.createEmbedForm({ elementID: 'MC-donation-form', url });
-  }
+    function initForm(amount) {
+      var container = document.getElementById('MC-donation-form');
+      if (!container) return;
+      container.innerHTML = '';
+      var url = amount ? BASE_URL + '&amount=' + amount : BASE_URL;
+      window.MCForms.createEmbedForm({ elementID: 'MC-donation-form', url: url });
+    }
 
-  // Wait for MightyCause script to load then init
-  window.addEventListener('load', () => initForm());
+    function waitForMCForms(amount, attempts) {
+      attempts = attempts || 0;
+      if (window.MCForms && window.MCForms.createEmbedForm) {
+        initForm(amount);
+      } else if (attempts < 50) {
+        setTimeout(function() { waitForMCForms(amount, attempts + 1); }, 200);
+      }
+    }
 
-  // Tier button clicks
-  document.querySelectorAll('.tier-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-      document.querySelectorAll('.tier-btn').forEach(b => b.classList.remove('active'));
+    // Load the MightyCause script dynamically
+    var script = document.createElement('script');
+    script.src = 'https://downloads.mightycause.com/widgets/v1/embed.js';
+    script.onload = function() { waitForMCForms(null, 0); };
+    document.head.appendChild(script);
+
+    // Expose for tier buttons
+    window._mcSelectTier = function(btn, amount) {
+      document.querySelectorAll('.tier-btn').forEach(function(b) { b.classList.remove('active'); });
       btn.classList.add('active');
-      const amount = parseInt((btn as HTMLElement).dataset.amount || '0', 10);
-      initForm(amount);
-      document.getElementById('donate-form-section')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      waitForMCForms(amount, 0);
+      var section = document.getElementById('donate-form-section');
+      if (section) section.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    };
+
+    // Wire up tier buttons once DOM is ready
+    document.addEventListener('DOMContentLoaded', function() {
+      document.querySelectorAll('.tier-btn').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          var amount = parseInt(btn.getAttribute('data-amount') || '0', 10);
+          window._mcSelectTier(btn, amount);
+        });
+      });
     });
-  });
+  })();
 </script>
