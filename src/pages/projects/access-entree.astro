@@ -270,7 +270,7 @@ const fundingGoals = [
         <div class="features-grid">
           {gatherFeatures.map((f, i) => (
             <div class="reveal feature-card" style={`transition-delay:${i*60}ms;`}>
-              <div style="font-size:2rem; margin-bottom:0.75rem;">{f.icon}</div>
+              <div class="feature-icon" style="font-size:2rem; margin-bottom:0.75rem;">{f.icon}</div>
               <h4 style="font-family:'Raleway',sans-serif; font-weight:900; font-size:0.85rem; text-transform:uppercase; letter-spacing:0.08em; color:#7ab648; margin:0 0 0.5rem;">{f.title}</h4>
               <p style="font-family:'Raleway',sans-serif; font-size:0.82rem; color:#8aad78; line-height:1.6; margin:0;">{f.desc}</p>
             </div>
@@ -284,7 +284,7 @@ const fundingGoals = [
         <div class="features-grid">
           {buildFeatures.map((f, i) => (
             <div class="reveal feature-card" style={`transition-delay:${i*60}ms;`}>
-              <div style="font-size:2rem; margin-bottom:0.75rem;">{f.icon}</div>
+              <div class="feature-icon" style="font-size:2rem; margin-bottom:0.75rem;">{f.icon}</div>
               <h4 style="font-family:'Raleway',sans-serif; font-weight:900; font-size:0.85rem; text-transform:uppercase; letter-spacing:0.08em; color:#7ab648; margin:0 0 0.5rem;">{f.title}</h4>
               <p style="font-family:'Raleway',sans-serif; font-size:0.82rem; color:#8aad78; line-height:1.6; margin:0;">{f.desc}</p>
             </div>
@@ -845,6 +845,106 @@ const fundingGoals = [
       color: #4a8c3f;
       font-weight: 700;
       font-size: 1.1em;
+    }
+
+    /* ── Playful button animations ── */
+    @keyframes wood-bounce {
+      0%   { transform: translateY(0)   scale(1)    rotate(0deg); }
+      25%  { transform: translateY(-7px) scale(1.06) rotate(-1.5deg); }
+      50%  { transform: translateY(-5px) scale(1.04) rotate(1deg); }
+      75%  { transform: translateY(-7px) scale(1.05) rotate(-0.5deg); }
+      100% { transform: translateY(-5px) scale(1.04) rotate(0deg); }
+    }
+    @keyframes ks-glow {
+      0%   { box-shadow: 0 0 0 0 rgba(5,206,120,0.6), 0 4px 12px rgba(0,0,0,0.3); }
+      50%  { box-shadow: 0 0 18px 6px rgba(5,206,120,0.25), 0 8px 20px rgba(0,0,0,0.4); }
+      100% { box-shadow: 0 0 0 0 rgba(5,206,120,0), 0 6px 16px rgba(0,0,0,0.3); }
+    }
+    @keyframes wood-outline-pop {
+      0%   { transform: translateY(0) scale(1); }
+      40%  { transform: translateY(-5px) scale(1.05); }
+      65%  { transform: translateY(-2px) scale(1.02); }
+      100% { transform: translateY(-3px) scale(1.03); }
+    }
+    @keyframes tier-lift {
+      0%   { transform: translateY(0) scale(1); }
+      60%  { transform: translateY(-6px) scale(1.02); }
+      100% { transform: translateY(-5px) scale(1.02); }
+    }
+    @keyframes icon-bounce {
+      0%, 100% { transform: translateY(0) scale(1); }
+      40%       { transform: translateY(-8px) scale(1.2); }
+      65%       { transform: translateY(-3px) scale(1.1); }
+    }
+    @keyframes stat-pop {
+      0%   { transform: scale(1); }
+      40%  { transform: scale(1.08); }
+      70%  { transform: scale(0.97); }
+      100% { transform: scale(1.04); }
+    }
+
+    .btn-wood {
+      transition: filter 0.2s ease, box-shadow 0.2s ease;
+    }
+    .btn-wood:hover {
+      animation: wood-bounce 0.55s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+      filter: brightness(1.15) saturate(1.1);
+    }
+    .btn-wood-outline:hover {
+      animation: wood-outline-pop 0.45s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+      background: #4a8c3f;
+      color: #fff;
+      box-shadow: 0 8px 24px rgba(74,140,63,0.45);
+    }
+    .btn-kickstarter {
+      transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+    }
+    .btn-kickstarter:hover {
+      background: #05ce78;
+      color: #000;
+      animation: ks-glow 0.8s ease infinite;
+      transform: translateY(-4px) scale(1.04);
+    }
+
+    /* Tier cards lift on hover */
+    .tier-card {
+      transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1),
+                  box-shadow 0.35s ease,
+                  border-color 0.2s ease;
+      cursor: default;
+    }
+    .tier-card:hover {
+      animation: tier-lift 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+      box-shadow: 0 16px 40px rgba(0,0,0,0.5), 0 0 0 1px #4a8c3f;
+    }
+    .tier-card--popular:hover {
+      box-shadow: 0 16px 40px rgba(5,206,120,0.3), 0 0 0 2px #05ce78;
+    }
+
+    /* Feature card icon bounce on hover */
+    .feature-card {
+      transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1),
+                  border-color 0.2s ease,
+                  background 0.2s ease;
+    }
+    .feature-card:hover {
+      transform: translateY(-4px) scale(1.02);
+      background: #1e3016;
+      border-top-color: #7ab648;
+    }
+    .feature-card:hover .feature-icon {
+      animation: icon-bounce 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+      display: inline-block;
+    }
+
+    /* Stat cards pop on hover */
+    .stat-card:hover {
+      animation: stat-pop 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+      background: rgba(5,206,120,0.12);
+    }
+    .stat-card {
+      transition: background 0.2s ease;
+      cursor: default;
     }
 
     /* ── Responsive ── */

@@ -60,12 +60,51 @@ const canonicalUrl = ogUrl ?? `${siteOrigin}${Astro.url.pathname}`;
     <Footer />
 
     <script>
-      // Scroll reveal
+      // ── Scroll reveal with directional variants ──
+      const reveals = document.querySelectorAll('.reveal');
+
+      // Auto-assign animation direction based on element's horizontal position + index
+      reveals.forEach((el, i) => {
+        if (el.dataset.revealDir) return; // already set manually
+        const rect = el.getBoundingClientRect();
+        const cx = rect.left + rect.width / 2;
+        const vw = window.innerWidth;
+        // Alternate: pop for first-of-section, left/right based on viewport position, scale for small cards
+        const isSmall = rect.width < vw * 0.4;
+        if (isSmall) {
+          el.dataset.revealDir = ['pop','up','pop','up'][i % 4];
+        } else if (cx < vw * 0.4) {
+          el.dataset.revealDir = 'left';
+        } else if (cx > vw * 0.6) {
+          el.dataset.revealDir = 'right';
+        } else {
+          el.dataset.revealDir = i % 3 === 0 ? 'pop' : 'up';
+        }
+      });
+
       const obs = new IntersectionObserver(
-        (entries) => entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); }),
-        { threshold: 0.08, rootMargin: '0px 0px -30px 0px' }
+        (entries) => entries.forEach(e => {
+          if (e.isIntersecting) {
+            e.target.classList.add('visible');
+            obs.unobserve(e.target);
+          }
+        }),
+        { threshold: 0.07, rootMargin: '0px 0px -40px 0px' }
       );
-      document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+      reveals.forEach(el => obs.observe(el));
+
+      // ── Magnetic hover on buttons ──
+      document.querySelectorAll('.btn-teal, .btn-orange, .btn-ghost').forEach(btn => {
+        btn.addEventListener('mousemove', (e) => {
+          const r = btn.getBoundingClientRect();
+          const x = ((e.clientX - r.left) / r.width - 0.5) * 10;
+          const y = ((e.clientY - r.top) / r.height - 0.5) * 6;
+          btn.style.transform = `translateY(-3px) rotateX(${-y}deg) rotateY(${x}deg) scale(1.04)`;
+        });
+        btn.addEventListener('mouseleave', () => {
+          btn.style.transform = '';
+        });
+      });
     </script>
 
     <!-- Ko-fi floating widget -->
