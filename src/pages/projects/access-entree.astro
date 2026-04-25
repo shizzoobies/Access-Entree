@@ -30,6 +30,133 @@ const team = [
   { name: 'Madison Lysaght', role: 'UX/UI Designer' },
   { name: 'Sarah Anderson', role: 'Business Analyst' },
 ];
+
+const gatherFeatures = features.slice(0, 4);
+const buildFeatures = features.slice(4, 8);
+
+const backerTiers = [
+  {
+    price: '$5',
+    name: 'Rookie Builder',
+    popular: false,
+    rewards: [
+      'Early bird price on PC and Switch copies of the game!',
+      'Discord honor badge!',
+    ],
+  },
+  {
+    price: '$10',
+    name: 'Rookie Builder+',
+    popular: false,
+    rewards: [
+      'Digital wallpaper pack!',
+      'Exclusive EnTree themed bed for your virtual home!',
+      'Discord honor badge!',
+    ],
+  },
+  {
+    price: '$20',
+    name: 'Junior Builder',
+    popular: false,
+    rewards: [
+      'All previous rewards!',
+      'Exclusive EnTree themed dresser for your virtual home!',
+      'Help craft the world by joining our creative committee on Discord!',
+    ],
+  },
+  {
+    price: '$35',
+    name: 'Junior Builder+',
+    popular: false,
+    rewards: [
+      'All previous rewards!',
+      'Donor exclusive Elder hat for your EnTree character!',
+      'Access EnTree core sticker set!',
+    ],
+  },
+  {
+    price: '$50',
+    name: 'Prodigy Builder',
+    popular: true,
+    rewards: [
+      'All previous rewards!',
+      'Free copy of Switch and PC game!',
+      'Signed postcard from a team member!',
+      'Exclusive character outfit!',
+    ],
+  },
+  {
+    price: '$65',
+    name: 'Prodigy Builder+',
+    popular: false,
+    rewards: [
+      'All previous rewards!',
+      'Phonograph to change music in your EnTree home!',
+      'Character sticker set!',
+    ],
+  },
+  {
+    price: '$100',
+    name: 'Master Builder',
+    popular: false,
+    rewards: [
+      'All previous rewards!',
+      'Donor exclusive poster shipped to you (first 50 in this tier)!',
+      'Donor exclusive outfit and skin for Rocket!',
+    ],
+  },
+  {
+    price: '$150',
+    name: 'Grand Master Builder',
+    popular: false,
+    rewards: [
+      'All previous rewards!',
+      'Custom Access: EnTree hat shipped to you!',
+      'Name in credits!',
+    ],
+  },
+];
+
+const backerStretchGoals = [
+  {
+    price: '$300',
+    name: 'Elder Builder',
+    rewards: [
+      'Exclusive hand-made EnTree candle (first 50)!',
+      'Choose a flower or plant to be added to the game in your honor!',
+    ],
+  },
+  {
+    price: '$500',
+    name: 'Grand Elder Builder',
+    rewards: [
+      'Create an in-game character outfit with our art team (first 20)!',
+      'Exclusive Access: EnTree Team jersey!',
+    ],
+  },
+  {
+    price: '$800',
+    name: 'Grand Elder Builder Supreme',
+    rewards: [
+      'Alpha version access + feedback Discord channel!',
+      'Create an in-game unique item with our art team (first 15)!',
+    ],
+  },
+  {
+    price: "$1,000",
+    name: "Rukia's Servant",
+    rewards: [
+      'Create an in-game pet with our art team (first 10)!',
+    ],
+  },
+];
+
+const fundingGoals = [
+  { amount: '$40K', label: 'Character Customization', desc: 'Create the character you want!' },
+  { amount: '$60K', label: 'Build EnTree', desc: 'Build and accommodate to restore the village of EnTree — make this game a reality!' },
+  { amount: '$70K', label: 'Production Credits', desc: 'Name added to production credits, join team discussions!' },
+  { amount: '$80K', label: 'Cinematic Cutscenes', desc: 'Cinematic cutscenes + accessibility-focused Discord channel for new disabilities awareness!' },
+];
 ---
 
 <Layout
@@ -38,11 +165,10 @@ const team = [
   ogImage="/images/access-entree-og.jpg"
 >
 
-  <!-- HERO -->
+  <!-- 1. HERO -->
   <section style="border-top:8px solid #4a8c3f; border-bottom:8px solid #4a8c3f; padding:5rem 1rem 4.5rem; text-align:center; background:linear-gradient(160deg,#0a1407 0%,#162010 50%,#0a1407 100%); position:relative; overflow:hidden;">
     <div style="position:absolute; inset:0; background:url('/images/access-entree-1.png') center/cover; opacity:0.1;" aria-hidden="true"></div>
     <div style="position:relative; z-index:1; max-width:900px; margin:0 auto;">
-      <!-- Launching Soon badge -->
       <div style="display:inline-flex; align-items:center; gap:0.45rem; background:#05ce78; color:#000; font-family:'Raleway',sans-serif; font-weight:900; font-size:0.7rem; letter-spacing:0.15em; text-transform:uppercase; padding:0.3rem 0.9rem; border-radius:50px; margin-bottom:1.25rem;">
         <span style="display:inline-block; width:7px; height:7px; background:#000; border-radius:50%; animation:pulse 1.4s ease-in-out infinite;"></span>
         Launching Soon on Kickstarter
@@ -72,17 +198,17 @@ const team = [
     </div>
   </section>
 
-  <!-- ABOUT + VIDEO -->
+  <!-- 2. ABOUT SECTION -->
   <section style="padding:3.5rem 2rem; background:#111f0b;">
     <div style="max-width:1000px; margin:0 auto;">
-      <div style="display:grid; grid-template-columns:1fr 1fr; gap:3rem; align-items:center;" class="reveal">
+      <div class="about-grid reveal">
         <div>
           <div class="section-heading" style="text-align:left;">
             <span class="label" style="color:#7ab648; border-color:#4a8c3f;">About the Game</span>
-            <h2 style="color:#e8f0e0;">Build Your Town</h2>
+            <h2 style="color:#e8f0e0;">About the Game</h2>
           </div>
           <p style="font-family:'Raleway',sans-serif; font-size:0.95em; color:#b8d4a8; line-height:1.8; margin-top:1.5rem; margin-bottom:1rem;">
-            Access: Entree is a one-of-a-kind social-simulation RPG for mobile where you move into a small, forgotten town and work to make it a welcoming place for everyone — including residents with disabilities.
+            Access: EnTree is a one-of-a-kind social-simulation RPG for mobile where you move into a small, forgotten town and work to make it a welcoming place for everyone — including residents with disabilities.
           </p>
           <p style="font-family:'Raleway',sans-serif; font-size:0.9em; color:#8aad78; line-height:1.8; margin-bottom:1.5rem;">
             Farm, fish, craft, and build relationships with colorful characters as you transform the community. At the center of it all is the mystical Rukia tree — reviving it is the key to restoring the town.
@@ -103,27 +229,73 @@ const team = [
     </div>
   </section>
 
-  <!-- FEATURES -->
-  <section style="padding:3.5rem 2rem; background:#0d1a09;">
+  <!-- 3. STORY / NARRATIVE SECTION -->
+  <section style="padding:4.5rem 2rem; background:#0d1a09;">
+    <div style="max-width:800px; margin:0 auto; text-align:center;" class="reveal">
+      <div class="section-heading" style="text-align:center;">
+        <span class="label" style="color:#7ab648; border-color:#4a8c3f;">The Story</span>
+        <h2 style="color:#e8f0e0;">A Town That Forgot Its People</h2>
+      </div>
+      <p style="font-family:'Raleway',sans-serif; font-size:0.95em; color:#b8d4a8; line-height:1.9; margin:1.75rem 0 3rem;">
+        EnTree was once a thriving village — but time, neglect, and a lack of understanding left many of its residents unable to fully participate in community life. When you arrive, you find a town full of heart but short on accessibility. Your mission: listen, learn, build, and restore. Every ramp built, every friendship formed, and every quest completed brings EnTree closer to becoming the inclusive home it was always meant to be.
+      </p>
+      <div class="stats-grid">
+        <div class="stat-card reveal" style="transition-delay:0ms;">
+          <div class="stat-number">16+</div>
+          <div class="stat-label">Unique Characters</div>
+        </div>
+        <div class="stat-card reveal" style="transition-delay:80ms;">
+          <div class="stat-number">8+</div>
+          <div class="stat-label">Gameplay Activities</div>
+        </div>
+        <div class="stat-card reveal" style="transition-delay:160ms;">
+          <div class="stat-number">20+</div>
+          <div class="stat-label">Accessibility Quests</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 4. GAMEPLAY SECTION -->
+  <section style="padding:3.5rem 2rem; background:#111f0b;">
     <div style="max-width:1100px; margin:0 auto;">
       <div class="section-heading reveal" style="text-align:center;">
         <span class="label" style="color:#7ab648; border-color:#4a8c3f;">Gameplay</span>
         <h2 style="color:#e8f0e0;">What You'll Do</h2>
       </div>
-      <div style="display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:1.5rem; margin-top:2.5rem;">
-        {features.map((f, i) => (
-          <div class="reveal" style={`transition-delay:${i*60}ms; background:#162010; padding:1.5rem; border-top:4px solid #4a8c3f; text-align:center; border-left:1px solid #2d4a25; border-right:1px solid #2d4a25; border-bottom:1px solid #2d4a25;`}>
-            <div style="font-size:2rem; margin-bottom:0.75rem;">{f.icon}</div>
-            <h3 style="font-family:'Raleway',sans-serif; font-weight:900; font-size:0.85rem; text-transform:uppercase; letter-spacing:0.08em; color:#7ab648; margin:0 0 0.5rem;">{f.title}</h3>
-            <p style="font-family:'Raleway',sans-serif; font-size:0.82rem; color:#8aad78; line-height:1.6; margin:0;">{f.desc}</p>
-          </div>
-        ))}
+
+      <!-- Gather sub-section -->
+      <div style="margin-top:3rem;">
+        <h3 style="font-family:'Raleway',sans-serif; font-weight:900; font-size:0.75rem; text-transform:uppercase; letter-spacing:0.14em; color:#05ce78; margin:0 0 1.25rem; padding-bottom:0.5rem; border-bottom:1px solid #2d4a25;">Gather</h3>
+        <div class="features-grid">
+          {gatherFeatures.map((f, i) => (
+            <div class="reveal feature-card" style={`transition-delay:${i*60}ms;`}>
+              <div style="font-size:2rem; margin-bottom:0.75rem;">{f.icon}</div>
+              <h4 style="font-family:'Raleway',sans-serif; font-weight:900; font-size:0.85rem; text-transform:uppercase; letter-spacing:0.08em; color:#7ab648; margin:0 0 0.5rem;">{f.title}</h4>
+              <p style="font-family:'Raleway',sans-serif; font-size:0.82rem; color:#8aad78; line-height:1.6; margin:0;">{f.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- Build sub-section -->
+      <div style="margin-top:2.5rem;">
+        <h3 style="font-family:'Raleway',sans-serif; font-weight:900; font-size:0.75rem; text-transform:uppercase; letter-spacing:0.14em; color:#05ce78; margin:0 0 1.25rem; padding-bottom:0.5rem; border-bottom:1px solid #2d4a25;">Build</h3>
+        <div class="features-grid">
+          {buildFeatures.map((f, i) => (
+            <div class="reveal feature-card" style={`transition-delay:${i*60}ms;`}>
+              <div style="font-size:2rem; margin-bottom:0.75rem;">{f.icon}</div>
+              <h4 style="font-family:'Raleway',sans-serif; font-weight:900; font-size:0.85rem; text-transform:uppercase; letter-spacing:0.08em; color:#7ab648; margin:0 0 0.5rem;">{f.title}</h4>
+              <p style="font-family:'Raleway',sans-serif; font-size:0.82rem; color:#8aad78; line-height:1.6; margin:0;">{f.desc}</p>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- SCREENSHOTS -->
-  <section style="padding:3.5rem 2rem; background:#111f0b;">
+  <!-- 5. SCREENSHOTS -->
+  <section style="padding:3.5rem 2rem; background:#0d1a09;">
     <div style="max-width:1100px; margin:0 auto;">
       <div class="section-heading reveal" style="text-align:center;">
         <span class="label" style="color:#7ab648; border-color:#4a8c3f;">Screenshots</span>
@@ -141,7 +313,7 @@ const team = [
     </div>
   </section>
 
-  <!-- CHARACTERS -->
+  <!-- 6. CHARACTERS / RESIDENTS -->
   <section style="padding:4rem 2rem; background:#0a1407; text-align:center;">
     <div style="max-width:700px; margin:0 auto;" class="reveal">
       <div class="section-heading" style="text-align:center;">
@@ -193,7 +365,96 @@ const team = [
     }
   </script>
 
-  <!-- TEAM -->
+  <!-- 7. REWARDS SECTION -->
+  <section style="padding:4.5rem 2rem; background:linear-gradient(180deg,#0a1407 0%,#0d1a09 100%);">
+    <div style="max-width:1100px; margin:0 auto;">
+
+      <!-- Section header -->
+      <div class="section-heading reveal" style="text-align:center; margin-bottom:3rem;">
+        <span class="label" style="color:#05ce78; border-color:#05ce78;">Kickstarter Rewards</span>
+        <h2 style="color:#e8f0e0;">Back the Kickstarter</h2>
+        <p style="font-family:'Raleway',sans-serif; font-size:0.95em; color:#8aad78; line-height:1.8; max-width:600px; margin:1rem auto 0;">
+          Choose a tier that fits your support level. Every backer helps us build a more inclusive world — both in EnTree and beyond.
+        </p>
+      </div>
+
+      <!-- A. BACKER TIERS -->
+      <div style="margin-bottom:4rem;">
+        <h3 style="font-family:'Raleway',sans-serif; font-weight:900; font-size:0.75rem; text-transform:uppercase; letter-spacing:0.14em; color:#05ce78; margin:0 0 1.5rem; padding-bottom:0.5rem; border-bottom:1px solid #2d4a25;">Backer Tiers</h3>
+        <div class="tiers-grid">
+          {backerTiers.map((tier, i) => (
+            <div class={`tier-card reveal${tier.popular ? ' tier-card--popular' : ''}`} style={`transition-delay:${i*50}ms;`}>
+              {tier.popular && (
+                <div class="popular-badge">Most Popular</div>
+              )}
+              <div class="price-badge">{tier.price}</div>
+              <h4 class="tier-name">{tier.name}</h4>
+              <ul class="tier-rewards">
+                {tier.rewards.map(reward => (
+                  <li>{reward}</li>
+                ))}
+              </ul>
+              <div style="margin-top:auto; padding-top:1.25rem;">
+                <a href="https://www.kickstarter.com/projects/accessentree/access-entree" target="_blank" rel="noopener noreferrer" class={tier.popular ? 'btn-kickstarter' : 'btn-wood-outline'} style="font-size:0.75rem; padding:0.65rem 1.25rem; display:inline-block;">Back at {tier.price}</a>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      <!-- B. STRETCH GOALS -->
+      <div style="display:grid; grid-template-columns:1fr 1fr; gap:3rem; align-items:start;" class="stretch-goals-grid">
+
+        <!-- Backer Stretch Goals -->
+        <div>
+          <h3 style="font-family:'Raleway',sans-serif; font-weight:900; font-size:0.75rem; text-transform:uppercase; letter-spacing:0.14em; color:#05ce78; margin:0 0 1.5rem; padding-bottom:0.5rem; border-bottom:1px solid #2d4a25;">Premium Backer Tiers</h3>
+          <div style="display:flex; flex-direction:column; gap:0; border-left:2px solid #4a8c3f; padding-left:0; margin-left:0.5rem;">
+            {backerStretchGoals.map((goal, i) => (
+              <div class="stretch-item reveal" style={`transition-delay:${i*70}ms;`}>
+                <div class="stretch-dot"></div>
+                <div class="stretch-content">
+                  <div class="stretch-price">{goal.price}</div>
+                  <div class="stretch-name">{goal.name}</div>
+                  <ul class="stretch-rewards">
+                    {goal.rewards.map(r => (
+                      <li>{r}</li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <!-- Funding Stretch Goals -->
+        <div>
+          <h3 style="font-family:'Raleway',sans-serif; font-weight:900; font-size:0.75rem; text-transform:uppercase; letter-spacing:0.14em; color:#05ce78; margin:0 0 1.5rem; padding-bottom:0.5rem; border-bottom:1px solid #2d4a25;">Funding Milestones</h3>
+          <p style="font-family:'Raleway',sans-serif; font-size:0.82em; color:#5a8a50; line-height:1.7; margin:0 0 1.5rem;">Features unlocked when we hit these funding goals:</p>
+          <div style="display:flex; flex-direction:column; gap:0; border-left:2px solid #4a8c3f; padding-left:0; margin-left:0.5rem;">
+            {fundingGoals.map((goal, i) => (
+              <div class="stretch-item reveal" style={`transition-delay:${i*70}ms;`}>
+                <div class="stretch-dot"></div>
+                <div class="stretch-content">
+                  <div class="stretch-price">{goal.amount}</div>
+                  <div class="stretch-name">{goal.label}</div>
+                  <p style="font-family:'Raleway',sans-serif; font-size:0.8rem; color:#8aad78; line-height:1.6; margin:0.25rem 0 0;">{goal.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+      </div>
+
+      <!-- CTA inside rewards -->
+      <div style="text-align:center; margin-top:3.5rem;" class="reveal">
+        <a href="https://www.kickstarter.com/projects/accessentree/access-entree" target="_blank" rel="noopener noreferrer" class="btn-kickstarter" style="font-size:1rem; padding:1rem 2.5rem;">Back Access: EnTree on Kickstarter</a>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- 8. TEAM -->
   <section style="padding:4rem 2rem; background:#111f0b; text-align:center;">
     <div style="max-width:700px; margin:0 auto;" class="reveal">
       <div class="section-heading" style="text-align:center;">
@@ -247,7 +508,7 @@ const team = [
     });
   </script>
 
-  <!-- CTA -->
+  <!-- 9. FINAL CTA -->
   <section style="padding:4rem 2rem; background:#0d1a09; text-align:center; border-top:4px solid #4a8c3f;">
     <div style="max-width:700px; margin:0 auto;" class="reveal">
       <div style="display:inline-flex; align-items:center; gap:0.45rem; background:#05ce78; color:#000; font-family:'Raleway',sans-serif; font-weight:900; font-size:0.7rem; letter-spacing:0.15em; text-transform:uppercase; padding:0.3rem 0.9rem; border-radius:50px; margin-bottom:1.25rem;">
@@ -268,6 +529,7 @@ const team = [
     </div>
   </section>
 
+  <!-- 10. BOTTOM NAV -->
   <section style="padding:2rem 2rem; background:#0a1407; border-top:1px solid #2d4a25;">
     <div style="max-width:1000px; margin:0 auto; display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:1rem;">
       <a href="/projects/" style="color:#4a8c3f; font-family:'Raleway',sans-serif; font-size:0.85rem; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; text-decoration:none;">← All Projects</a>
@@ -276,10 +538,10 @@ const team = [
   </section>
 
   <style>
+    /* ── Buttons ── */
     .btn-wood {
       display: inline-block;
       position: relative;
-      /* Wood grain: fine horizontal lines + main log color */
       background:
         repeating-linear-gradient(
           179deg,
@@ -291,10 +553,8 @@ const team = [
           transparent 0px, transparent 11px,
           rgba(255,255,255,0.04) 11px, rgba(255,255,255,0.04) 12px
         ),
-        /* Log end-cap glow on left & right edges */
         radial-gradient(ellipse 28px 80% at 0% 50%, rgba(210,140,70,0.55) 0%, transparent 100%),
         radial-gradient(ellipse 28px 80% at 100% 50%, rgba(210,140,70,0.55) 0%, transparent 100%),
-        /* Main wood tones */
         linear-gradient(180deg, #c07840 0%, #8a4e22 25%, #7a3e18 55%, #8a4e22 80%, #5c2e10 100%);
       color: #f0d8b0;
       font-family: 'Raleway', sans-serif;
@@ -376,12 +636,237 @@ const team = [
       transform: translateY(-2px);
       box-shadow: 0 8px 24px rgba(5,206,120,0.35);
     }
+
+    /* ── Animations ── */
     @keyframes pulse {
       0%, 100% { opacity: 1; transform: scale(1); }
       50% { opacity: 0.5; transform: scale(1.4); }
     }
-    @media (max-width:700px) {
-      section > div[style*="grid-template-columns:1fr 1fr"] { grid-template-columns:1fr !important; }
+
+    /* ── About grid ── */
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    /* ── Stats ── */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+    }
+    .stat-card {
+      background: #162010;
+      border: 1px solid #2d4a25;
+      border-top: 3px solid #4a8c3f;
+      border-radius: 8px;
+      padding: 1.5rem 1rem;
+      text-align: center;
+    }
+    .stat-number {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-weight: 900;
+      font-size: 2.5rem;
+      color: #05ce78;
+      line-height: 1;
+      margin-bottom: 0.5rem;
+    }
+    .stat-label {
+      font-family: 'Raleway', sans-serif;
+      font-size: 0.78rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: #8aad78;
+    }
+
+    /* ── Features grid ── */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.25rem;
+    }
+    .feature-card {
+      background: #162010;
+      padding: 1.5rem;
+      border-top: 4px solid #4a8c3f;
+      text-align: center;
+      border-left: 1px solid #2d4a25;
+      border-right: 1px solid #2d4a25;
+      border-bottom: 1px solid #2d4a25;
+    }
+
+    /* ── Tiers grid ── */
+    .tiers-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.25rem;
+    }
+    .tier-card {
+      background: #162010;
+      border: 1px solid #2d4a25;
+      border-top: 3px solid #4a8c3f;
+      border-radius: 8px;
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+    .tier-card--popular {
+      border: 2px solid #05ce78;
+      border-top: 2px solid #05ce78;
+    }
+    .popular-badge {
+      position: absolute;
+      top: -1px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: #05ce78;
+      color: #000;
+      font-family: 'Raleway', sans-serif;
+      font-weight: 900;
+      font-size: 0.65rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 0.2rem 0.75rem;
+      border-radius: 0 0 4px 4px;
+      white-space: nowrap;
+    }
+    .price-badge {
+      display: inline-block;
+      background: #05ce78;
+      color: #000;
+      font-family: 'Raleway', sans-serif;
+      font-weight: 900;
+      font-size: 0.85rem;
+      border-radius: 4px;
+      padding: 0.25rem 0.6rem;
+      margin-bottom: 0.75rem;
+      align-self: flex-start;
+    }
+    .tier-name {
+      font-family: 'Raleway', sans-serif;
+      font-weight: 900;
+      font-size: 0.9rem;
+      color: #e8f0e0;
+      margin: 0 0 1rem;
+      letter-spacing: 0.02em;
+    }
+    .tier-rewards {
+      list-style: none;
+      margin: 0 0 0.5rem;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+      flex: 1;
+    }
+    .tier-rewards li {
+      font-family: 'Raleway', sans-serif;
+      font-size: 0.8rem;
+      color: #8aad78;
+      line-height: 1.5;
+      padding-left: 1rem;
+      position: relative;
+    }
+    .tier-rewards li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: #05ce78;
+      font-weight: 700;
+    }
+
+    /* ── Stretch goals ── */
+    .stretch-goals-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: start;
+    }
+    .stretch-item {
+      display: flex;
+      gap: 0;
+      padding: 0 0 1.75rem 1.5rem;
+      position: relative;
+      margin-left: 0;
+    }
+    .stretch-dot {
+      position: absolute;
+      left: -5px;
+      top: 4px;
+      width: 8px;
+      height: 8px;
+      background: #05ce78;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+    .stretch-content {
+      flex: 1;
+    }
+    .stretch-price {
+      font-family: 'Playfair Display', Georgia, serif;
+      font-weight: 900;
+      font-size: 1.15rem;
+      color: #05ce78;
+      margin-bottom: 0.2rem;
+    }
+    .stretch-name {
+      font-family: 'Raleway', sans-serif;
+      font-weight: 900;
+      font-size: 0.82rem;
+      text-transform: uppercase;
+      letter-spacing: 0.07em;
+      color: #e8f0e0;
+      margin-bottom: 0.5rem;
+    }
+    .stretch-rewards {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+    }
+    .stretch-rewards li {
+      font-family: 'Raleway', sans-serif;
+      font-size: 0.8rem;
+      color: #8aad78;
+      line-height: 1.5;
+      padding-left: 0.9rem;
+      position: relative;
+    }
+    .stretch-rewards li::before {
+      content: '·';
+      position: absolute;
+      left: 0;
+      color: #4a8c3f;
+      font-weight: 700;
+      font-size: 1.1em;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 900px) {
+      .tiers-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .stretch-goals-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+    }
+    @media (max-width: 700px) {
+      .about-grid {
+        grid-template-columns: 1fr;
+      }
+      .stats-grid {
+        grid-template-columns: 1fr;
+      }
+      .tiers-grid {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 
