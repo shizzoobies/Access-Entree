@@ -164,18 +164,28 @@ const projectLinks = [
   .nav-dropdown {
     display: none;
     position: absolute;
-    top: calc(100% + 8px);
+    top: 100%;
     left: 0;
     background: #fff;
     border: 1px solid #eee;
     box-shadow: 0 4px 16px rgba(0,0,0,0.1);
     min-width: 210px;
     z-index: 200;
-    padding: 0.5rem 0;
-    border-radius: 6px;
+    padding: 0.75rem 0 0.5rem;
+    border-radius: 0 0 6px 6px;
     opacity: 0;
-    transform: translateY(-6px);
+    transform: translateY(-4px);
     transition: opacity 0.18s ease, transform 0.18s ease;
+  }
+
+  /* Invisible bridge fills the gap so mouse can travel from trigger → dropdown */
+  .nav-dropdown::before {
+    content: '';
+    position: absolute;
+    top: -12px;
+    left: 0;
+    right: 0;
+    height: 12px;
   }
   .nav-dropdown.open {
     display: block;
@@ -341,29 +351,36 @@ const projectLinks = [
   const projectsBtn = document.getElementById('projects-btn');
   const dropdown = projectsBtn?.nextElementSibling as HTMLElement | null;
 
-  function closeDropdown() {
-    dropdown?.classList.remove('open');
-    projectsBtn?.setAttribute('aria-expanded', 'false');
+  let closeTimer: ReturnType<typeof setTimeout> | null = null;
+
+  function openDropdown() {
+    if (closeTimer) { clearTimeout(closeTimer); closeTimer = null; }
+    dropdown?.classList.add('open');
+    projectsBtn?.setAttribute('aria-expanded', 'true');
+  }
+
+  function closeDropdown(delay = 0) {
+    if (closeTimer) clearTimeout(closeTimer);
+    if (delay > 0) {
+      closeTimer = setTimeout(() => {
+        dropdown?.classList.remove('open');
+        projectsBtn?.setAttribute('aria-expanded', 'false');
+      }, delay);
+    } else {
+      dropdown?.classList.remove('open');
+      projectsBtn?.setAttribute('aria-expanded', 'false');
+    }
   }
 
   projectsBtn?.addEventListener('click', (e) => {
     e.stopPropagation();
-    const isOpen = dropdown?.classList.contains('open');
-    if (isOpen) {
-      closeDropdown();
-    } else {
-      dropdown?.classList.add('open');
-      projectsBtn.setAttribute('aria-expanded', 'true');
-    }
+    dropdown?.classList.contains('open') ? closeDropdown() : openDropdown();
   });
 
-  // Also keep hover for desktop mice
+  // Hover for desktop mice — 150ms delay on close so cursor can travel to dropdown
   const dropWrap = projectsBtn?.closest('.nav-dropdown-wrap') as HTMLElement | null;
-  dropWrap?.addEventListener('mouseenter', () => {
-    dropdown?.classList.add('open');
-    projectsBtn?.setAttribute('aria-expanded', 'true');
-  });
-  dropWrap?.addEventListener('mouseleave', closeDropdown);
+  dropWrap?.addEventListener('mouseenter', openDropdown);
+  dropWrap?.addEventListener('mouseleave', () => closeDropdown(150));
 
   // Close dropdown when clicking outside
   document.addEventListener('click', (e) => {
