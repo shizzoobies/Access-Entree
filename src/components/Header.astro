@@ -9,101 +9,415 @@ const projectLinks = [
 ];
 ---
 
-<header style="background:#fff; border-bottom:1px solid #eee; position:sticky; top:0; z-index:1000;">
-  <div style="max-width:1400px; margin:0 auto; padding:0 2rem; display:flex; align-items:center; justify-content:space-between; height:80px;">
+<header id="site-header">
+  <div class="header-inner">
 
     <!-- Logo -->
-    <a href="/" aria-label="FDAAF Home" style="display:flex; align-items:center; gap:0.75rem; text-decoration:none;">
-      <img src="/images/logo_hi_res.png" alt="FDAAF Logo" style="height:48px; width:auto;" />
+    <a href="/" aria-label="FDAAF Home" class="header-logo">
+      <img src="/images/logo_hi_res.png" alt="FDAAF Logo" />
     </a>
 
     <!-- Desktop Nav -->
-    <nav aria-label="Main navigation" style="display:flex; align-items:center; gap:2rem; font-family:'Roboto',sans-serif; font-size:0.8rem; font-weight:700; text-transform:uppercase; letter-spacing:0.08em;">
-      <a href="/" style={`color:${currentPath === '/' ? '#27CCC0' : '#000'}; text-decoration:none;`}
-        onmouseover="this.style.color='#27CCC0'" onmouseout="this.style.color='#000'">Home</a>
+    <nav class="desktop-nav" aria-label="Main navigation">
+      <a href="/" class:list={['nav-link', { active: currentPath === '/' }]}>Home</a>
 
       <!-- Projects dropdown -->
-      <div style="position:relative;" class="nav-dropdown-wrap">
-        <a href="/projects/"
-          style={`color:${currentPath.startsWith('/projects') ? '#27CCC0' : '#000'}; text-decoration:none; display:flex; align-items:center; gap:0.3rem; cursor:pointer;`}>
-          Projects <span style="font-size:0.6rem;">▾</span>
-        </a>
-        <div class="nav-dropdown" style="display:none; position:absolute; top:100%; left:0; background:#fff; border:1px solid #eee; box-shadow:0 4px 12px rgba(0,0,0,0.1); min-width:200px; z-index:100; padding:0.5rem 0;">
+      <div class="nav-dropdown-wrap">
+        <button class:list={['nav-link', 'dropdown-trigger', { active: currentPath.startsWith('/projects') }]}
+          aria-haspopup="true" aria-expanded="false" id="projects-btn">
+          Projects <span class="chevron">▾</span>
+        </button>
+        <div class="nav-dropdown" role="menu" aria-labelledby="projects-btn">
           {projectLinks.map(link => (
-            <a href={link.href} style="display:block; padding:0.6rem 1.2rem; color:#000; font-size:0.75rem; text-decoration:none; white-space:nowrap;"
-              onmouseover="this.style.color='#27CCC0'; this.style.background='#f9f9f9'"
-              onmouseout="this.style.color='#000'; this.style.background='transparent'">
-              {link.label}
-            </a>
+            <a href={link.href} class="dropdown-item" role="menuitem">{link.label}</a>
           ))}
         </div>
       </div>
 
-      <a href="/volunteer/" style={`color:${currentPath.startsWith('/volunteer') ? '#27CCC0' : '#000'}; text-decoration:none;`}
-        onmouseover="this.style.color='#27CCC0'" onmouseout="this.style.color='#000'">Volunteer</a>
-      <a href="/donate/" style={`color:${currentPath.startsWith('/donate') ? '#27CCC0' : '#000'}; text-decoration:none;`}
-        onmouseover="this.style.color='#27CCC0'" onmouseout="this.style.color='#000'">Donate</a>
-      <a href="/contact/" style={`color:${currentPath.startsWith('/contact') ? '#27CCC0' : '#000'}; text-decoration:none;`}
-        onmouseover="this.style.color='#27CCC0'" onmouseout="this.style.color='#000'">Contact</a>
-      <a href="/about/" style={`color:${currentPath.startsWith('/about') ? '#27CCC0' : '#000'}; text-decoration:none;`}
-        onmouseover="this.style.color='#27CCC0'" onmouseout="this.style.color='#000'">About Us</a>
+      <a href="/volunteer/" class:list={['nav-link', { active: currentPath.startsWith('/volunteer') }]}>Volunteer</a>
+      <a href="/donate/" class:list={['nav-link', { active: currentPath.startsWith('/donate') }]}>Donate</a>
+      <a href="/contact/" class:list={['nav-link', { active: currentPath.startsWith('/contact') }]}>Contact</a>
+      <a href="/about/" class:list={['nav-link', { active: currentPath.startsWith('/about') }]}>About Us</a>
 
       <!-- Social icons -->
-      <div style="display:flex; align-items:center; gap:0.75rem; margin-left:0.5rem;">
-        <a href="https://twitter.com/FDAAFoundation" target="_blank" rel="noopener noreferrer" aria-label="Twitter" style="color:#000; text-decoration:none;"
-          onmouseover="this.style.opacity='0.75'" onmouseout="this.style.opacity='1'">
+      <div class="social-icons">
+        <a href="https://twitter.com/FDAAFoundation" target="_blank" rel="noopener noreferrer" aria-label="Twitter" class="social-icon">
           <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
         </a>
-        <a href="https://www.facebook.com/fdaaf" target="_blank" rel="noopener noreferrer" aria-label="Facebook" style="color:#1877F2; text-decoration:none;"
-          onmouseover="this.style.opacity='0.75'" onmouseout="this.style.opacity='1'">
+        <a href="https://www.facebook.com/fdaaf" target="_blank" rel="noopener noreferrer" aria-label="Facebook" class="social-icon fb">
           <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"/></svg>
         </a>
-        <a href="https://www.youtube.com/@fdaaf" target="_blank" rel="noopener noreferrer" aria-label="YouTube" style="color:#FF0000; text-decoration:none;"
-          onmouseover="this.style.opacity='0.75'" onmouseout="this.style.opacity='1'">
+        <a href="https://www.youtube.com/@fdaaf" target="_blank" rel="noopener noreferrer" aria-label="YouTube" class="social-icon yt">
           <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
         </a>
       </div>
     </nav>
 
     <!-- Mobile hamburger -->
-    <button id="menu-toggle" aria-label="Open menu" aria-expanded="false"
-      style="display:none; flex-direction:column; gap:5px; background:none; border:none; cursor:pointer; padding:0.5rem;">
-      <span style="display:block; width:24px; height:2px; background:#000;"></span>
-      <span style="display:block; width:24px; height:2px; background:#000;"></span>
-      <span style="display:block; width:24px; height:2px; background:#000;"></span>
+    <button id="menu-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="mobile-menu">
+      <span class="bar"></span>
+      <span class="bar"></span>
+      <span class="bar"></span>
     </button>
   </div>
 
   <!-- Mobile menu -->
-  <div id="mobile-menu" style="display:none; background:#fff; border-top:1px solid #eee;">
-    <nav style="max-width:1400px; margin:0 auto; padding:1rem 2rem; display:flex; flex-direction:column; gap:1rem; font-family:'Roboto',sans-serif; font-size:0.85rem; font-weight:700; text-transform:uppercase;">
-      <a href="/" style="color:#000; text-decoration:none;">Home</a>
-      <a href="/projects/" style="color:#000; text-decoration:none;">Projects</a>
-      <a href="/projects/access-entree/" style="color:#555; text-decoration:none; padding-left:1rem; font-size:0.78rem;">↳ Access: EnTree</a>
-      <a href="/projects/changed/" style="color:#555; text-decoration:none; padding-left:1rem; font-size:0.78rem;">↳ Changed</a>
-      <a href="/projects/wheelchaired-for-a-day/" style="color:#555; text-decoration:none; padding-left:1rem; font-size:0.78rem;">↳ Wheelchaired for a Day</a>
-      <a href="/volunteer/" style="color:#000; text-decoration:none;">Volunteer</a>
-      <a href="/donate/" style="color:#000; text-decoration:none;">Donate</a>
-      <a href="/contact/" style="color:#000; text-decoration:none;">Contact</a>
-      <a href="/about/" style="color:#000; text-decoration:none;">About Us</a>
+  <div id="mobile-menu" aria-hidden="true">
+    <nav aria-label="Mobile navigation">
+      <a href="/" class:list={['mob-link', { active: currentPath === '/' }]}>Home</a>
+
+      <!-- Mobile projects accordion -->
+      <div class="mob-accordion">
+        <button class:list={['mob-link', 'mob-accordion-btn', { active: currentPath.startsWith('/projects') }]}
+          aria-expanded="false">
+          Projects <span class="chevron">▾</span>
+        </button>
+        <div class="mob-accordion-panel">
+          {projectLinks.map(link => (
+            <a href={link.href} class="mob-sub-link">{link.label}</a>
+          ))}
+        </div>
+      </div>
+
+      <a href="/volunteer/" class:list={['mob-link', { active: currentPath.startsWith('/volunteer') }]}>Volunteer</a>
+      <a href="/donate/" class:list={['mob-link', { active: currentPath.startsWith('/donate') }]}>Donate</a>
+      <a href="/contact/" class:list={['mob-link', { active: currentPath.startsWith('/contact') }]}>Contact</a>
+      <a href="/about/" class:list={['mob-link', { active: currentPath.startsWith('/about') }]}>About Us</a>
+
+      <div class="mob-social">
+        <a href="https://twitter.com/FDAAFoundation" target="_blank" rel="noopener noreferrer" aria-label="Twitter" class="social-icon">
+          <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        </a>
+        <a href="https://www.facebook.com/fdaaf" target="_blank" rel="noopener noreferrer" aria-label="Facebook" class="social-icon fb">
+          <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z"/></svg>
+        </a>
+        <a href="https://www.youtube.com/@fdaaf" target="_blank" rel="noopener noreferrer" aria-label="YouTube" class="social-icon yt">
+          <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+        </a>
+      </div>
     </nav>
   </div>
 </header>
 
 <style>
-  @media (max-width: 900px) {
-    header nav { display: none !important; }
-    #menu-toggle { display: flex !important; }
+  /* ── Header shell ── */
+  #site-header {
+    background: #fff;
+    border-bottom: 1px solid #eee;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
   }
-  .nav-dropdown-wrap:hover .nav-dropdown { display: block !important; }
+
+  .header-inner {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 80px;
+  }
+
+  /* ── Logo ── */
+  .header-logo img {
+    height: 48px;
+    width: auto;
+    display: block;
+  }
+
+  /* ── Desktop nav ── */
+  .desktop-nav {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+    font-family: 'Roboto', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  .nav-link {
+    color: #000;
+    text-decoration: none;
+    transition: color 0.2s;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: inherit;
+    font-weight: inherit;
+    text-transform: inherit;
+    letter-spacing: inherit;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+  }
+  .nav-link:hover,
+  .nav-link.active { color: #27CCC0; }
+
+  /* ── Desktop dropdown ── */
+  .nav-dropdown-wrap { position: relative; }
+
+  .nav-dropdown {
+    display: none;
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 0;
+    background: #fff;
+    border: 1px solid #eee;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.1);
+    min-width: 210px;
+    z-index: 200;
+    padding: 0.5rem 0;
+    border-radius: 6px;
+    opacity: 0;
+    transform: translateY(-6px);
+    transition: opacity 0.18s ease, transform 0.18s ease;
+  }
+  .nav-dropdown.open {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .dropdown-item {
+    display: block;
+    padding: 0.65rem 1.2rem;
+    color: #000;
+    font-size: 0.75rem;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: color 0.15s, background 0.15s;
+  }
+  .dropdown-item:hover { color: #27CCC0; background: #f5fffe; }
+
+  .chevron {
+    font-size: 0.6rem;
+    transition: transform 0.2s;
+    display: inline-block;
+  }
+  .dropdown-trigger[aria-expanded="true"] .chevron { transform: rotate(180deg); }
+
+  /* ── Social icons ── */
+  .social-icons {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-left: 0.5rem;
+  }
+  .social-icon { color: #000; text-decoration: none; opacity: 1; transition: opacity 0.2s; display: flex; }
+  .social-icon:hover { opacity: 0.7; }
+  .social-icon.fb { color: #1877F2; }
+  .social-icon.yt { color: #FF0000; }
+
+  /* ── Hamburger button ── */
+  #menu-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.6rem;
+    border-radius: 4px;
+    transition: background 0.2s;
+    /* ensure it's always tappable */
+    min-width: 44px;
+    min-height: 44px;
+    align-items: center;
+  }
+  #menu-toggle:hover { background: #f5f5f5; }
+
+  .bar {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background: #000;
+    border-radius: 2px;
+    transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1), opacity 0.2s;
+    transform-origin: center;
+  }
+
+  /* Hamburger → X animation */
+  #menu-toggle[aria-expanded="true"] .bar:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  #menu-toggle[aria-expanded="true"] .bar:nth-child(2) { opacity: 0; transform: scaleX(0); }
+  #menu-toggle[aria-expanded="true"] .bar:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+  /* ── Mobile menu ── */
+  #mobile-menu {
+    display: none;
+    background: #fff;
+    border-top: 1px solid #eee;
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  #mobile-menu.open {
+    display: block;
+    max-height: 600px;
+  }
+
+  #mobile-menu nav {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 1rem 2rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .mob-link {
+    font-family: 'Roboto', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: #000;
+    text-decoration: none;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid #f0f0f0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: none;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    cursor: pointer;
+    width: 100%;
+    text-align: left;
+    transition: color 0.2s;
+  }
+  .mob-link:hover,
+  .mob-link.active { color: #27CCC0; }
+
+  /* Mobile accordion */
+  .mob-accordion { display: flex; flex-direction: column; }
+  .mob-accordion-btn { border-bottom: 1px solid #f0f0f0; }
+  .mob-accordion-btn[aria-expanded="true"] .chevron { transform: rotate(180deg); }
+
+  .mob-accordion-panel {
+    display: none;
+    flex-direction: column;
+    background: #fafafa;
+    border-bottom: 1px solid #f0f0f0;
+  }
+  .mob-accordion-panel.open { display: flex; }
+
+  .mob-sub-link {
+    font-family: 'Roboto', sans-serif;
+    font-size: 0.8rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: #555;
+    text-decoration: none;
+    padding: 0.6rem 1.25rem;
+    border-bottom: 1px solid #efefef;
+    transition: color 0.2s;
+  }
+  .mob-sub-link:last-child { border-bottom: none; }
+  .mob-sub-link:hover { color: #27CCC0; }
+
+  .mob-social {
+    display: flex;
+    gap: 1.25rem;
+    padding: 1rem 0 0;
+    margin-top: 0.25rem;
+  }
+
+  /* ── Responsive breakpoint ── */
+  @media (max-width: 900px) {
+    .desktop-nav { display: none; }
+    #menu-toggle { display: flex; }
+  }
 </style>
 
 <script>
+  // ── Desktop dropdown (click-based, works on touch too) ──
+  const projectsBtn = document.getElementById('projects-btn');
+  const dropdown = projectsBtn?.nextElementSibling as HTMLElement | null;
+
+  function closeDropdown() {
+    dropdown?.classList.remove('open');
+    projectsBtn?.setAttribute('aria-expanded', 'false');
+  }
+
+  projectsBtn?.addEventListener('click', (e) => {
+    e.stopPropagation();
+    const isOpen = dropdown?.classList.contains('open');
+    if (isOpen) {
+      closeDropdown();
+    } else {
+      dropdown?.classList.add('open');
+      projectsBtn.setAttribute('aria-expanded', 'true');
+    }
+  });
+
+  // Also keep hover for desktop mice
+  const dropWrap = projectsBtn?.closest('.nav-dropdown-wrap') as HTMLElement | null;
+  dropWrap?.addEventListener('mouseenter', () => {
+    dropdown?.classList.add('open');
+    projectsBtn?.setAttribute('aria-expanded', 'true');
+  });
+  dropWrap?.addEventListener('mouseleave', closeDropdown);
+
+  // Close dropdown when clicking outside
+  document.addEventListener('click', (e) => {
+    if (!dropWrap?.contains(e.target as Node)) closeDropdown();
+  });
+
+  // ── Mobile menu toggle ──
   const toggle = document.getElementById('menu-toggle');
-  const menu = document.getElementById('mobile-menu');
-  toggle?.addEventListener('click', () => {
-    const open = menu?.style.display === 'none';
-    menu!.style.display = open ? 'block' : 'none';
-    toggle.setAttribute('aria-expanded', String(open));
+  const mobileMenu = document.getElementById('mobile-menu');
+
+  function openMobileMenu() {
+    mobileMenu?.classList.add('open');
+    toggle?.setAttribute('aria-expanded', 'true');
+    toggle?.setAttribute('aria-label', 'Close menu');
+    mobileMenu?.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeMobileMenu() {
+    mobileMenu?.classList.remove('open');
+    toggle?.setAttribute('aria-expanded', 'false');
+    toggle?.setAttribute('aria-label', 'Open menu');
+    mobileMenu?.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+
+  toggle?.addEventListener('click', (e) => {
+    e.stopPropagation();
+    const isOpen = toggle.getAttribute('aria-expanded') === 'true';
+    isOpen ? closeMobileMenu() : openMobileMenu();
+  });
+
+  // Close on Escape
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      closeMobileMenu();
+      closeDropdown();
+    }
+  });
+
+  // Close mobile menu when clicking outside
+  document.addEventListener('click', (e) => {
+    const header = document.getElementById('site-header');
+    if (!header?.contains(e.target as Node)) closeMobileMenu();
+  });
+
+  // ── Mobile accordion (Projects sub-menu) ──
+  const accordionBtns = document.querySelectorAll<HTMLButtonElement>('.mob-accordion-btn');
+  accordionBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const panel = btn.nextElementSibling as HTMLElement | null;
+      const isOpen = panel?.classList.contains('open');
+      panel?.classList.toggle('open', !isOpen);
+      btn.setAttribute('aria-expanded', String(!isOpen));
+    });
   });
 </script>
