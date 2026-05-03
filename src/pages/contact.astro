@@ -65,7 +65,7 @@ const departments = [
         <h2 style="font-family:'Playfair Display',Georgia,serif; font-style:italic; font-weight:900; font-size:1.6rem; color:#000; margin-bottom:0.25rem;">Send us a message</h2>
         <p style="font-family:'Raleway',sans-serif; font-size:0.8rem; color:#999; margin-bottom:1.5rem;">All fields are required.</p>
 
-        <form name="contact" method="POST" action="/contact/" style="display:flex; flex-direction:column; gap:1rem;">
+        <form id="contact-form" style="display:flex; flex-direction:column; gap:1rem;">
           <div>
             <label for="name" style="display:block; font-family:'Raleway',sans-serif; font-size:0.8rem; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; color:#333; margin-bottom:0.35rem;">Your Name</label>
             <input id="name" type="text" name="name" required />
@@ -89,8 +89,58 @@ const departments = [
             <label for="message" style="display:block; font-family:'Raleway',sans-serif; font-size:0.8rem; font-weight:700; text-transform:uppercase; letter-spacing:0.08em; color:#333; margin-bottom:0.35rem;">Your Message</label>
             <textarea id="message" name="message" rows={5} required style="resize:vertical;"></textarea>
           </div>
-          <button type="submit" class="btn-teal" style="align-self:flex-start; font-size:0.85rem; padding:0.85rem 2.5rem; text-transform:uppercase; letter-spacing:0.12em;">Send Message</button>
+          <button id="submit-btn" type="submit" class="btn-teal" style="align-self:flex-start; font-size:0.85rem; padding:0.85rem 2.5rem; text-transform:uppercase; letter-spacing:0.12em;">Send Message</button>
+
+          <!-- Success message -->
+          <div id="form-success" style="display:none; background:#e8f8f7; border:1px solid #35CCC0; border-radius:6px; padding:1rem 1.25rem;">
+            <p style="font-family:'Raleway',sans-serif; font-size:0.9rem; color:#1aada2; font-weight:700; margin:0 0 0.25rem;">Message sent!</p>
+            <p style="font-family:'Raleway',sans-serif; font-size:0.85rem; color:#333; margin:0;">Thanks for reaching out — we'll get back to you shortly.</p>
+          </div>
+
+          <!-- Error message -->
+          <div id="form-error" style="display:none; background:#fff0f0; border:1px solid #e08080; border-radius:6px; padding:1rem 1.25rem;">
+            <p style="font-family:'Raleway',sans-serif; font-size:0.9rem; color:#c00; font-weight:700; margin:0 0 0.25rem;">Something went wrong.</p>
+            <p style="font-family:'Raleway',sans-serif; font-size:0.85rem; color:#333; margin:0;">Please try again or email us directly at <a href="mailto:info@fdaaf.org" style="color:#35CCC0;">info@fdaaf.org</a></p>
+          </div>
         </form>
+
+        <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+        <script>
+          emailjs.init('dBrHcuKVomSTBJmz4');
+
+          const form = document.getElementById('contact-form');
+          const submitBtn = document.getElementById('submit-btn');
+          const successMsg = document.getElementById('form-success');
+          const errorMsg = document.getElementById('form-error');
+
+          form?.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            submitBtn.textContent = 'Sending...';
+            submitBtn.setAttribute('disabled', 'true');
+            successMsg.style.display = 'none';
+            errorMsg.style.display = 'none';
+
+            const params = {
+              name:       (document.getElementById('name') as HTMLInputElement).value,
+              email:      (document.getElementById('email') as HTMLInputElement).value,
+              subject:    (document.getElementById('subject') as HTMLInputElement).value,
+              department: (document.getElementById('department') as HTMLSelectElement).value,
+              message:    (document.getElementById('message') as HTMLTextAreaElement).value,
+            };
+
+            try {
+              await emailjs.send('service_15qcvc8', 'template_2urd8um', params);
+              successMsg.style.display = 'block';
+              form.reset();
+            } catch (err) {
+              console.error('EmailJS error:', err);
+              errorMsg.style.display = 'block';
+            } finally {
+              submitBtn.textContent = 'Send Message';
+              submitBtn.removeAttribute('disabled');
+            }
+          });
+        </script>
       </div>
     </div>
   </section>
