@@ -104,9 +104,11 @@ const departments = [
           </div>
         </form>
 
-        <script is:inline src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
         <script is:inline>
           (function() {
+            var ejs = document.createElement('script');
+            ejs.src = 'https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js';
+            ejs.onload = function() {
             emailjs.init('dBrHcuKVomSTBJmz4');
 
             var form       = document.getElementById('contact-form');
@@ -146,6 +148,8 @@ const departments = [
                   submitBtn.disabled = false;
                 });
             });
+            }; // end onload
+            document.head.appendChild(ejs);
           })();
         </script>
       </div>
